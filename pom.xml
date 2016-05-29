@@ -6,6 +6,7 @@
     <artifactId>highlevel</artifactId>
     <version>7.0.1-SNAPSHOT</version>
 
+    <name>iText 7 - layout objects</name>
     <url>http://developers.itextpdf.com/content/itext-7-building-blocks</url>
 
     <properties>
