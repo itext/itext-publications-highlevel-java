@@ -4,7 +4,6 @@
  */
 package com.itextpdf.highlevel.chapter01;
 
-import com.itextpdf.io.font.FontConstants;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -15,13 +14,14 @@ import com.itextpdf.layout.element.Text;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 
 /**
  * @author Bruno Lowagie (iText Software)
  */
-public class C01E01_Text_Paragraph_Cardo {
+public class C01E03_Text_Paragraph_NoCardo {
     
-    public static final String DEST = "results/chapter01/text_paragraph_cardo.pdf";
+    public static final String DEST = "results/chapter01/text_paragraph_no_cardo.pdf";
     
     public static final String REGULAR = "src/main/resources/fonts/Cardo-Regular.ttf";
     public static final String BOLD = "src/main/resources/fonts/Cardo-Bold.ttf";
@@ -30,24 +30,22 @@ public class C01E01_Text_Paragraph_Cardo {
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C01E01_Text_Paragraph_Cardo().createPdf(DEST);
+        new C01E03_Text_Paragraph_NoCardo().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
-        //Initialize PDF writer
-        FileOutputStream fos = new FileOutputStream(dest);
+        // Initialize PDF writer and PDF document
+        OutputStream fos = new FileOutputStream(dest);
         PdfWriter writer = new PdfWriter(fos);
-
-        //Initialize PDF document
         PdfDocument pdf = new PdfDocument(writer);
         
         // Initialize document
         Document document = new Document(pdf);
         
-        
-        PdfFont font = PdfFontFactory.createFont(REGULAR, true);
-        PdfFont bold = PdfFontFactory.createFont(BOLD, true);
-        PdfFont italic = PdfFontFactory.createFont(ITALIC, true);
+        // Add content: the fonts aren't embedded! Don't do this!
+        PdfFont font = PdfFontFactory.createFont(REGULAR);
+        PdfFont bold = PdfFontFactory.createFont(BOLD);
+        PdfFont italic = PdfFontFactory.createFont(ITALIC);
         Text title = new Text("The Strange Case of Dr. Jekyll and Mr. Hyde").setFont(bold);
         Text author = new Text("Robert Louis Stevenson").setFont(font);
         Paragraph p = new Paragraph().setFont(italic).add(title).add(" by ").add(author);

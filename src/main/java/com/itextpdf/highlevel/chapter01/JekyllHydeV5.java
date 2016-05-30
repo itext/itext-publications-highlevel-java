@@ -21,6 +21,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.OutputStream;
 
 /**
  * @author Bruno Lowagie (iText Software)
@@ -37,7 +38,7 @@ public class JekyllHydeV5 {
     
     public void createPdf(String dest) throws IOException {
         //Initialize PDF writer
-        FileOutputStream fos = new FileOutputStream(dest);
+        OutputStream fos = new FileOutputStream(dest);
         PdfWriter writer = new PdfWriter(fos);
 
         //Initialize PDF document
