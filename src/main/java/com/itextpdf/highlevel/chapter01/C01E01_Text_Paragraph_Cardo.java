@@ -19,14 +19,18 @@ import java.io.IOException;
 /**
  * @author Bruno Lowagie (iText Software)
  */
-public class TextExample {
+public class C01E01_Text_Paragraph_Cardo {
     
-    public static final String DEST = "results/chapter01/text_example.pdf";
+    public static final String DEST = "results/chapter01/text_paragraph_cardo.pdf";
+    
+    public static final String REGULAR = "src/main/resources/fonts/Cardo-Regular.ttf";
+    public static final String BOLD = "src/main/resources/fonts/Cardo-Bold.ttf";
+    public static final String ITALIC = "src/main/resources/fonts/Cardo-Italic.ttf";
     
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new TextExample().createPdf(DEST);
+        new C01E01_Text_Paragraph_Cardo().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
@@ -41,11 +45,12 @@ public class TextExample {
         Document document = new Document(pdf);
         
         
-        PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
-        PdfFont bold = PdfFontFactory.createFont(FontConstants.TIMES_BOLD);
+        PdfFont font = PdfFontFactory.createFont(REGULAR, true);
+        PdfFont bold = PdfFontFactory.createFont(BOLD, true);
+        PdfFont italic = PdfFontFactory.createFont(ITALIC, true);
         Text title = new Text("The Strange Case of Dr. Jekyll and Mr. Hyde").setFont(bold);
         Text author = new Text("Robert Louis Stevenson").setFont(font);
-        Paragraph p = new Paragraph().add(title).add(" by ").add(author);
+        Paragraph p = new Paragraph().setFont(italic).add(title).add(" by ").add(author);
         document.add(p);
         
         //Close document
