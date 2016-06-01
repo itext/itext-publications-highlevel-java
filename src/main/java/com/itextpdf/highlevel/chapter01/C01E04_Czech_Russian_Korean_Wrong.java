@@ -24,7 +24,7 @@ public class C01E04_Czech_Russian_Korean_Wrong {
     public static final String DEST = "results/chapter01/czech_russian_korean_wrong.pdf";
     
     public static final String CZECH =
-            "schizofrenik s jednou dobrou a jednou \u0161patnou osobnost\u00ed";
+            "Podivn\u00fd p\u0159\u00edpad Dr. Jekylla a pana Hyda";
     public static final String RUSSIAN =
             "\u0421\u0442\u0440\u0430\u043d\u043d\u0430\u044f "
             + "\u0438\u0441\u0442\u043e\u0440\u0438\u044f "
