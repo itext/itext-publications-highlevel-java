@@ -1,5 +1,5 @@
-The Cardo font is distrubuted under the SIL OPEN FONT LICENSE
-http://scripts.sil.org/OFL
+The Cardo fonts are distrubuted under the
+SIL OPEN FONT LICENSE http://scripts.sil.org/OFL
 
 The license can also be found here: https://www.fontsquirrel.com/fonts/cardo
 
