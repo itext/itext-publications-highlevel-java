@@ -44,7 +44,7 @@ public class CanvasExample {
         
         PdfPage page1 = pdf.addNewPage();
         PdfCanvas pdfCanvas1 = new PdfCanvas(page1);
-        Rectangle rectangle = new Rectangle(36, 700, 100, 100);
+        Rectangle rectangle = new Rectangle(36, 650, 100, 100);
         pdfCanvas1.rectangle(rectangle);
         pdfCanvas1.stroke();
         Canvas canvas1 = new Canvas(pdfCanvas1, pdf, rectangle);
@@ -64,7 +64,7 @@ public class CanvasExample {
         PdfPage page = pdf.getFirstPage();
         PdfCanvas pdfCanvas = new PdfCanvas(
             page.newContentStreamBefore(), page.getResources(), pdf);
-        rectangle = new Rectangle(50, 710, 100, 100);
+        rectangle = new Rectangle(100, 700, 100, 100);
         pdfCanvas.saveState()
                 .setFillColor(Color.CYAN)
                 .rectangle(rectangle)

@@ -8,10 +8,13 @@ import com.itextpdf.io.font.FontConstants;
 import com.itextpdf.kernel.color.Color;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
+import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfPage;
 import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
 import com.itextpdf.kernel.pdf.canvas.PdfCanvasConstants;
-import com.itextpdf.layout.Document;
+import com.itextpdf.layout.Canvas;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.property.Property;
 import java.io.File;
@@ -22,14 +25,14 @@ import java.io.OutputStream;
 /**
  * @author Bruno Lowagie (iText Software)
  */
-public class DocumentFontMethods {
+public class CanvasFontMethods {
     
-    public static final String DEST = "results/appendix/document_font_methods.pdf";
+    public static final String DEST = "results/appendix/canvas_font_methods.pdf";
     
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new DocumentFontMethods().createPdf(DEST);
+        new CanvasFontMethods().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
@@ -39,52 +42,55 @@ public class DocumentFontMethods {
         PdfDocument pdf = new PdfDocument(writer);
         
         // Initialize document
-        Document document = new Document(pdf);
+        PdfPage page = pdf.addNewPage();
+        PdfCanvas pdfCanvas = new PdfCanvas(page);
+        Rectangle rectangle = new Rectangle(36, 36, 523, 770);
+        Canvas canvas = new Canvas(pdfCanvas, pdf, rectangle);
         Paragraph p;
         p = new Paragraph("Testing font methods");
-        document.add(p);
+        canvas.add(p);
         PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
-        document.setFont(font);
+        canvas.setFont(font);
         p = new Paragraph("Testing font methods: changed font");
-        document.add(p);
-        document.setFontSize(18);
+        canvas.add(p);
+        canvas.setFontSize(18);
         p = new Paragraph("Testing font methods: changed font size");
-        document.add(p);
-        document.setFontColor(Color.BLUE);
+        canvas.add(p);
+        canvas.setFontColor(Color.BLUE);
         p = new Paragraph("Testing font methods: changed color");
-        document.add(p);
-        document.setBold();
+        canvas.add(p);
+        canvas.setBold();
         p = new Paragraph("Testing font methods: to bold");
-        document.add(p);
-        document.setItalic();
+        canvas.add(p);
+        canvas.setItalic();
         p = new Paragraph("Testing font methods: to italic");
-        document.add(p);
-        document.setProperty(Property.BOLD_SIMULATION, false);
-        document.setProperty(Property.ITALIC_SIMULATION, false);
-        document.setProperty(Property.FONT_COLOR, null);
+        canvas.add(p);
+        canvas.setProperty(Property.BOLD_SIMULATION, false);
+        canvas.setProperty(Property.ITALIC_SIMULATION, false);
+        canvas.setProperty(Property.FONT_COLOR, null);
         p = new Paragraph("Testing font methods: resetting style and color");
-        document.add(p);
-        document.setLineThrough();
+        canvas.add(p);
+        canvas.setLineThrough();
         p = new Paragraph("Testing font methods: line through (default)");
-        document.add(p);
-        document.setProperty(Property.UNDERLINE, null);
-        document.setUnderline();
+        canvas.add(p);
+        canvas.setProperty(Property.UNDERLINE, null);
+        canvas.setUnderline();
         p = new Paragraph("Testing font methods: underline (default)");
-        document.add(p);
-        document.setProperty(Property.UNDERLINE, null);
-        document.setUnderline(2, 4);
-        document.setUnderline(Color.BLUE, 5, 0.1f, 2, -0.5f, PdfCanvasConstants.LineCapStyle.ROUND);
+        canvas.add(p);
+        canvas.setProperty(Property.UNDERLINE, null);
+        canvas.setUnderline(2, 4);
+        canvas.setUnderline(Color.BLUE, 5, 0.1f, 2, -0.5f, PdfCanvasConstants.LineCapStyle.ROUND);
         p = new Paragraph("Testing font methods: underline (custom)");
-        document.add(p);
-        document.setProperty(Property.UNDERLINE, null);
-        document.setTextRenderingMode(PdfCanvasConstants.TextRenderingMode.STROKE);
+        canvas.add(p);
+        canvas.setProperty(Property.UNDERLINE, null);
+        canvas.setTextRenderingMode(PdfCanvasConstants.TextRenderingMode.STROKE);
         p = new Paragraph("Testing font methods: change text rendering mode");
-        document.add(p);
-        document.setStrokeWidth(0.1f);
-        document.setStrokeColor(Color.BLUE);
+        canvas.add(p);
+        canvas.setStrokeWidth(0.1f);
+        canvas.setStrokeColor(Color.BLUE);
         p = new Paragraph("Testing font methods: change stroke width and color");
-        document.add(p);
+        canvas.add(p);
         //Close document
-        document.close();
+        pdf.close();
     }
 }
