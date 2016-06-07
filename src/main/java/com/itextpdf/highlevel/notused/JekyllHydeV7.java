@@ -2,7 +2,7 @@
  * This example was written by Bruno Lowagie
  * in the context of the book: iText 7 layout objects
  */
-package com.itextpdf.highlevel.chapter02;
+package com.itextpdf.highlevel.notused;
 
 import com.itextpdf.io.font.FontConstants;
 import com.itextpdf.kernel.font.PdfFont;
@@ -29,14 +29,14 @@ import java.io.OutputStream;
 /**
  * @author Bruno Lowagie (iText Software)
  */
-public class JekyllHydeV6 {
+public class JekyllHydeV7 {
     public static final String SRC = "src/main/resources/txt/jekyll_hyde.txt";
-    public static final String DEST = "results/chapter02/jekyll_hyde_v6.pdf";
+    public static final String DEST = "results/chapter02/jekyll_hyde_v7.pdf";
     
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new JekyllHydeV6().createPdf(DEST);
+        new JekyllHydeV7().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
@@ -70,7 +70,7 @@ public class JekyllHydeV6 {
         BufferedReader br = new BufferedReader(new FileReader(SRC));
         boolean chapter = false;
         Div div = new Div();
-        AreaBreak areaBreak = new AreaBreak(AreaBreakType.NEXT_AREA);
+        AreaBreak areaBreak = new AreaBreak(AreaBreakType.NEXT_PAGE);
         String line;
         while ((line = br.readLine()) != null) {
             div = new Div()
@@ -101,7 +101,6 @@ public class JekyllHydeV6 {
 
         //Close document
         document.close();
-        
     }
 
 }
