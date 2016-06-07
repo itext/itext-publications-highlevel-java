@@ -28,7 +28,7 @@ import java.io.OutputStream;
  */
 public class JekyllHydeV5 {
     public static final String SRC = "src/main/resources/txt/jekyll_hyde.txt";
-    public static final String DEST = "results/chapter01/jekyll_hyde_v5.pdf";
+    public static final String DEST = "results/chapter02/jekyll_hyde_v5.pdf";
     
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
