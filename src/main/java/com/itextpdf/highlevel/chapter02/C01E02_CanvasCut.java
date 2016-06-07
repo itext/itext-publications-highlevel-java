@@ -25,7 +25,7 @@ import java.io.OutputStream;
  */
 public class C01E02_CanvasCut {
     
-    public static final String DEST = "results/chapter02/canvas_example_cut_off.pdf";
+    public static final String DEST = "results/chapter02/canvas_cut.pdf";
     
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);

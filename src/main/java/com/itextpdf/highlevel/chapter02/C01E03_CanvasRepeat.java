@@ -49,7 +49,7 @@ public class C01E03_CanvasRepeat {
         }
     }
     
-    public static final String DEST = "results/chapter02/canvas_example_repeat.pdf";
+    public static final String DEST = "results/chapter02/canvas_repeat.pdf";
     
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);

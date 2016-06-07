@@ -26,7 +26,7 @@ import java.io.OutputStream;
  */
 public class C01E04_CanvasReturn {
     
-    public static final String DEST = "results/chapter02/canvas_example.pdf";
+    public static final String DEST = "results/chapter02/canvas_return.pdf";
     
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
