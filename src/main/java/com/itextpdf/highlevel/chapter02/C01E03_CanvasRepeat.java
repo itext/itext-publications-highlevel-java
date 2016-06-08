@@ -40,8 +40,8 @@ public class C01E03_CanvasRepeat {
 
         @Override
         public void addChild(IRenderer renderer) {
-            full = Boolean.TRUE.equals(getPropertyAsBoolean(Property.FULL));
             super.addChild(renderer);
+            full = Boolean.TRUE.equals(getPropertyAsBoolean(Property.FULL));
         }
         
         public boolean isFull() {
