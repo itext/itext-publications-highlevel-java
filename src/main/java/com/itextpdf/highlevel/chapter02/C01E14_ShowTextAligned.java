@@ -7,11 +7,10 @@ package com.itextpdf.highlevel.chapter02;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.property.TextAlignment;
 import com.itextpdf.layout.property.VerticalAlignment;
-import com.itextpdf.licensekey.LicenseKey;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -29,7 +28,6 @@ public class C01E14_ShowTextAligned {
     }
     
     public void createPdf(String dest) throws IOException {
-        LicenseKey.loadLicenseFile(new FileInputStream("src/main/resources/license/itextkey-typography.xml"));
         //Initialize PDF writer
         OutputStream fos = new FileOutputStream(dest);
         PdfWriter writer = new PdfWriter(fos);
@@ -39,10 +37,16 @@ public class C01E14_ShowTextAligned {
         
         // Initialize document
         Document document = new Document(pdf);
-        document.showTextAligned("The Strange Case of Dr. Jekyll and Mr. Hyde", 36, 806, TextAlignment.LEFT);
-        document.showTextAlignedKerned("The Strange Case of Dr. Jekyll and Mr. Hyde", 36, 790, TextAlignment.LEFT, VerticalAlignment.BOTTOM, 0);
-        document.showTextAligned("AWAY AGAIN", 36, 774, TextAlignment.LEFT);
-        document.showTextAlignedKerned("AWAY AGAIN", 36, 758, TextAlignment.LEFT, VerticalAlignment.BOTTOM, 0);
+        Paragraph title = new Paragraph("The Strange Case of Dr. Jekyll and Mr. Hyde");
+        document.showTextAligned(title, 36, 806, TextAlignment.LEFT);
+        Paragraph author = new Paragraph("by Robert Louis Stevenson");
+        document.showTextAligned(author, 36, 806, TextAlignment.LEFT, VerticalAlignment.TOP);
+        document.showTextAligned("Jekyll", 300, 800, TextAlignment.CENTER, 0.5f * (float)Math.PI);
+        document.showTextAligned("Hyde", 300, 800, TextAlignment.CENTER, -0.5f * (float)Math.PI);
+        document.showTextAligned("Jekyll", 350, 800, TextAlignment.CENTER, VerticalAlignment.TOP, 0.5f * (float)Math.PI);
+        document.showTextAligned("Hyde", 350, 800, TextAlignment.CENTER, VerticalAlignment.TOP, -0.5f * (float)Math.PI);
+        document.showTextAligned("Jekyll", 400, 800, TextAlignment.CENTER, VerticalAlignment.MIDDLE, 0.5f * (float)Math.PI);
+        document.showTextAligned("Hyde", 400, 800, TextAlignment.CENTER, VerticalAlignment.MIDDLE, -0.5f * (float)Math.PI);
         
         document.close();
     }
