@@ -4,8 +4,6 @@
  */
 package com.itextpdf.highlevel.chapter02;
 
-import com.itextpdf.kernel.font.PdfFont;
-import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
@@ -16,7 +14,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
@@ -42,8 +39,11 @@ public class C01E14_ShowTextAligned {
         
         // Initialize document
         Document document = new Document(pdf);
-        document.showTextAligned("AWAY AGAIN", 36, 806, TextAlignment.LEFT);
-        document.showTextAlignedKerned("AWAY AGAIN", 36, 790, TextAlignment.LEFT, VerticalAlignment.BOTTOM, 0);
+        document.showTextAligned("The Strange Case of Dr. Jekyll and Mr. Hyde", 36, 806, TextAlignment.LEFT);
+        document.showTextAlignedKerned("The Strange Case of Dr. Jekyll and Mr. Hyde", 36, 790, TextAlignment.LEFT, VerticalAlignment.BOTTOM, 0);
+        document.showTextAligned("AWAY AGAIN", 36, 774, TextAlignment.LEFT);
+        document.showTextAlignedKerned("AWAY AGAIN", 36, 758, TextAlignment.LEFT, VerticalAlignment.BOTTOM, 0);
+        
         document.close();
     }
 }
