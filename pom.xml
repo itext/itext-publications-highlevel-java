@@ -12,6 +12,7 @@
     <properties>
         <java.version>1.7</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <typography.version>1.0.1-SNAPSHOT</typography.version>
     </properties>
 
     <repositories>
@@ -64,6 +65,11 @@
             <groupId>com.itextpdf</groupId>
             <artifactId>pdfa</artifactId>
             <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>typography</artifactId>
+            <version>${typography.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>

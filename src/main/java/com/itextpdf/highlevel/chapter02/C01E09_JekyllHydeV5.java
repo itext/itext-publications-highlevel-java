@@ -47,7 +47,7 @@ public class C01E09_JekyllHydeV5 {
         PdfDocument pdf = new PdfDocument(writer);
         
         // Initialize document
-        Document document = new Document(pdf, PageSize.A4);
+        Document document = new Document(pdf);
         
         //Set column parameters
         float offSet = 36;
