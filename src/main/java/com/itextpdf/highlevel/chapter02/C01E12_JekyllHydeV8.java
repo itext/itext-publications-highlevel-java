@@ -12,9 +12,11 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Text;
 import com.itextpdf.layout.hyphenation.HyphenationConfig;
 import com.itextpdf.layout.property.TextAlignment;
-import com.itextpdf.layout.property.VerticalAlignment;
+import com.itextpdf.layout.renderer.IRenderer;
+import com.itextpdf.layout.renderer.TextRenderer;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -52,6 +54,11 @@ public class C01E12_JekyllHydeV8 {
             .setFont(font)
             .setFontSize(11);
         
+        Text totalPages = new Text("This document has {totalpages} pages.");
+        IRenderer renderer = new TextRenderer(totalPages);
+        totalPages.setNextRenderer(renderer);
+        document.add(new Paragraph(totalPages));
+        
         BufferedReader br = new BufferedReader(new FileReader(SRC));
         String line;
         Paragraph p;
@@ -75,13 +82,12 @@ public class C01E12_JekyllHydeV8 {
             }
             document.add(p);
         }
+        String total = renderer.toString().replace("{totalpages}",
+                String.valueOf(pdf.getNumberOfPages()));
+        ((TextRenderer)renderer).setText(total);
+        ((Text)renderer.getModelElement()).setNextRenderer(renderer);
+        document.relayout();
         
-        int n = pdf.getNumberOfPages();
-        Paragraph footer;
-        for (int page = 1; page <= n; page++) {
-            footer = new Paragraph(String.format("Page %s of %s", page, n));
-            document.showTextAligned(footer, 297.5f, 20, page, TextAlignment.CENTER, VerticalAlignment.MIDDLE, 0);
-        }
         //Close document
         document.close();
     }
