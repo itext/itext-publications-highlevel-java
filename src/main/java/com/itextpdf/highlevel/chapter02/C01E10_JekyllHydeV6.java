@@ -42,7 +42,7 @@ public class C01E10_JekyllHydeV6 {
         document.add(new Paragraph("This is the first page!"));
         document.add(new AreaBreak(AreaBreakType.LAST_PAGE));
         document.add(new Paragraph("This is the last page!"));
-        pdfDoc.close();
+        document.close();
 
     }
 
