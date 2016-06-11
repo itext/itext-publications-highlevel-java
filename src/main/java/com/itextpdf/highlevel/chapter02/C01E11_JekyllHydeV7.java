@@ -40,7 +40,7 @@ public class C01E11_JekyllHydeV7 {
         private int currentAreaNumber;
         private int nextAreaNumber;
         private final Rectangle[] columns;
-        protected Set<Integer> moveColumn = new HashSet<Integer>();
+        protected Set<Integer> moveColumn = new HashSet<>();
         
         public MyColumnRenderer(Document document, Rectangle[] columns) {
             super(document, false);
