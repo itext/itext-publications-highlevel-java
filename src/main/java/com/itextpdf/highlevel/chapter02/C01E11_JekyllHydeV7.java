@@ -64,7 +64,7 @@ public class C01E11_JekyllHydeV7 {
             if (currentAreaNumber != nextAreaNumber
                 && currentAreaNumber % columns.length != 0)
                 moveColumn.add(currentPageNumber - 1);
-            return super.addNewPage(customPageSize); //To change body of generated methods, choose Tools | Templates.
+            return super.addNewPage(customPageSize);
         }
 
         @Override
@@ -73,7 +73,7 @@ public class C01E11_JekyllHydeV7 {
             if (moveColumn.contains(pageNum)) {
                 resultRenderer.move(columns[0].getWidth() / 2, 0);
             }
-            super.flushSingleRenderer(resultRenderer); //To change body of generated methods, choose Tools | Templates.
+            super.flushSingleRenderer(resultRenderer);
         }
     
     }
