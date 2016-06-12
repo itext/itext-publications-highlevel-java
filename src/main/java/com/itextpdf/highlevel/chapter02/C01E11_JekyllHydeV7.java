@@ -37,9 +37,9 @@ public class C01E11_JekyllHydeV7 {
     
     class MyColumnRenderer extends DocumentRenderer {
 
-        private int currentAreaNumber;
-        private int nextAreaNumber;
-        private final Rectangle[] columns;
+        protected int nextAreaNumber;
+        protected final Rectangle[] columns;
+        protected int currentAreaNumber;
         protected Set<Integer> moveColumn = new HashSet<>();
         
         public MyColumnRenderer(Document document, Rectangle[] columns) {
