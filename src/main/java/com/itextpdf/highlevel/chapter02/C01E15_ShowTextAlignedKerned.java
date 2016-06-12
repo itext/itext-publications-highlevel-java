@@ -20,6 +20,7 @@ import java.io.OutputStream;
  * @author iText
  */
 public class C01E15_ShowTextAlignedKerned {
+    public static final String KEY = "src/main/resources/license/itextkey-typography.xml";
     public static final String DEST = "results/chapter02/showtextalignedkerned.pdf";
     
     public static void main(String args[]) throws IOException {
@@ -29,7 +30,7 @@ public class C01E15_ShowTextAlignedKerned {
     }
     
     public void createPdf(String dest) throws IOException {
-        LicenseKey.loadLicenseFile(new FileInputStream("src/main/resources/license/itextkey-typography.xml"));
+        LicenseKey.loadLicenseFile(new FileInputStream(KEY));
         //Initialize PDF writer
         OutputStream fos = new FileOutputStream(dest);
         PdfWriter writer = new PdfWriter(fos);
