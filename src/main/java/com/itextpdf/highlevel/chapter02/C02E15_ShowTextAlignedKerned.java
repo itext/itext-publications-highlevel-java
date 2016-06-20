@@ -19,14 +19,14 @@ import java.io.OutputStream;
 /**
  * @author iText
  */
-public class C01E15_ShowTextAlignedKerned {
+public class C02E15_ShowTextAlignedKerned {
     public static final String KEY = "src/main/resources/license/itextkey-typography.xml";
     public static final String DEST = "results/chapter02/showtextalignedkerned.pdf";
     
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C01E15_ShowTextAlignedKerned().createPdf(DEST);
+        new C02E15_ShowTextAlignedKerned().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
