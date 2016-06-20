@@ -18,13 +18,13 @@ import java.io.OutputStream;
 /**
  * @author iText
  */
-public class C01E14_ShowTextAligned {
+public class C02E14_ShowTextAligned {
     public static final String DEST = "results/chapter02/showtextaligned.pdf";
     
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C01E14_ShowTextAligned().createPdf(DEST);
+        new C02E14_ShowTextAligned().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {

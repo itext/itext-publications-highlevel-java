@@ -5,7 +5,6 @@
 package com.itextpdf.highlevel.chapter02;
 
 import com.itextpdf.io.font.FontConstants;
-import com.itextpdf.kernel.color.Color;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.geom.Rectangle;
@@ -24,14 +23,14 @@ import java.io.OutputStream;
 /**
  * @author Bruno Lowagie (iText Software)
  */
-public class C01E04_CanvasReturn {
+public class C02E02_CanvasCut {
     
-    public static final String DEST = "results/chapter02/canvas_return.pdf";
+    public static final String DEST = "results/chapter02/canvas_cut.pdf";
     
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C01E04_CanvasReturn().createPdf(DEST);
+        new C02E02_CanvasCut().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
@@ -44,33 +43,16 @@ public class C01E04_CanvasReturn {
         
         PdfPage page = pdf.addNewPage();
         PdfCanvas pdfCanvas = new PdfCanvas(page);
-        Rectangle rectangle = new Rectangle(36, 650, 100, 100);
+        Rectangle rectangle = new Rectangle(36, 750, 100, 50);
         pdfCanvas.rectangle(rectangle);
         pdfCanvas.stroke();
-        Canvas canvas1 = new Canvas(pdfCanvas, pdf, rectangle);
+        Canvas canvas = new Canvas(pdfCanvas, pdf, rectangle);
         PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
         PdfFont bold = PdfFontFactory.createFont(FontConstants.TIMES_BOLD);
         Text title = new Text("The Strange Case of Dr. Jekyll and Mr. Hyde").setFont(bold);
         Text author = new Text("Robert Louis Stevenson").setFont(font);
         Paragraph p = new Paragraph().add(title).add(" by ").add(author);
-        canvas1.add(p);
-        
-        PdfPage page2 = pdf.addNewPage();
-        PdfCanvas pdfCanvas2 = new PdfCanvas(page2);
-        Canvas canvas2 = new Canvas(pdfCanvas2, pdf, rectangle);
-        canvas2.add(new Paragraph("Dr. Jekyll and Mr. Hyde"));
-        
-        PdfPage page1 = pdf.getFirstPage();
-        PdfCanvas pdfCanvas1 = new PdfCanvas(
-            page1.newContentStreamBefore(), page1.getResources(), pdf);
-        rectangle = new Rectangle(100, 700, 100, 100);
-        pdfCanvas1.saveState()
-                .setFillColor(Color.CYAN)
-                .rectangle(rectangle)
-                .fill()
-                .restoreState();
-        Canvas canvas = new Canvas(pdfCanvas1, pdf, rectangle);
-        canvas.add(new Paragraph("Dr. Jekyll and Mr. Hyde"));
+        canvas.add(p);
         
         //Close document
         pdf.close();

@@ -11,80 +11,31 @@ import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.ColumnDocumentRenderer;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.AreaBreak;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.hyphenation.HyphenationConfig;
-import com.itextpdf.layout.layout.LayoutArea;
-import com.itextpdf.layout.layout.LayoutResult;
 import com.itextpdf.layout.property.AreaBreakType;
 import com.itextpdf.layout.property.TextAlignment;
-import com.itextpdf.layout.renderer.DocumentRenderer;
-import com.itextpdf.layout.renderer.IRenderer;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * @author Bruno Lowagie (iText Software)
  */
-public class C01E11_JekyllHydeV7 {
-    
-    class MyColumnRenderer extends DocumentRenderer {
-
-        protected int nextAreaNumber;
-        protected final Rectangle[] columns;
-        protected int currentAreaNumber;
-        protected Set<Integer> moveColumn = new HashSet<>();
-        
-        public MyColumnRenderer(Document document, Rectangle[] columns) {
-            super(document, false);
-            this.columns = columns;
-        }
-
-        @Override
-        protected LayoutArea updateCurrentArea(LayoutResult overflowResult) {
-            if (overflowResult != null && overflowResult.getAreaBreak() != null && overflowResult.getAreaBreak().getType() != AreaBreakType.NEXT_AREA) {
-                nextAreaNumber = 0;
-            }
-            if (nextAreaNumber % columns.length == 0) {
-                super.updateCurrentArea(overflowResult);
-            }
-            currentAreaNumber = nextAreaNumber + 1;
-            return (currentArea = new LayoutArea(currentPageNumber, columns[nextAreaNumber++ % columns.length].clone()));
-        }
-    
-        @Override
-        protected PageSize addNewPage(PageSize customPageSize) {
-            if (currentAreaNumber != nextAreaNumber
-                && currentAreaNumber % columns.length != 0)
-                moveColumn.add(currentPageNumber - 1);
-            return super.addNewPage(customPageSize);
-        }
-
-        @Override
-        protected void flushSingleRenderer(IRenderer resultRenderer) {
-            int pageNum = resultRenderer.getOccupiedArea().getPageNumber();
-            if (moveColumn.contains(pageNum)) {
-                resultRenderer.move(columns[0].getWidth() / 2, 0);
-            }
-            super.flushSingleRenderer(resultRenderer);
-        }
-    
-    }
-    
+public class C02E08_JekyllHydeV4 {
     public static final String SRC = "src/main/resources/txt/jekyll_hyde.txt";
-    public static final String DEST = "results/chapter02/jekyll_hyde_v7.pdf";
+    public static final String DEST = "results/chapter02/jekyll_hyde_v4.pdf";
     
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C01E11_JekyllHydeV7().createPdf(DEST);
+        new C02E08_JekyllHydeV4().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
@@ -108,8 +59,7 @@ public class C01E11_JekyllHydeV7 {
         Rectangle[] columns = {
             new Rectangle(offSet, offSet, columnWidth, columnHeight),
             new Rectangle(offSet + columnWidth + gutter, offSet, columnWidth, columnHeight)};
-        DocumentRenderer renderer = new MyColumnRenderer(document, columns);
-        document.setRenderer(renderer);
+        document.setRenderer(new ColumnDocumentRenderer(document, columns));    
         
         PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
         PdfFont bold = PdfFontFactory.createFont(FontConstants.HELVETICA_BOLD);
@@ -121,7 +71,7 @@ public class C01E11_JekyllHydeV7 {
         String line;
         Paragraph p;
         boolean title = true;
-        AreaBreak nextPage = new AreaBreak(AreaBreakType.NEXT_PAGE);
+        AreaBreak nextArea = new AreaBreak(AreaBreakType.NEXT_AREA);
         while ((line = br.readLine()) != null) {
             p = new Paragraph(line);
             if (title) {
@@ -132,12 +82,13 @@ public class C01E11_JekyllHydeV7 {
                 p.setFirstLineIndent(36);
             }
             if (line.isEmpty()) {
-                document.add(nextPage);
+                document.add(nextArea);
                 title = true;
             }
             document.add(p);
         }
-        renderer.flush();
+
+        //Close document
         document.close();
         
     }

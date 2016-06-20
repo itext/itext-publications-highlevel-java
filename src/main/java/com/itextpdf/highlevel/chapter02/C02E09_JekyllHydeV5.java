@@ -28,14 +28,14 @@ import java.io.OutputStream;
 /**
  * @author Bruno Lowagie (iText Software)
  */
-public class C01E08_JekyllHydeV4 {
+public class C02E09_JekyllHydeV5 {
     public static final String SRC = "src/main/resources/txt/jekyll_hyde.txt";
-    public static final String DEST = "results/chapter02/jekyll_hyde_v4.pdf";
+    public static final String DEST = "results/chapter02/jekyll_hyde_v5.pdf";
     
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C01E08_JekyllHydeV4().createPdf(DEST);
+        new C02E09_JekyllHydeV5().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
@@ -71,7 +71,7 @@ public class C01E08_JekyllHydeV4 {
         String line;
         Paragraph p;
         boolean title = true;
-        AreaBreak nextArea = new AreaBreak(AreaBreakType.NEXT_AREA);
+        AreaBreak nextPage = new AreaBreak(AreaBreakType.NEXT_PAGE);
         while ((line = br.readLine()) != null) {
             p = new Paragraph(line);
             if (title) {
@@ -82,7 +82,7 @@ public class C01E08_JekyllHydeV4 {
                 p.setFirstLineIndent(36);
             }
             if (line.isEmpty()) {
-                document.add(nextArea);
+                document.add(nextPage);
                 title = true;
             }
             document.add(p);

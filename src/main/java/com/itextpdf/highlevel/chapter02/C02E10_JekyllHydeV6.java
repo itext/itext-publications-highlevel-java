@@ -17,14 +17,14 @@ import java.io.IOException;
 /**
  * @author Bruno Lowagie (iText Software)
  */
-public class C01E10_JekyllHydeV6 {
+public class C02E10_JekyllHydeV6 {
     public static final String SRC = "src/main/resources/pdfs/jekyll_hyde.pdf";
     public static final String DEST = "results/chapter02/jekyll_hyde_v6.pdf";
     
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C01E10_JekyllHydeV6().manipulatePdf(SRC, DEST);
+        new C02E10_JekyllHydeV6().manipulatePdf(SRC, DEST);
     }
     
     public void manipulatePdf(String src, String dest) throws IOException {
