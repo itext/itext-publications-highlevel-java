@@ -9,6 +9,9 @@ import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
+import com.itextpdf.kernel.pdf.canvas.draw.DashedLine;
+import com.itextpdf.kernel.pdf.canvas.draw.DottedLine;
+import com.itextpdf.kernel.pdf.canvas.draw.SolidLine;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Tab;
@@ -23,15 +26,15 @@ import java.util.List;
 /**
  * @author iText
  */
-public class JekyllHydeTabsV3 {
+public class C03E04_JekyllHydeTabsV4 {
     
     public static final String SRC = "src/main/resources/data/jekyll_hyde.csv";
-    public static final String DEST = "results/chapter03/jekyll_hyde_tabs3.pdf";
+    public static final String DEST = "results/chapter03/jekyll_hyde_tabs4.pdf";
        
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new JekyllHydeTabsV3().createPdf(DEST);
+        new C03E04_JekyllHydeTabsV4().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
@@ -41,11 +44,11 @@ public class JekyllHydeTabsV3 {
         
         float[] stops = new float[]{80, 120, 580, 590, 720};
         List<TabStop> tabstops = new ArrayList();
-        tabstops.add(new TabStop(stops[0], TabAlignment.CENTER));
+        tabstops.add(new TabStop(stops[0], TabAlignment.CENTER, new DottedLine()));
         tabstops.add(new TabStop(stops[1], TabAlignment.LEFT));
-        tabstops.add(new TabStop(stops[2], TabAlignment.RIGHT));
+        tabstops.add(new TabStop(stops[2], TabAlignment.RIGHT, new SolidLine(0.5f)));
         tabstops.add(new TabStop(stops[3], TabAlignment.LEFT));
-        TabStop anchor = new TabStop(stops[4], TabAlignment.ANCHOR);
+        TabStop anchor = new TabStop(stops[4], TabAlignment.ANCHOR, new DashedLine());
         anchor.setTabAnchor(' ');
         tabstops.add(anchor);
         PdfCanvas pdfCanvas = new PdfCanvas(pdf.addNewPage());

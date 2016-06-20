@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * @author iText
  */
-public class JekyllHydeTabsV6 {
+public class C03E06_JekyllHydeTabsV6 {
     
     public static final String SRC = "src/main/resources/data/jekyll_hyde.csv";
     public static final String DEST = "results/chapter03/jekyll_hyde_tabs6.pdf";
@@ -33,7 +33,7 @@ public class JekyllHydeTabsV6 {
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new JekyllHydeTabsV6().createPdf(DEST);
+        new C03E06_JekyllHydeTabsV6().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
