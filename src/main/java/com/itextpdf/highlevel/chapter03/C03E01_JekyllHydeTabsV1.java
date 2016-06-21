@@ -8,6 +8,7 @@ import com.itextpdf.highlevel.util.CsvTo2DList;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Tab;
@@ -34,6 +35,13 @@ public class C03E01_JekyllHydeTabsV1 {
         PdfDocument pdf = new PdfDocument(
             new PdfWriter(new FileOutputStream(dest)));
         Document document = new Document(pdf, PageSize.A4.rotate());
+        
+        PdfCanvas pdfCanvas = new PdfCanvas(pdf.addNewPage());
+        for (int i = 1; i <= 10; i++) {
+            pdfCanvas.moveTo(document.getLeftMargin() + i * 50, 0);
+            pdfCanvas.lineTo(document.getLeftMargin() + i * 50, 595);
+        }
+        pdfCanvas.stroke();
         
         List<List<String>> resultSet = CsvTo2DList.convert(SRC, "|");
         for (List<String> record : resultSet) {
