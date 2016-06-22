@@ -29,8 +29,7 @@ public class ImageProperties {
     public static final String TEST3 = "src/main/resources/img/test/hitchcock.gif";
     public static final String TEST4 = "src/main/resources/img/test/hitchcock.png";
     public static final String TEST5 = "src/main/resources/img/test/info.png";
-    public static final String TEST6 = "src/main/resources/img/test/map.jp2";
-    public static final String TEST7 = "src/main/resources/img/test/marbles.tif";
+    public static final String TEST6 = "src/main/resources/img/test/marbles.tif";
     
     public static final String DEST = "results/appendix/image_properties.pdf";
     public static void main(String args[]) throws IOException {
@@ -69,12 +68,9 @@ public class ImageProperties {
         img5.setUnderline();
         document.add(img5);
         Image img6 = new Image(ImageDataFactory.create(TEST6));
-        img6.scaleToFit(100, 100);
-        document.add(img6);
-        Image img7 = new Image(ImageDataFactory.create(TEST7));
         PdfAction top = PdfAction.createGoTo("Top");
-        img7.scaleToFit(100, 100).setAction(top);
-        document.add(img7);
+        img6.scaleToFit(100, 100).setAction(top);
+        document.add(img6);
         
         document.close();
     }

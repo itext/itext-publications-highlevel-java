@@ -5,16 +5,12 @@
 package com.itextpdf.highlevel.chapter03;
 
 import com.itextpdf.io.image.ImageDataFactory;
-import com.itextpdf.kernel.color.Color;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
-import com.itextpdf.layout.border.Border;
-import com.itextpdf.layout.border.SolidBorder;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.property.HorizontalAlignment;
-import com.itextpdf.layout.property.UnitValue;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
