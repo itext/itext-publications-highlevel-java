@@ -14,7 +14,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class C04E08_MaryReillyV1 {
+public class C03E08_MaryReillyV1 {
     
     public static final String MARY = "src/main/resources/img/0117002.jpg";
     public static final String DEST = "results/chapter03/mary_reilly_V1.pdf";
@@ -22,7 +22,7 @@ public class C04E08_MaryReillyV1 {
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C04E08_MaryReillyV1().createPdf(DEST);
+        new C03E08_MaryReillyV1().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {

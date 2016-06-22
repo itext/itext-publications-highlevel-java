@@ -4,34 +4,37 @@
  */
 package com.itextpdf.highlevel.chapter03;
 
+import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.element.Text;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class C04E07_TextExample {
+public class C03E11_MaryReillyV4 {
     
-    public static final String DEST = "results/chapter03/jekyll_hyde_text.pdf";
+    public static final String MARY = "src/main/resources/img/0117002.jpg";
+    public static final String DEST = "results/chapter03/mary_reilly_V4.pdf";
        
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C04E07_TextExample().createPdf(DEST);
+        new C03E11_MaryReillyV4().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
         PdfDocument pdf = new PdfDocument(
             new PdfWriter(new FileOutputStream(dest)));
         Document document = new Document(pdf);
-        Text t1 = new Text("The Strange Case of ");
-        Text t2 = new Text("Dr. Jekyll").setTextRise(5);
-        Text t3 = new Text(" and ").setHorizontalScaling(2);
-        Text t4 = new Text("Mr. Hyde").setSkew(10, 45);
-        document.add(new Paragraph(t1).add(t2).add(t3).add(t4));
+        Paragraph p = new Paragraph(
+            "Mary Reilly is a maid in the household of Dr. Jekyll: ");
+        Image img = new Image(ImageDataFactory.create(MARY));
+        p.add(img);
+        document.add(p);
         document.close();
     }
+    
 }

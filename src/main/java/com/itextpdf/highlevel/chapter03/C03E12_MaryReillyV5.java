@@ -14,15 +14,15 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class C04E11_MaryReillyV4 {
+public class C03E12_MaryReillyV5 {
     
     public static final String MARY = "src/main/resources/img/0117002.jpg";
-    public static final String DEST = "results/chapter03/mary_reilly_V4.pdf";
+    public static final String DEST = "results/chapter03/mary_reilly_V5.pdf";
        
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C04E11_MaryReillyV4().createPdf(DEST);
+        new C03E12_MaryReillyV5().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
@@ -32,6 +32,7 @@ public class C04E11_MaryReillyV4 {
         Paragraph p = new Paragraph(
             "Mary Reilly is a maid in the household of Dr. Jekyll: ");
         Image img = new Image(ImageDataFactory.create(MARY));
+        img.scale(0.5f, 0.5f);
         p.add(img);
         document.add(p);
         document.close();
