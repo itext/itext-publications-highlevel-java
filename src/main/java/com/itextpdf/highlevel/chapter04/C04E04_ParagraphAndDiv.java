@@ -2,7 +2,7 @@
  * This example was written by Bruno Lowagie
  * in the context of the book: iText 7 layout objects
  */
-package com.itextpdf.highlevel.notused;
+package com.itextpdf.highlevel.chapter04;
 
 import com.itextpdf.io.font.FontConstants;
 import com.itextpdf.kernel.font.PdfFont;
@@ -24,14 +24,14 @@ import java.io.OutputStream;
 /**
  * @author Bruno Lowagie (iText Software)
  */
-public class JekyllHydeV4 {
+public class C04E04_ParagraphAndDiv {
     public static final String SRC = "src/main/resources/txt/jekyll_hyde.txt";
     public static final String DEST = "results/chapter02/jekyll_hyde_v4.pdf";
     
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new JekyllHydeV4().createPdf(DEST);
+        new C04E04_ParagraphAndDiv().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
@@ -53,13 +53,13 @@ public class JekyllHydeV4 {
         String line;
         Div div = new Div();
         while ((line = br.readLine()) != null) {
-            div = new Div()
-                .setFont(font).setFontSize(11)
-                .setMarginBottom(18);
             div.add(new Paragraph(line)
                 .setFont(bold).setFontSize(12)
                 .setMarginBottom(0)
-            );
+                .setKeepWithNext(true));
+            div = new Div()
+                .setFont(font).setFontSize(11)
+                .setMarginBottom(18);
             while ((line = br.readLine()) != null) {
                 div.add(
                     new Paragraph(line)
@@ -68,7 +68,6 @@ public class JekyllHydeV4 {
                 );
                 if (line.isEmpty()) {
                     document.add(div);
-                    div = new Div();
                     break;
                 }
             }

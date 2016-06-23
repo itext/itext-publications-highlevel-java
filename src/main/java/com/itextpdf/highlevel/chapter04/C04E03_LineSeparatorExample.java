@@ -1,0 +1,69 @@
+/*
+ * This example was written by Bruno Lowagie
+ * in the context of the book: iText 7 layout objects
+ */
+package com.itextpdf.highlevel.chapter04;
+
+import com.itextpdf.highlevel.util.CsvTo2DList;
+import com.itextpdf.io.image.ImageDataFactory;
+import com.itextpdf.kernel.color.Color;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.kernel.pdf.canvas.draw.SolidLine;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Div;
+import com.itextpdf.layout.element.Image;
+import com.itextpdf.layout.element.LineSeparator;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.property.HorizontalAlignment;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.List;
+
+/**
+ * @author Bruno Lowagie (iText Software)
+ */
+public class C04E03_LineSeparatorExample {
+    
+    public static final String SRC = "src/main/resources/data/jekyll_hyde.csv";
+    public static final String DEST = "results/chapter04/jekyll_hyde_overviewV3.pdf";
+       
+    public static void main(String args[]) throws IOException {
+        File file = new File(DEST);
+        file.getParentFile().mkdirs();
+        new C04E03_LineSeparatorExample().createPdf(DEST);
+    }
+    
+    public void createPdf(String dest) throws IOException {
+        PdfDocument pdf = new PdfDocument(
+            new PdfWriter(new FileOutputStream(dest)));
+        Document document = new Document(pdf);
+        SolidLine line = new SolidLine(0.5f);
+        line.setColor(Color.RED);
+        LineSeparator ls = new LineSeparator(line);
+        ls.setWidth(250);
+        ls.setMarginTop(5);
+        List<List<String>> resultSet = CsvTo2DList.convert(SRC, "|");
+        resultSet.remove(0);
+        for (List<String> record : resultSet) {
+            Div div = new Div()
+                .setKeepTogether(true)
+                .setHorizontalAlignment(HorizontalAlignment.CENTER)
+                .add(new Paragraph(record.get(2)).setFontSize(14f))
+                .add(new Paragraph(String.format(
+                    "Directed by %s (%s, %s)",
+                    record.get(3), record.get(4), record.get(1))));
+            File file = new File(String.format(
+                "src/main/resources/img/%s.jpg", record.get(0)));
+            if (file.exists()) {
+                Image img = new Image(ImageDataFactory.create(file.getPath()));
+                div.add(img);
+            }
+            div.add(ls);
+            document.add(div);
+        }
+        document.close();
+    }
+    
+}
