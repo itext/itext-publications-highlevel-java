@@ -31,9 +31,9 @@ public class C03E11_MaryReillyV4 {
         Document document = new Document(pdf);
         Paragraph p = new Paragraph(
             "Mary Reilly is a maid in the household of Dr. Jekyll: ");
-        Image img = new Image(ImageDataFactory.create(MARY));
-        p.add(img);
         document.add(p);
+        Image img = new Image(ImageDataFactory.create(MARY), 400, 550);
+        document.add(img);
         document.close();
     }
     

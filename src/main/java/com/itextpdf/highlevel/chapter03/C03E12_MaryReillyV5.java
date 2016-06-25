@@ -10,6 +10,7 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.property.UnitValue;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -31,10 +32,11 @@ public class C03E12_MaryReillyV5 {
         Document document = new Document(pdf);
         Paragraph p = new Paragraph(
             "Mary Reilly is a maid in the household of Dr. Jekyll: ");
-        Image img = new Image(ImageDataFactory.create(MARY));
-        img.scale(0.5f, 0.5f);
-        p.add(img);
         document.add(p);
+        Image img = new Image(ImageDataFactory.create(MARY));
+        img.setFixedPosition(300, 750, UnitValue.createPointValue(50));
+        img.setRotationAngle(-Math.PI / 8);
+        document.add(img);
         document.close();
     }
     
