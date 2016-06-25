@@ -44,7 +44,7 @@ public class C03E19_PagedImages {
         Document document = new Document(pdf);
         
         Image img;
-        
+        // Animated GIF
         URL url1 = UrlUtil.toURL(TEST1);
         List<ImageData> list = ImageDataFactory.createGifFrames(url1);
         for (ImageData data : list) {
