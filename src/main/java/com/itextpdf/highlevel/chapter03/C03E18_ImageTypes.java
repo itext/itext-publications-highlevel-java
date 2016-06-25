@@ -4,6 +4,7 @@
  */
 package com.itextpdf.highlevel.chapter03;
 
+import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.color.Color;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -11,6 +12,7 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.border.SolidBorder;
 import com.itextpdf.layout.element.Image;
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -55,6 +57,25 @@ public class C03E18_ImageTypes {
         document.add(img6);
         Image img7 = new Image(ImageDataFactory.create(TEST7));
         document.add(img7);
+        
+        byte data[] = new byte[256 * 3];
+        for (int i = 0; i < 256; i++) {
+            data[i * 3] = (byte) (255 - i);
+            data[i * 3 + 1] = (byte) (255 - i);
+            data[i * 3 + 2] = (byte) i;
+        }
+        ImageData raw = ImageDataFactory.create(256, 1, 3, 8, data, null);
+        Image img8 = new Image(raw);
+        img8.scaleAbsolute(256, 20);
+        img8.setMargins(10, 0, 10, 0);
+        document.add(img8);
+        
+        java.awt.Image awtImage =
+            Toolkit.getDefaultToolkit().createImage(TEST3);
+        Image img9 =
+            new Image(ImageDataFactory.create(awtImage, java.awt.Color.yellow));
+        document.add(img9);
+        
         document.close();
     }
 }
