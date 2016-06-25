@@ -19,7 +19,7 @@ import java.io.IOException;
 /**
  * @author iText
  */
-public class C03E15_XObjectTypes {
+public class C03E20_XObjectTypes {
     public static final String WMF = "src/main/resources/img/test/butterfly.wmf";
     public static final String SRC = "src/main/resources/pdfs/jekyll_hyde.pdf";
     
@@ -28,7 +28,7 @@ public class C03E15_XObjectTypes {
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C03E15_XObjectTypes().createPdf(DEST);
+        new C03E20_XObjectTypes().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {

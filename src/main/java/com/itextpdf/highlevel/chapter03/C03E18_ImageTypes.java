@@ -18,7 +18,7 @@ import java.io.IOException;
 /**
  * @author iText
  */
-public class C03E14_ImageTypes {
+public class C03E18_ImageTypes {
     public static final String TEST1 = "src/main/resources/img/test/amb.jb2";
     public static final String TEST2 = "src/main/resources/img/test/butterfly.bmp";
     public static final String TEST3 = "src/main/resources/img/test/hitchcock.gif";
@@ -32,7 +32,7 @@ public class C03E14_ImageTypes {
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C03E14_ImageTypes().createPdf(DEST);
+        new C03E18_ImageTypes().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {

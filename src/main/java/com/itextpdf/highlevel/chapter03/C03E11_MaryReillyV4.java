@@ -32,7 +32,7 @@ public class C03E11_MaryReillyV4 {
         Paragraph p = new Paragraph(
             "Mary Reilly is a maid in the household of Dr. Jekyll: ");
         document.add(p);
-        Image img = new Image(ImageDataFactory.create(MARY), 400, 550);
+        Image img = new Image(ImageDataFactory.create(MARY), 320, 750, 50);
         document.add(img);
         document.close();
     }

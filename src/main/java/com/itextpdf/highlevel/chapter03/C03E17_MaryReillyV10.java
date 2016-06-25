@@ -10,7 +10,6 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.property.HorizontalAlignment;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -32,11 +31,11 @@ public class C03E17_MaryReillyV10 {
         Document document = new Document(pdf);
         Paragraph p = new Paragraph(
             "Mary Reilly is a maid in the household of Dr. Jekyll: ");
-        document.add(p);
         Image img = new Image(ImageDataFactory.create(MARY));
-        img.setHorizontalAlignment(HorizontalAlignment.CENTER);
-        img.setWidthPercent(80);
-        document.add(img);
+        img.scale(0.5f, 0.5f);
+        img.setRotationAngle(-Math.PI / 8);
+        p.add(img);
+        document.add(p);
         document.close();
     }
     

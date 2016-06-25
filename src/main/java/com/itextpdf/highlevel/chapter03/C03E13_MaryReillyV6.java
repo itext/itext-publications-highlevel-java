@@ -18,7 +18,7 @@ import java.io.IOException;
 public class C03E13_MaryReillyV6 {
     
     public static final String MARY = "src/main/resources/img/0117002.jpg";
-    public static final String DEST = "results/chapter03/mary_reilly_V5.pdf";
+    public static final String DEST = "results/chapter03/mary_reilly_V6.pdf";
        
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
@@ -35,7 +35,6 @@ public class C03E13_MaryReillyV6 {
         document.add(p);
         Image img = new Image(ImageDataFactory.create(MARY));
         img.setFixedPosition(2, 300, 750, UnitValue.createPointValue(50));
-        img.setRotationAngle(-Math.PI / 8);
         document.add(img);
         document.close();
     }
