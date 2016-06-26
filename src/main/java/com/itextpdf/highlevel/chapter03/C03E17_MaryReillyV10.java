@@ -33,7 +33,7 @@ public class C03E17_MaryReillyV10 {
             "Mary Reilly is a maid in the household of Dr. Jekyll: ");
         Image img = new Image(ImageDataFactory.create(MARY));
         img.scale(0.5f, 0.5f);
-        img.setRotationAngle(-Math.PI / 8);
+        img.setRotationAngle(-Math.PI / 6);
         p.add(img);
         document.add(p);
         document.close();
