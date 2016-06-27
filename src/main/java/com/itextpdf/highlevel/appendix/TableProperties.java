@@ -4,7 +4,10 @@
  */
 package com.itextpdf.highlevel.appendix;
 
+import com.itextpdf.io.font.FontConstants;
 import com.itextpdf.kernel.color.Color;
+import com.itextpdf.kernel.font.PdfFont;
+import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
@@ -13,7 +16,7 @@ import com.itextpdf.layout.border.DottedBorder;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.hyphenation.HyphenationConfig;
 import com.itextpdf.layout.property.HorizontalAlignment;
-import com.itextpdf.layout.property.VerticalAlignment;
+import com.itextpdf.layout.property.TextAlignment;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -39,12 +42,14 @@ public class TableProperties {
         
         // Initialize document
         Document document = new Document(pdf);
+        PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
         Style style = new Style();
         style.setBackgroundColor(Color.YELLOW);
         document.add(createNewTable().addStyle(style).setWidth(300).setHorizontalAlignment(HorizontalAlignment.CENTER)).setHorizontalAlignment(HorizontalAlignment.CENTER);
         document.add(createNewTable().setBorder(new DottedBorder(5)).setHyphenation(new HyphenationConfig("en", "uk", 3, 3)));
-        document.add(createNewTable().setRotationAngle(30));
-        document.add(createNewTable());
+        document.add(createNewTable().setTextAlignment(TextAlignment.CENTER));
+        document.add(ListSeparatorProperties.createNewSeparator().setMargin(10).setWidth(300).setKeepWithNext(true));
+        document.add(createNewTable().setKeepTogether(true).setWidthPercent(90));
         document.close();
     }
     
@@ -53,6 +58,10 @@ public class TableProperties {
         table.addCell("test1");
         table.addCell("test2");
         table.addCell("test3");
+        table.addCell("test4");
+        table.addCell("test5");
+        table.addCell("test6");
+        table.addCell("test7");
         table.addCell("This is a long text snippet that "
                 + "will be used and reused to test paragraph "
                 + "properties. This paragraph should take "

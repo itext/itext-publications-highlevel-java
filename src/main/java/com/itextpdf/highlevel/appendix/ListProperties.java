@@ -4,7 +4,10 @@
  */
 package com.itextpdf.highlevel.appendix;
 
+import com.itextpdf.io.font.FontConstants;
 import com.itextpdf.kernel.color.Color;
+import com.itextpdf.kernel.font.PdfFont;
+import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
@@ -13,6 +16,7 @@ import com.itextpdf.layout.border.SolidBorder;
 import com.itextpdf.layout.element.List;
 import com.itextpdf.layout.hyphenation.HyphenationConfig;
 import com.itextpdf.layout.property.HorizontalAlignment;
+import com.itextpdf.layout.property.TextAlignment;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -38,10 +42,14 @@ public class ListProperties {
         
         // Initialize document
         Document document = new Document(pdf);
+        PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
         Style style = new Style();
-        style.setBackgroundColor(Color.YELLOW);
+        style.setBackgroundColor(Color.YELLOW).setTextAlignment(TextAlignment.CENTER);
         document.add(createNewList().addStyle(style).setWidth(300).setHorizontalAlignment(HorizontalAlignment.CENTER));
-        document.add(createNewList().setHyphenation(new HyphenationConfig("en", "uk", 3, 3)).setBorder(new SolidBorder(0.5f)));
+        document.add(createNewList().setRotationAngle(Math.PI / 18).setFont(font).setFontSize(8).setFontColor(Color.RED));
+        document.add(createNewList().setHyphenation(new HyphenationConfig("en", "uk", 3, 3)).setBorder(new SolidBorder(0.5f)).setKeepWithNext(true));
+        document.add(createNewList().setKeepTogether(true).setHeight(200));
+        document.add(createNewList().setWidthPercent(50));
         document.close();
     }
     
@@ -50,6 +58,9 @@ public class ListProperties {
         list.add("item 1");
         list.add("item 2");
         list.add("item 3");
+        list.add("item 4");
+        list.add("item 5");
+        list.add("item 6");
         list.add("This is a long text snippet that "
                 + "will be used and reused to test paragraph "
                 + "properties. This paragraph should take "

@@ -14,6 +14,7 @@ import com.itextpdf.layout.border.SolidBorder;
 import com.itextpdf.layout.element.LineSeparator;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.property.HorizontalAlignment;
+import com.itextpdf.layout.property.TextAlignment;
 import com.itextpdf.layout.property.VerticalAlignment;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -46,6 +47,10 @@ public class ListSeparatorProperties {
         document.add(new Paragraph("test"));
         document.add(createNewSeparator().setWidth(300).setHorizontalAlignment(HorizontalAlignment.CENTER));
         document.add(createNewSeparator().setMargin(10).setVerticalAlignment(VerticalAlignment.BOTTOM).setBorder(new SolidBorder(0.5f)));
+        document.add(createNewSeparator().setMargin(10).setWidth(300));
+        document.add(createNewSeparator().setMargin(10));
+        document.add(createNewSeparator().setMargin(10).setWidthPercent(50));
+        document.add(createNewSeparator().setMargin(10).setWidth(50));
         document.close();
     }
     

@@ -4,16 +4,19 @@
  */
 package com.itextpdf.highlevel.appendix;
 
+import com.itextpdf.io.font.FontConstants;
 import com.itextpdf.kernel.color.Color;
+import com.itextpdf.kernel.font.PdfFont;
+import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.Style;
 import com.itextpdf.layout.border.SolidBorder;
 import com.itextpdf.layout.element.Div;
-import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.hyphenation.HyphenationConfig;
 import com.itextpdf.layout.property.HorizontalAlignment;
+import com.itextpdf.layout.property.TextAlignment;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -41,8 +44,12 @@ public class DivProperties {
         Document document = new Document(pdf);
         Style style = new Style();
         style.setBackgroundColor(Color.YELLOW).setBorder(new SolidBorder(0.5f));
-        document.add(createNewDiv().addStyle(style).setWidth(350).setHorizontalAlignment(HorizontalAlignment.CENTER));
-        document.add(createNewDiv().setWidth(350).setHyphenation(new HyphenationConfig("en", "uk", 3, 3)));
+        document.add(createNewDiv().addStyle(style).setWidth(350).setHorizontalAlignment(HorizontalAlignment.CENTER).setTextAlignment(TextAlignment.CENTER));
+        PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
+        document.add(createNewDiv().setRotationAngle(Math.PI / 18).setFont(font).setFontSize(8).setFontColor(Color.RED));
+        document.add(createNewDiv().setWidth(350).setHyphenation(new HyphenationConfig("en", "uk", 3, 3)).setKeepWithNext(true));
+        document.add(createNewDiv().setWidthPercent(70).setKeepTogether(true));
+        document.add(createNewDiv().setHeight(350).setBackgroundColor(Color.YELLOW));
         document.close();
     }
     
