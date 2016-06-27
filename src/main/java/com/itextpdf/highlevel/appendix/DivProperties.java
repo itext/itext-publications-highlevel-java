@@ -10,6 +10,7 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.Style;
 import com.itextpdf.layout.border.SolidBorder;
+import com.itextpdf.layout.element.Div;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.hyphenation.HyphenationConfig;
 import com.itextpdf.layout.property.HorizontalAlignment;
@@ -19,15 +20,15 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 /**
- * @author Bruno Lowagie (iText Software)
+ * @author iText
  */
-public class ParagraphProperties {
+public class DivProperties {
     
-    public static final String DEST = "results/appendix/paragraph_properties.pdf";
+    public static final String DEST = "results/appendix/div_properties.pdf";
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new ParagraphProperties().createPdf(DEST);
+        new DivProperties().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
@@ -38,24 +39,18 @@ public class ParagraphProperties {
         
         // Initialize document
         Document document = new Document(pdf);
-        Paragraph p;
         Style style = new Style();
-        style.setBackgroundColor(Color.YELLOW);
-        p = getNewParagraphInstance().addStyle(style).setBorder(new SolidBorder(0.5f));
-        document.add(p);
-        p = getNewParagraphInstance();
-        p.setBackgroundColor(Color.GRAY).setWidth(150).setHorizontalAlignment(HorizontalAlignment.CENTER);
-        document.add(p);
-        document.add(getNewParagraphInstance().setWidth(150).setHyphenation(new HyphenationConfig("en", "uk", 3, 3)));
+        style.setBackgroundColor(Color.YELLOW).setBorder(new SolidBorder(0.5f));
+        document.add(createNewDiv().addStyle(style).setWidth(350).setHorizontalAlignment(HorizontalAlignment.CENTER));
+        document.add(createNewDiv().setWidth(350).setHyphenation(new HyphenationConfig("en", "uk", 3, 3)));
         document.close();
     }
     
-    public static Paragraph getNewParagraphInstance() {
-        return new Paragraph("This is a long paragraph that "
-                + "will be used and reused to test paragraph "
-                + "properties. This paragraph should take "
-                + "more than one line. We'll change different "
-                + "properties and then look at the effect "
-                + "when we add the paragraph to the document.");
+    public static Div createNewDiv() {
+        Div div = new Div();
+        div.add(ParagraphProperties.getNewParagraphInstance());
+        div.add(ListSeparatorProperties.createNewSeparator());
+        div.add(ListProperties.createNewList());
+        return div;
     }
 }

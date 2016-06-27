@@ -9,25 +9,27 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.Style;
-import com.itextpdf.layout.border.SolidBorder;
-import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.border.DottedBorder;
+import com.itextpdf.layout.element.Cell;
+import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.hyphenation.HyphenationConfig;
 import com.itextpdf.layout.property.HorizontalAlignment;
+import com.itextpdf.layout.property.VerticalAlignment;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
 /**
- * @author Bruno Lowagie (iText Software)
+ * @author iText
  */
-public class ParagraphProperties {
+public class CellProperties {
     
-    public static final String DEST = "results/appendix/paragraph_properties.pdf";
+    public static final String DEST = "results/appendix/cell_properties.pdf";
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new ParagraphProperties().createPdf(DEST);
+        new CellProperties().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
@@ -38,24 +40,14 @@ public class ParagraphProperties {
         
         // Initialize document
         Document document = new Document(pdf);
-        Paragraph p;
+        Table table = new Table(2);
+        table.addCell(new Cell().add("Test 1"));
         Style style = new Style();
         style.setBackgroundColor(Color.YELLOW);
-        p = getNewParagraphInstance().addStyle(style).setBorder(new SolidBorder(0.5f));
-        document.add(p);
-        p = getNewParagraphInstance();
-        p.setBackgroundColor(Color.GRAY).setWidth(150).setHorizontalAlignment(HorizontalAlignment.CENTER);
-        document.add(p);
-        document.add(getNewParagraphInstance().setWidth(150).setHyphenation(new HyphenationConfig("en", "uk", 3, 3)));
+        table.addCell(new Cell().setBorder(new DottedBorder(5)).add("Test 2").addStyle(style));
+        table.addCell(new Cell().add("Test 3").setVerticalAlignment(VerticalAlignment.BOTTOM));
+        table.addCell(new Cell().add(ParagraphProperties.getNewParagraphInstance()).setHyphenation(new HyphenationConfig("en", "uk", 3, 3)));
+        document.add(table);
         document.close();
-    }
-    
-    public static Paragraph getNewParagraphInstance() {
-        return new Paragraph("This is a long paragraph that "
-                + "will be used and reused to test paragraph "
-                + "properties. This paragraph should take "
-                + "more than one line. We'll change different "
-                + "properties and then look at the effect "
-                + "when we add the paragraph to the document.");
     }
 }

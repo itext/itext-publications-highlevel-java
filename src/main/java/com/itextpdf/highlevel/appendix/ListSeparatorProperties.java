@@ -7,27 +7,29 @@ package com.itextpdf.highlevel.appendix;
 import com.itextpdf.kernel.color.Color;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.kernel.pdf.canvas.draw.DottedLine;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.Style;
 import com.itextpdf.layout.border.SolidBorder;
+import com.itextpdf.layout.element.LineSeparator;
 import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.hyphenation.HyphenationConfig;
 import com.itextpdf.layout.property.HorizontalAlignment;
+import com.itextpdf.layout.property.VerticalAlignment;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
 /**
- * @author Bruno Lowagie (iText Software)
+ * @author iText
  */
-public class ParagraphProperties {
+public class ListSeparatorProperties {
     
-    public static final String DEST = "results/appendix/paragraph_properties.pdf";
+    public static final String DEST = "results/appendix/separator_properties.pdf";
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new ParagraphProperties().createPdf(DEST);
+        new ListSeparatorProperties().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
@@ -38,24 +40,16 @@ public class ParagraphProperties {
         
         // Initialize document
         Document document = new Document(pdf);
-        Paragraph p;
         Style style = new Style();
         style.setBackgroundColor(Color.YELLOW);
-        p = getNewParagraphInstance().addStyle(style).setBorder(new SolidBorder(0.5f));
-        document.add(p);
-        p = getNewParagraphInstance();
-        p.setBackgroundColor(Color.GRAY).setWidth(150).setHorizontalAlignment(HorizontalAlignment.CENTER);
-        document.add(p);
-        document.add(getNewParagraphInstance().setWidth(150).setHyphenation(new HyphenationConfig("en", "uk", 3, 3)));
+        document.add(createNewSeparator().addStyle(style));
+        document.add(new Paragraph("test"));
+        document.add(createNewSeparator().setWidth(300).setHorizontalAlignment(HorizontalAlignment.CENTER));
+        document.add(createNewSeparator().setMargin(10).setVerticalAlignment(VerticalAlignment.BOTTOM).setBorder(new SolidBorder(0.5f)));
         document.close();
     }
     
-    public static Paragraph getNewParagraphInstance() {
-        return new Paragraph("This is a long paragraph that "
-                + "will be used and reused to test paragraph "
-                + "properties. This paragraph should take "
-                + "more than one line. We'll change different "
-                + "properties and then look at the effect "
-                + "when we add the paragraph to the document.");
+    public static LineSeparator createNewSeparator() {
+        return new LineSeparator(new DottedLine());
     }
 }
