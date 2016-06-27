@@ -9,11 +9,13 @@ import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.color.Color;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.kernel.pdf.action.PdfAction;
 import com.itextpdf.kernel.pdf.canvas.draw.SolidLine;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Div;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.LineSeparator;
+import com.itextpdf.layout.element.Link;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.property.HorizontalAlignment;
 import java.io.File;
@@ -39,7 +41,7 @@ public class C04E03_LineSeparatorExample {
         PdfDocument pdf = new PdfDocument(
             new PdfWriter(new FileOutputStream(dest)));
         Document document = new Document(pdf);
-        SolidLine line = new SolidLine(0.5f);
+        SolidLine line = new SolidLine(1f);
         line.setColor(Color.RED);
         LineSeparator ls = new LineSeparator(line);
         ls.setWidth(250);
@@ -47,10 +49,13 @@ public class C04E03_LineSeparatorExample {
         List<List<String>> resultSet = CsvTo2DList.convert(SRC, "|");
         resultSet.remove(0);
         for (List<String> record : resultSet) {
+            String url = String.format(
+                "http://www.imdb.com/title/tt%s", record.get(0));
+            Link movie = new Link(record.get(2), PdfAction.createURI(url));
             Div div = new Div()
                 .setKeepTogether(true)
                 .setHorizontalAlignment(HorizontalAlignment.CENTER)
-                .add(new Paragraph(record.get(2)).setFontSize(14f))
+                .add(new Paragraph(movie.setFontSize(14f)))
                 .add(new Paragraph(String.format(
                     "Directed by %s (%s, %s)",
                     record.get(3), record.get(4), record.get(1))));

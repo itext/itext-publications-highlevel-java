@@ -24,14 +24,14 @@ import java.io.OutputStream;
 /**
  * @author Bruno Lowagie (iText Software)
  */
-public class C04E04_ParagraphAndDiv {
+public class C04E05_ParagraphAndDiv2 {
     public static final String SRC = "src/main/resources/txt/jekyll_hyde.txt";
-    public static final String DEST = "results/chapter02/jekyll_hyde_v4.pdf";
+    public static final String DEST = "results/chapter04/jekyll_hydeV2.pdf";
     
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C04E04_ParagraphAndDiv().createPdf(DEST);
+        new C04E05_ParagraphAndDiv2().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
@@ -53,7 +53,7 @@ public class C04E04_ParagraphAndDiv {
         String line;
         Div div = new Div();
         while ((line = br.readLine()) != null) {
-            div.add(new Paragraph(line)
+            document.add(new Paragraph(line)
                 .setFont(bold).setFontSize(12)
                 .setMarginBottom(0)
                 .setKeepWithNext(true));

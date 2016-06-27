@@ -4,13 +4,16 @@
  */
 package com.itextpdf.highlevel.chapter04;
 
+import static com.itextpdf.highlevel.chapter04.C04E01_DivExample1.SRC;
 import com.itextpdf.highlevel.util.CsvTo2DList;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.kernel.pdf.action.PdfAction;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Div;
 import com.itextpdf.layout.element.Image;
+import com.itextpdf.layout.element.Link;
 import com.itextpdf.layout.element.Paragraph;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -39,14 +42,18 @@ public class C04E02_DivExample2 {
         resultSet.remove(0);
         for (List<String> record : resultSet) {
             Div div = new Div().setKeepTogether(true);
-            div.add(new Paragraph(record.get(2)).setFontSize(14f));
-            div.add(new Paragraph(String.format(
-                 "Directed by %s (%s, %s)",
-                record.get(3), record.get(4), record.get(1))));
+            String url = String.format(
+                "http://www.imdb.com/title/tt%s", record.get(0));
+            Link movie = new Link(record.get(2), PdfAction.createURI(url));
+            div.add(new Paragraph(movie.setFontSize(14)))
+                .add(new Paragraph(String.format(
+                    "Directed by %s (%s, %s)",
+                    record.get(3), record.get(4), record.get(1))));
             File file = new File(String.format(
                 "src/main/resources/img/%s.jpg", record.get(0)));
             if (file.exists()) {
                 Image img = new Image(ImageDataFactory.create(file.getPath()));
+                img.scaleToFit(10000, 120);
                 div.add(img);
             }
             document.add(div);
