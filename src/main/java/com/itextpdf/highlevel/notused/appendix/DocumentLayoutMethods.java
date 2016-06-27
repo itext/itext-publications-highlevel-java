@@ -1,17 +1,13 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This example was written by Bruno Lowagie
+ * in the context of the book: iText 7 layout objects
  */
-package com.itextpdf.highlevel.appendix;
+package com.itextpdf.highlevel.notused.appendix;
 
 import com.itextpdf.io.font.otf.GlyphLine;
-import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.kernel.pdf.PdfDocument;
-import com.itextpdf.kernel.pdf.PdfPage;
 import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
-import com.itextpdf.layout.Canvas;
+import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.hyphenation.HyphenationConfig;
 import com.itextpdf.layout.property.TextAlignment;
@@ -23,19 +19,17 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 /**
- *
- * @author iText
+ * @author Bruno Lowagie (iText Software)
  */
-public class CanvasLayoutMethods {
+public class DocumentLayoutMethods {
     
-    public static final String DEST = "results/appendix/canvas_layout_methods.pdf";
+    public static final String DEST = "results/appendix/document_layout_methods.pdf";
     
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new CanvasLayoutMethods().createPdf(DEST);
+        new DocumentLayoutMethods().createPdf(DEST);
     }
-    
     
     public void createPdf(String dest) throws IOException {
         // Initialize PDF writer and PDF document
@@ -43,26 +37,24 @@ public class CanvasLayoutMethods {
         PdfWriter writer = new PdfWriter(fos);
         PdfDocument pdf = new PdfDocument(writer);
         
-        PdfPage page = pdf.addNewPage();
-        PdfCanvas pdfCanvas = new PdfCanvas(page);
-        Rectangle rectangle = new Rectangle(36, 36, 523, 770);
-        Canvas canvas = new Canvas(pdfCanvas, pdf, rectangle);
+        // Initialize document
+        Document document = new Document(pdf);
         Paragraph p;
         p = new Paragraph("Testing layout methods");
-        canvas.add(p);
-        canvas.setTextAlignment(TextAlignment.CENTER);
+        document.add(p);
+        document.setTextAlignment(TextAlignment.CENTER);
         p = new Paragraph("Testing layout methods");
-        canvas.add(p);
+        document.add(p);
         p = new Paragraph();
         for (int i = 0; i < 6; i++)
             p.add("singing supercalifragilisticexpialidocious ");
-        canvas.add(p);
-        canvas.setHyphenation(new HyphenationConfig("en", "uk", 3, 3));
-        canvas.add(p);
-        canvas.setTextAlignment(TextAlignment.JUSTIFIED);
-        canvas.add(p);
-        canvas.setHyphenation(null);
-        canvas.setSplitCharacters(new ISplitCharacters() {
+        document.add(p);
+        document.setHyphenation(new HyphenationConfig("en", "uk", 3, 3));
+        document.add(p);
+        document.setTextAlignment(TextAlignment.JUSTIFIED);
+        document.add(p);
+        document.setHyphenation(null);
+        document.setSplitCharacters(new ISplitCharacters() {
             public boolean isSplitCharacter(GlyphLine text, int glyphPos) {
                 if (!text.get(glyphPos).hasValidUnicode()) {
                     return false;
@@ -72,15 +64,15 @@ public class CanvasLayoutMethods {
             }
             
         });
-        canvas.add(p);
-        canvas.setSplitCharacters(new DefaultSplitCharacters());
-        canvas.setTextAlignment(TextAlignment.LEFT);
-        canvas.add(p);
-        canvas.setWordSpacing(10);
-        canvas.add(p);
-        canvas.setCharacterSpacing(5);
-        canvas.add(p);
+        document.add(p);
+        document.setSplitCharacters(new DefaultSplitCharacters());
+        document.setTextAlignment(TextAlignment.LEFT);
+        document.add(p);
+        document.setWordSpacing(10);
+        document.add(p);
+        document.setCharacterSpacing(5);
+        document.add(p);
         //Close document
-        pdf.close();
+        document.close();
     }
 }

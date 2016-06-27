@@ -2,7 +2,7 @@
  * This example was written by Bruno Lowagie
  * in the context of the book: iText 7 layout objects
  */
-package com.itextpdf.highlevel.appendix;
+package com.itextpdf.highlevel.notused.appendix;
 
 import com.itextpdf.io.font.FontConstants;
 import com.itextpdf.kernel.color.Color;
