@@ -22,7 +22,7 @@ import java.io.OutputStream;
  */
 @WrapToTest
 public class C02E15_ShowTextAlignedKerned {
-    public static final String KEY = "src/main/resources/license/itextkey-typography.xml";
+    public static String KEY = "src/main/resources/license/itextkey-typography.xml";
     public static final String DEST = "results/chapter02/showtextalignedkerned.pdf";
     
     public static void main(String args[]) throws IOException {
