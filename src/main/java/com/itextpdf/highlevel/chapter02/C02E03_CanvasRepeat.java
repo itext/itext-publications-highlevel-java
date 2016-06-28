@@ -19,6 +19,7 @@ import com.itextpdf.layout.element.Text;
 import com.itextpdf.layout.property.Property;
 import com.itextpdf.layout.renderer.CanvasRenderer;
 import com.itextpdf.layout.renderer.IRenderer;
+import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -28,6 +29,7 @@ import java.io.OutputStream;
  *
  * @author iText
  */
+@WrapToTest
 public class C02E03_CanvasRepeat {
     
     class MyCanvasRenderer extends CanvasRenderer {

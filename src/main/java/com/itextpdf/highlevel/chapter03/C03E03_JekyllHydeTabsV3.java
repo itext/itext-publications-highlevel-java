@@ -14,6 +14,7 @@ import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Tab;
 import com.itextpdf.layout.element.TabStop;
 import com.itextpdf.layout.property.TabAlignment;
+import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -23,6 +24,7 @@ import java.util.List;
 /**
  * @author iText
  */
+@WrapToTest
 public class C03E03_JekyllHydeTabsV3 {
     
     public static final String SRC = "src/main/resources/data/jekyll_hyde.csv";

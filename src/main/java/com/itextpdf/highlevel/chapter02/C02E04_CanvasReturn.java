@@ -16,6 +16,7 @@ import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
 import com.itextpdf.layout.Canvas;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Text;
+import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -24,6 +25,7 @@ import java.io.OutputStream;
 /**
  * @author Bruno Lowagie (iText Software)
  */
+@WrapToTest
 public class C02E04_CanvasReturn {
     
     public static final String DEST = "results/chapter02/canvas_return.pdf";

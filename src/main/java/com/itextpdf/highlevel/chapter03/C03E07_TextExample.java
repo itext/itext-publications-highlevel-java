@@ -9,10 +9,12 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Text;
+import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+@WrapToTest
 public class C03E07_TextExample {
     
     public static final String DEST = "results/chapter03/jekyll_hyde_text.pdf";

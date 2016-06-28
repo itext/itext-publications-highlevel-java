@@ -11,6 +11,7 @@ import com.itextpdf.kernel.pdf.canvas.PdfCanvasConstants;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Text;
+import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -19,6 +20,7 @@ import java.io.OutputStream;
 /**
  * @author Bruno Lowagie (iText Software)
  */
+@WrapToTest
 public class C01E09_ColorRendering {
     
     public static final String DEST = "results/chapter01/color_rendermode.pdf";

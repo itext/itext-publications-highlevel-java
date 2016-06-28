@@ -11,10 +11,12 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.property.HorizontalAlignment;
+import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+@WrapToTest
 public class C03E15_MaryReillyV8 {
     
     public static final String MARY = "src/main/resources/img/0117002.jpg";

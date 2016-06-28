@@ -10,6 +10,7 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.property.TextAlignment;
 import com.itextpdf.layout.property.VerticalAlignment;
 import com.itextpdf.licensekey.LicenseKey;
+import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -19,6 +20,7 @@ import java.io.OutputStream;
 /**
  * @author iText
  */
+@WrapToTest
 public class C02E15_ShowTextAlignedKerned {
     public static final String KEY = "src/main/resources/license/itextkey-typography.xml";
     public static final String DEST = "results/chapter02/showtextalignedkerned.pdf";

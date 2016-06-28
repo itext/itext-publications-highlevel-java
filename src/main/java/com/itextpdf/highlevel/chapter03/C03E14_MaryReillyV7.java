@@ -11,12 +11,14 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.property.UnitValue;
+import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.IOException;
 
 /**
  * @author Bruno Lowagie (iText Software)
  */
+@WrapToTest
 public class C03E14_MaryReillyV7 {
     public static final String SRC = "src/main/resources/pdfs/jekyll_hyde.pdf";
     public static final String MARY = "src/main/resources/img/0117002.jpg";

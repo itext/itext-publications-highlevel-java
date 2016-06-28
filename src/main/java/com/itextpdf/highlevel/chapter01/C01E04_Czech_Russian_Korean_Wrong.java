@@ -11,6 +11,7 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -19,6 +20,7 @@ import java.io.OutputStream;
 /**
  * @author Bruno Lowagie (iText Software)
  */
+@WrapToTest
 public class C01E04_Czech_Russian_Korean_Wrong {
     
     public static final String DEST = "results/chapter01/czech_russian_korean_wrong.pdf";

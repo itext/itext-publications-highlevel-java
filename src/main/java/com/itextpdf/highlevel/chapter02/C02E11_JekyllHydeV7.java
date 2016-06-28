@@ -21,6 +21,7 @@ import com.itextpdf.layout.property.AreaBreakType;
 import com.itextpdf.layout.property.TextAlignment;
 import com.itextpdf.layout.renderer.DocumentRenderer;
 import com.itextpdf.layout.renderer.IRenderer;
+import com.itextpdf.test.annotations.WrapToTest;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -33,6 +34,7 @@ import java.util.Set;
 /**
  * @author Bruno Lowagie (iText Software)
  */
+@WrapToTest
 public class C02E11_JekyllHydeV7 {
     
     class MyColumnRenderer extends DocumentRenderer {

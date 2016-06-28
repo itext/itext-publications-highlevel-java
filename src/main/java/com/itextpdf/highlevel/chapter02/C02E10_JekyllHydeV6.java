@@ -11,12 +11,14 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.AreaBreak;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.property.AreaBreakType;
+import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.IOException;
 
 /**
  * @author Bruno Lowagie (iText Software)
  */
+@WrapToTest
 public class C02E10_JekyllHydeV6 {
     public static final String SRC = "src/main/resources/pdfs/jekyll_hyde.pdf";
     public static final String DEST = "results/chapter02/jekyll_hyde_v6.pdf";
