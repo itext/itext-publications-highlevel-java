@@ -13,8 +13,8 @@ import com.itextpdf.layout.border.SolidBorder;
 import com.itextpdf.layout.element.Link;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Text;
+
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
@@ -31,8 +31,7 @@ public class TextWithColoredBorder {
     }
     
     public void createPdf(String dest) throws IOException {
-        PdfDocument pdf = new PdfDocument(
-            new PdfWriter(new FileOutputStream(dest)));
+        PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
         Document document = new Document(pdf);
         document.add(new Paragraph("Paragraph with orange border").setBorder(new SolidBorder(Color.ORANGE, 5)));
         Text text = new Text("Text with orange border").setBorder(new SolidBorder(Color.ORANGE, 5));

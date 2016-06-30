@@ -18,8 +18,8 @@ import com.itextpdf.layout.element.Tab;
 import com.itextpdf.layout.element.TabStop;
 import com.itextpdf.layout.property.TabAlignment;
 import com.itextpdf.test.annotations.WrapToTest;
+
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,8 +40,7 @@ public class C03E05_JekyllHydeTabsV5 {
     }
     
     public void createPdf(String dest) throws IOException {
-        PdfDocument pdf = new PdfDocument(
-            new PdfWriter(new FileOutputStream(dest)));
+        PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
         Document document = new Document(pdf, PageSize.A4);
         
         float[] stops = new float[]{70, 90, 420, 430, 520};

@@ -13,8 +13,8 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Tab;
 import com.itextpdf.test.annotations.WrapToTest;
+
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
@@ -34,8 +34,7 @@ public class C03E01_JekyllHydeTabsV1 {
     }
     
     public void createPdf(String dest) throws IOException {
-        PdfDocument pdf = new PdfDocument(
-            new PdfWriter(new FileOutputStream(dest)));
+        PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
         Document document = new Document(pdf, PageSize.A4.rotate());
         
         PdfCanvas pdfCanvas = new PdfCanvas(pdf.addNewPage());

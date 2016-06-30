@@ -11,11 +11,10 @@ import com.itextpdf.layout.property.TextAlignment;
 import com.itextpdf.layout.property.VerticalAlignment;
 import com.itextpdf.licensekey.LicenseKey;
 import com.itextpdf.test.annotations.WrapToTest;
+
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 
 /**
  * @author iText
@@ -33,12 +32,8 @@ public class C02E15_ShowTextAlignedKerned {
     
     public void createPdf(String dest) throws IOException {
         LicenseKey.loadLicenseFile(new FileInputStream(KEY));
-        //Initialize PDF writer
-        OutputStream fos = new FileOutputStream(dest);
-        PdfWriter writer = new PdfWriter(fos);
-
         //Initialize PDF document
-        PdfDocument pdf = new PdfDocument(writer);
+        PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
         
         // Initialize document
         Document document = new Document(pdf);

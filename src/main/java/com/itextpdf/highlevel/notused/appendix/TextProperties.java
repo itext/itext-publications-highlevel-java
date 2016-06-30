@@ -13,10 +13,9 @@ import com.itextpdf.layout.Style;
 import com.itextpdf.layout.border.SolidBorder;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Text;
+
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 
 /**
  * @author Bruno Lowagie (iText Software)
@@ -31,11 +30,9 @@ public class TextProperties {
     }
     
     public void createPdf(String dest) throws IOException {
-        // Initialize PDF writer and PDF document
-        OutputStream fos = new FileOutputStream(dest);
-        PdfWriter writer = new PdfWriter(fos);
-        PdfDocument pdf = new PdfDocument(writer);
-        
+        // Initialize PDF document
+        PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
+
         // Initialize document
         Document document = new Document(pdf);
         Style style = new Style().setBold().setDestination("Top");

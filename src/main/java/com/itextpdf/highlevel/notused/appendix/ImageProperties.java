@@ -13,10 +13,9 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.Style;
 import com.itextpdf.layout.border.SolidBorder;
 import com.itextpdf.layout.element.Image;
+
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 
 /**
  * @author Bruno Lowagie (iText Software)
@@ -39,10 +38,9 @@ public class ImageProperties {
     
     
     public void createPdf(String dest) throws IOException {
-        OutputStream fos = new FileOutputStream(dest);
-        PdfWriter writer = new PdfWriter(fos);
-        PdfDocument pdf = new PdfDocument(writer);
-        
+        // Initialize PDF document
+        PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
+
         Document document = new Document(pdf);
         
         Image img1 = new Image(ImageDataFactory.create(TEST1));

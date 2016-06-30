@@ -13,8 +13,8 @@ import com.itextpdf.kernel.pdf.xobject.PdfFormXObject;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.test.annotations.WrapToTest;
+
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
@@ -34,8 +34,7 @@ public class C03E20_XObjectTypes {
     }
     
     public void createPdf(String dest) throws IOException {
-        PdfDocument pdf = new PdfDocument(
-            new PdfWriter(new FileOutputStream(dest)));
+        PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
         Document document = new Document(pdf);
         PdfFormXObject xObject1 = new PdfFormXObject(new WmfImageData(WMF), pdf);
         Image img1 = new Image(xObject1);

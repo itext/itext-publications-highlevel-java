@@ -14,9 +14,9 @@ import com.itextpdf.layout.border.SolidBorder;
 import com.itextpdf.layout.element.AreaBreak;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.test.annotations.WrapToTest;
-import java.awt.Toolkit;
+
+import java.awt.*;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
@@ -41,8 +41,7 @@ public class C03E18_ImageTypes {
     }
     
     public void createPdf(String dest) throws IOException {
-        PdfDocument pdf = new PdfDocument(
-            new PdfWriter(new FileOutputStream(dest)));
+        PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
         Document document = new Document(pdf);
         
         // raw

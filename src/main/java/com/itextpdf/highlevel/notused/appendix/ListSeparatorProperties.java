@@ -17,10 +17,9 @@ import com.itextpdf.layout.element.LineSeparator;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.property.HorizontalAlignment;
 import com.itextpdf.layout.property.VerticalAlignment;
+
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 
 /**
  * @author iText
@@ -35,11 +34,9 @@ public class ListSeparatorProperties {
     }
     
     public void createPdf(String dest) throws IOException {
-        // Initialize PDF writer and PDF document
-        OutputStream fos = new FileOutputStream(dest);
-        PdfWriter writer = new PdfWriter(fos);
-        PdfDocument pdf = new PdfDocument(writer);
-        
+        // Initialize PDF document
+        PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
+
         // Initialize document
         Document document = new Document(pdf);
         Style style = new Style();

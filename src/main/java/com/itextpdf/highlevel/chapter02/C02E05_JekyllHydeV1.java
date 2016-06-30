@@ -9,12 +9,11 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.test.annotations.WrapToTest;
+
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.OutputStream;
 
 /**
  * @author Bruno Lowagie (iText Software)
@@ -31,14 +30,10 @@ public class C02E05_JekyllHydeV1 {
     }
     
     public void createPdf(String dest) throws IOException {
-        //Initialize PDF writer
-        OutputStream fos = new FileOutputStream(dest);
-        PdfWriter writer = new PdfWriter(fos);
-
         //Initialize PDF document
-        PdfDocument pdf = new PdfDocument(writer);
+        PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
         
-        // Initialize document
+        //Initialize document
         Document document = new Document(pdf);
 
         BufferedReader br = new BufferedReader(new FileReader(SRC));

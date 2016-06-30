@@ -17,10 +17,9 @@ import com.itextpdf.layout.hyphenation.HyphenationConfig;
 import com.itextpdf.layout.property.TextAlignment;
 import com.itextpdf.layout.splitting.DefaultSplitCharacters;
 import com.itextpdf.layout.splitting.ISplitCharacters;
+
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 
 /**
  *
@@ -38,10 +37,8 @@ public class CanvasLayoutMethods {
     
     
     public void createPdf(String dest) throws IOException {
-        // Initialize PDF writer and PDF document
-        OutputStream fos = new FileOutputStream(dest);
-        PdfWriter writer = new PdfWriter(fos);
-        PdfDocument pdf = new PdfDocument(writer);
+        // Initialize PDF document
+        PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
         
         PdfPage page = pdf.addNewPage();
         PdfCanvas pdfCanvas = new PdfCanvas(page);

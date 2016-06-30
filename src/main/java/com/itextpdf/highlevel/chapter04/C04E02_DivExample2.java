@@ -4,7 +4,6 @@
  */
 package com.itextpdf.highlevel.chapter04;
 
-import static com.itextpdf.highlevel.chapter04.C04E01_DivExample1.SRC;
 import com.itextpdf.highlevel.util.CsvTo2DList;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -15,8 +14,8 @@ import com.itextpdf.layout.element.Div;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Link;
 import com.itextpdf.layout.element.Paragraph;
+
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
@@ -35,8 +34,7 @@ public class C04E02_DivExample2 {
     }
     
     public void createPdf(String dest) throws IOException {
-        PdfDocument pdf = new PdfDocument(
-            new PdfWriter(new FileOutputStream(dest)));
+        PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
         Document document = new Document(pdf);
         List<List<String>> resultSet = CsvTo2DList.convert(SRC, "|");
         resultSet.remove(0);

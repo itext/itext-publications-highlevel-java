@@ -12,8 +12,8 @@ import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.property.UnitValue;
 import com.itextpdf.test.annotations.WrapToTest;
+
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
 @WrapToTest
@@ -29,8 +29,7 @@ public class C03E12_MaryReillyV5 {
     }
     
     public void createPdf(String dest) throws IOException {
-        PdfDocument pdf = new PdfDocument(
-            new PdfWriter(new FileOutputStream(dest)));
+        PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
         Document document = new Document(pdf);
         Paragraph p = new Paragraph(
             "Mary Reilly is a maid in the household of Dr. Jekyll: ");

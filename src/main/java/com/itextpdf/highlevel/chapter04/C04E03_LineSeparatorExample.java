@@ -12,14 +12,10 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.action.PdfAction;
 import com.itextpdf.kernel.pdf.canvas.draw.SolidLine;
 import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.Div;
-import com.itextpdf.layout.element.Image;
-import com.itextpdf.layout.element.LineSeparator;
-import com.itextpdf.layout.element.Link;
-import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.*;
 import com.itextpdf.layout.property.HorizontalAlignment;
+
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
@@ -38,8 +34,7 @@ public class C04E03_LineSeparatorExample {
     }
     
     public void createPdf(String dest) throws IOException {
-        PdfDocument pdf = new PdfDocument(
-            new PdfWriter(new FileOutputStream(dest)));
+        PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
         Document document = new Document(pdf);
         SolidLine line = new SolidLine(1f);
         line.setColor(Color.RED);
