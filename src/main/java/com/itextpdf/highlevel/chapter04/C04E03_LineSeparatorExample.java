@@ -39,7 +39,7 @@ public class C04E03_LineSeparatorExample {
         SolidLine line = new SolidLine(1f);
         line.setColor(Color.RED);
         LineSeparator ls = new LineSeparator(line);
-        ls.setWidth(250);
+        ls.setWidthPercent(50);
         ls.setMarginTop(5);
         List<List<String>> resultSet = CsvTo2DList.convert(SRC, "|");
         resultSet.remove(0);
@@ -58,6 +58,7 @@ public class C04E03_LineSeparatorExample {
                 "src/main/resources/img/%s.jpg", record.get(0)));
             if (file.exists()) {
                 Image img = new Image(ImageDataFactory.create(file.getPath()));
+                img.scaleToFit(10000, 120);
                 div.add(img);
             }
             div.add(ls);
