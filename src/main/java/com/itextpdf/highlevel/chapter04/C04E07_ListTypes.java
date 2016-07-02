@@ -18,14 +18,14 @@ import java.io.IOException;
 /**
  * @author Bruno Lowagie (iText Software)
  */
-public class C04E06_ListTypes {
+public class C04E07_ListTypes {
     
     public static final String DEST = "results/chapter04/list_types.pdf";
     
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C04E06_ListTypes().createPdf(DEST);
+        new C04E07_ListTypes().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {

@@ -19,14 +19,14 @@ import java.io.IOException;
 /**
  * @author Bruno Lowagie (iText Software)
  */
-public class C04E07_NestedLists {
+public class C04E10_NestedLists {
     
     public static final String DEST = "results/chapter04/nested_list.pdf";
     
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C04E07_NestedLists().createPdf(DEST);
+        new C04E10_NestedLists().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
