@@ -33,15 +33,15 @@ import java.io.IOException;
 /**
  * @author Bruno Lowagie (iText Software)
  */
-public class C06E01_ImageWatermark {
+public class C06E02_ImageWatermark {
     public static final String SRC = "src/main/resources/txt/jekyll_hyde.txt";
     public static final String IMG = "src/main/resources/img/3132614.jpg";
-    public static final String DEST = "results/chapter06/jekyll_hydeV1.pdf";
+    public static final String DEST = "results/chapter06/jekyll_hydeV2.pdf";
     
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C06E01_ImageWatermark().createPdf(DEST);
+        new C06E02_ImageWatermark().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
