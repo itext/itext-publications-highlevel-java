@@ -9,25 +9,22 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Cell;
-import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.HorizontalAlignment;
-import com.itextpdf.layout.property.TextAlignment;
-import com.itextpdf.layout.property.VerticalAlignment;
 import java.io.File;
 import java.io.IOException;
 
 /**
  * @author Bruno Lowagie (iText Software)
  */
-public class C05E04_CellMarginPadding {
+public class C05E05_CellMarginPadding {
     
     public static final String DEST = "results/chapter05/cell_margin_padding.pdf";
        
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C05E04_CellMarginPadding().createPdf(DEST);
+        new C05E05_CellMarginPadding().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {

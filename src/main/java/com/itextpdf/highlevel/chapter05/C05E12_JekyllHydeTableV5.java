@@ -9,6 +9,8 @@ import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Cell;
+import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 
 import java.io.File;
@@ -18,15 +20,15 @@ import java.util.List;
 /**
  * @author iText
  */
-public class JekyllHydeTableV1 {
+public class C05E12_JekyllHydeTableV5 {
     
     public static final String SRC = "src/main/resources/data/jekyll_hyde.csv";
-    public static final String DEST = "results/chapter05/jekyll_hyde_table1.pdf";
+    public static final String DEST = "results/chapter05/jekyll_hyde_table5.pdf";
        
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new JekyllHydeTableV1().createPdf(DEST);
+        new C05E12_JekyllHydeTableV5().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
@@ -35,16 +37,23 @@ public class JekyllHydeTableV1 {
         
         // Initialize document
         Document document = new Document(pdf, PageSize.A4.rotate());
+        Table table = new Table(new float[]{3, 32});
+        table.setWidthPercent(100);
         List<List<String>> resultSet = CsvTo2DList.convert(SRC, "|");
-        List<String> header = resultSet.remove(0);
-        Table table = new Table(header.size());
-        for (String field : header) {
-            table.addHeaderCell(field);
-        }
+        resultSet.remove(0);
+        table.addHeaderCell("imdb");
+        table.addHeaderCell("Information about the movie");
+        Cell cell;
         for (List<String> record : resultSet) {
-            for (String field : record) {
-                table.addCell(field);
-            }
+            table.addCell(record.get(0));
+            cell = new Cell()
+                .add(new Paragraph(record.get(1)))
+                .add(new Paragraph(record.get(2)))
+                .add(new Paragraph(record.get(3)))
+                .add(new Paragraph(record.get(4)))
+                .add(new Paragraph(record.get(5)));
+            cell.setKeepTogether(true);
+            table.addCell(cell);
         }
         document.add(table);
         document.close();
