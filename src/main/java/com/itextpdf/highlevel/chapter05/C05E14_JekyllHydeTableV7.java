@@ -6,7 +6,6 @@ package com.itextpdf.highlevel.chapter05;
 
 import com.itextpdf.highlevel.util.CsvTo2DList;
 import com.itextpdf.kernel.color.Color;
-import com.itextpdf.kernel.color.DeviceRgb;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.kernel.pdf.PdfDocument;
