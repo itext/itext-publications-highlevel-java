@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This example was written by Bruno Lowagie
+ * in the context of the book: iText 7 layout objects
  */
 package com.itextpdf.highlevel.chapter05;
 
