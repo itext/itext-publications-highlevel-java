@@ -12,6 +12,7 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.action.PdfAction;
 import com.itextpdf.kernel.pdf.canvas.draw.SolidLine;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.border.SolidBorder;
 import com.itextpdf.layout.element.*;
 import com.itextpdf.layout.property.HorizontalAlignment;
 
@@ -49,7 +50,9 @@ public class C04E03_LineSeparatorExample {
             Link movie = new Link(record.get(2), PdfAction.createURI(url));
             Div div = new Div()
                 .setKeepTogether(true)
-                .setHorizontalAlignment(HorizontalAlignment.CENTER)
+                .setBorderLeft(new SolidBorder(2))
+                .setPaddingLeft(3)
+                .setMarginBottom(10)
                 .add(new Paragraph(movie.setFontSize(14f)))
                 .add(new Paragraph(String.format(
                     "Directed by %s (%s, %s)",
