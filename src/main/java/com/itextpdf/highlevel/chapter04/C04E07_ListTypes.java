@@ -72,7 +72,6 @@ public class C04E07_ListTypes {
         list.add("Mr. Hyde");
         document.add(list);
         
-        
         list = new List(ListNumberingType.GREEK_UPPER);
         list.add("Dr. Jekyll");
         list.add("Mr. Hyde");
