@@ -8,6 +8,8 @@ import com.itextpdf.kernel.color.Color;
 import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.kernel.pdf.canvas.CanvasArtifact;
+import com.itextpdf.kernel.pdf.tagutils.IAccessibleElement;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.property.Background;
@@ -33,7 +35,16 @@ public class C04E06_CustomParagraph {
             Background background = this.<Background>getProperty(Property.BACKGROUND);
             if (background != null) {
                 Rectangle bBox = getOccupiedAreaBBox();
+                boolean isTagged =
+                    drawContext.isTaggingEnabled()
+                    && getModelElement() instanceof IAccessibleElement;
+                if (isTagged) {
+                    drawContext.getCanvas().openTag(new CanvasArtifact());
+                }
                 Rectangle bgArea = applyMargins(bBox, false);
+                if (bgArea.getWidth() <= 0 || bgArea.getHeight() <= 0) {
+                    return;
+                }
                 drawContext.getCanvas().saveState()
                     .setFillColor(background.getColor())
                     .roundRectangle(
@@ -45,6 +56,9 @@ public class C04E06_CustomParagraph {
                         + background.getExtraTop() + background.getExtraBottom(),
                     5)
                     .fill().restoreState();
+                if (isTagged) {
+                    drawContext.getCanvas().closeTag();
+                }
             }
         }
     }
