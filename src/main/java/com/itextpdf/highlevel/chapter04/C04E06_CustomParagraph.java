@@ -10,6 +10,8 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.property.Background;
+import com.itextpdf.layout.property.Property;
 import com.itextpdf.layout.renderer.DrawContext;
 import com.itextpdf.layout.renderer.ParagraphRenderer;
 import java.io.File;
@@ -28,12 +30,22 @@ public class C04E06_CustomParagraph {
 
         @Override
         public void drawBackground(DrawContext drawContext) {
-            Rectangle bBox = getOccupiedAreaBBox();
-            Rectangle bgArea = applyMargins(bBox, false);
-            drawContext.getCanvas().saveState().setFillColor(Color.ORANGE)
-                .roundRectangle((double)bgArea.getX(), (double)bgArea.getY(),
-                    (double)bgArea.getWidth(), (double)bgArea.getHeight(), 5)
-                .fill().restoreState();
+            Background background = this.<Background>getProperty(Property.BACKGROUND);
+            if (background != null) {
+                Rectangle bBox = getOccupiedAreaBBox();
+                Rectangle bgArea = applyMargins(bBox, false);
+                drawContext.getCanvas().saveState()
+                    .setFillColor(background.getColor())
+                    .roundRectangle(
+                    (double)bgArea.getX() - background.getExtraLeft(),
+                    (double)bgArea.getY() - background.getExtraBottom(),
+                    (double)bgArea.getWidth()
+                        + background.getExtraLeft() + background.getExtraRight(),
+                    (double)bgArea.getHeight()
+                        + background.getExtraTop() + background.getExtraBottom(),
+                    5)
+                    .fill().restoreState();
+            }
         }
     }
     
@@ -59,6 +71,7 @@ public class C04E06_CustomParagraph {
         
         Paragraph p2 = new Paragraph(
             "The Strange Case of Dr. Jekyll and Mr. Hyde");
+        p2.setBackgroundColor(Color.ORANGE);
         p2.setNextRenderer(new MyParagraphRenderer(p2));
         document.add(p2);
         
