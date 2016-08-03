@@ -19,6 +19,7 @@ import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.HorizontalAlignment;
 import com.itextpdf.layout.renderer.CellRenderer;
 import com.itextpdf.layout.renderer.DrawContext;
+import com.itextpdf.layout.renderer.IRenderer;
 import java.io.File;
 import java.io.IOException;
 
@@ -41,6 +42,21 @@ public class C05E06_CellBorders {
             canvas.roundRectangle(rectangle.getX() + 1, rectangle.getY() + 1,
                 rectangle.getWidth() - 2, rectangle.getHeight() -2, 5).stroke();
             super.drawBorder(drawContext);
+        }
+    }
+    
+    private class RoundedCornersCell extends Cell {
+        public RoundedCornersCell() {
+            super();
+        }
+        
+        public RoundedCornersCell(int rowspan, int colspan) {
+            super(rowspan, colspan);
+        }
+        
+        @Override
+        protected IRenderer makeNewRenderer() {
+            return new RoundedCornersCellRenderer(this);
         }
     }
     
@@ -101,25 +117,19 @@ public class C05E06_CellBorders {
         table3.setMarginTop(10);
         table3.setWidthPercent(80);
         table3.setHorizontalAlignment(HorizontalAlignment.CENTER);
-        Cell cell = new Cell(1, 3).add("Cell with colspan 3")
+        Cell cell = new RoundedCornersCell(1, 3).add("Cell with colspan 3")
                 .setPadding(10).setMargin(5).setBorder(Border.NO_BORDER);
-        cell.setNextRenderer(new RoundedCornersCellRenderer(cell));
         table3.addCell(cell);
-        cell = new Cell(2, 1).add("Cell with rowspan 2")
+        cell = new RoundedCornersCell(2, 1).add("Cell with rowspan 2")
             .setMarginTop(5).setMarginBottom(5);
-        cell.setNextRenderer(new RoundedCornersCellRenderer(cell));
         table3.addCell(cell);
-        cell = new Cell().add("row 1; cell 1");
-        cell.setNextRenderer(new RoundedCornersCellRenderer(cell));
+        cell = new RoundedCornersCell().add("row 1; cell 1");
         table3.addCell(cell);
-        cell = new Cell().add("row 1; cell 2");
-        cell.setNextRenderer(new RoundedCornersCellRenderer(cell));
+        cell = new RoundedCornersCell().add("row 1; cell 2");
         table3.addCell(cell);
-        cell = new Cell().add("row 2; cell 1").setMargin(10);
-        cell.setNextRenderer(new RoundedCornersCellRenderer(cell));
+        cell = new RoundedCornersCell().add("row 2; cell 1").setMargin(10);
         table3.addCell(cell);
-        cell = new Cell().add("row 2; cell 2").setPadding(10);
-        cell.setNextRenderer(new RoundedCornersCellRenderer(cell));
+        cell = new RoundedCornersCell().add("row 2; cell 2").setPadding(10);
         table3.addCell(cell);
         document.add(table3);
         document.close();
