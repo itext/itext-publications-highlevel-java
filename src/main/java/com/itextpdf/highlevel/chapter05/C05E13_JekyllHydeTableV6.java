@@ -103,7 +103,6 @@ class AlternatingBackgroundTableRenderer extends TableRenderer {
             }
             canvas.rectangle(rect);
             canvas.fill();
-            canvas.stroke();
             canvas.restoreState();
         }
         super.draw(drawContext);
