@@ -74,11 +74,6 @@ class AlternatingBackgroundTableRenderer extends TableRenderer {
     }
 
     @Override
-    protected TableRenderer[] split(int row, boolean hasContent) {
-        return super.split(row, hasContent);
-    }
-
-    @Override
     public AlternatingBackgroundTableRenderer getNextRenderer() {
         return new AlternatingBackgroundTableRenderer((Table) modelElement);
     }
@@ -87,11 +82,14 @@ class AlternatingBackgroundTableRenderer extends TableRenderer {
     public void draw(DrawContext drawContext) {
         for (int i = 0; i < rows.size() && null != rows.get(i) && null != rows.get(i)[0]; i++) {
             CellRenderer[] renderers = rows.get(i);
-            Rectangle rect = new Rectangle(renderers[0].getOccupiedArea().getBBox().getLeft(),
-                    renderers[0].getOccupiedArea().getBBox().getBottom(),
-                    renderers[renderers.length - 1].getOccupiedArea().getBBox().getRight() -
-                            renderers[0].getOccupiedArea().getBBox().getLeft(),
-                    renderers[0].getOccupiedArea().getBBox().getHeight());
+            Rectangle leftCell =
+                renderers[0].getOccupiedAreaBBox();
+            Rectangle rightCell =
+                renderers[renderers.length - 1].getOccupiedAreaBBox();
+            Rectangle rect = new Rectangle(
+                leftCell.getLeft(), leftCell.getBottom(),
+                rightCell.getRight() - leftCell.getLeft(),
+                leftCell.getHeight());
             PdfCanvas canvas = drawContext.getCanvas();
             canvas.saveState();
             if (isOdd) {

@@ -72,29 +72,29 @@ public class C05E14_JekyllHydeTableV7 {
         }
 
         @Override
+        public CellRenderer getNextRenderer() {
+            return new RunlenghtRenderer(getModelElement(), String.valueOf(runlength));
+        }
+
+        @Override
         public void drawBackground(DrawContext drawContext) {
             if (runlength == 0) return;
             PdfCanvas canvas = drawContext.getCanvas();
             canvas.saveState();
             if (runlength < 90) {
                 canvas.setFillColor(Color.GREEN);
-            } else if (runlength > 120) {
+            } else if (runlength > 240) {
+                runlength = 240;
                 canvas.setFillColor(Color.RED);
             } else {
                 canvas.setFillColor(Color.ORANGE);
             }
-            if (runlength > 240) runlength = 240;
             Rectangle rect = getOccupiedAreaBBox();
             canvas.rectangle(rect.getLeft(), rect.getBottom(),
                     rect.getWidth() * runlength / 240, rect.getHeight());
             canvas.fill();
             canvas.restoreState();
             super.drawBackground(drawContext);
-        }
-
-        @Override
-        public CellRenderer getNextRenderer() {
-            return new RunlenghtRenderer(getModelElement(), String.valueOf(runlength));
         }
     }
 }

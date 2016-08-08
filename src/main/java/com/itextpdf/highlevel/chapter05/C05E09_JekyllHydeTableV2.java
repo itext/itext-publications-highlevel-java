@@ -9,6 +9,7 @@ import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Table;
 
 import java.io.File;
@@ -30,10 +31,7 @@ public class C05E09_JekyllHydeTableV2 {
     }
     
     public void createPdf(String dest) throws IOException {
-        //Initialize PDF document
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
-        
-        // Initialize document
         Document document = new Document(pdf, PageSize.A4.rotate());
         Table table = new Table(new float[]{3, 2, 14, 9, 4, 3});
         table.setWidthPercent(100);
@@ -42,16 +40,15 @@ public class C05E09_JekyllHydeTableV2 {
         for (String field : header) {
             table.addHeaderCell(field);
         }
-        table.setSkipLastFooter(true);
         for (List<String> record : resultSet) {
             for (String field : record) {
                 table.addCell(field);
             }
         }
-        Table outerTable = new Table(1);
-        outerTable.addHeaderCell("Continued from previous page:");
-        outerTable.setSkipFirstHeader(true);
-        outerTable.addCell(table);
+        Table outerTable = new Table(1)
+            .addHeaderCell("Continued from previous page:")
+            .setSkipFirstHeader(true)
+            .addCell(new Cell().add(table).setPadding(0));
         document.add(outerTable);
         document.close();
     }

@@ -44,8 +44,8 @@ public class C05E08_JekyllHydeTableV1 {
             table.addHeaderCell(field);
         }
         Cell cell = new Cell(1, 6).add("Continued on next page...");
-        table.addFooterCell(cell);
-        table.setSkipLastFooter(true);
+        table.addFooterCell(cell)
+            .setSkipLastFooter(true);
         for (List<String> record : resultSet) {
             for (String field : record) {
                 table.addCell(field);

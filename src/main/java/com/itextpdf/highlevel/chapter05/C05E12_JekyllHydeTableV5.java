@@ -41,8 +41,8 @@ public class C05E12_JekyllHydeTableV5 {
         table.setWidthPercent(100);
         List<List<String>> resultSet = CsvTo2DList.convert(SRC, "|");
         resultSet.remove(0);
-        table.addHeaderCell("imdb");
-        table.addHeaderCell("Information about the movie");
+        table.addHeaderCell("imdb")
+            .addHeaderCell("Information about the movie");
         Cell cell;
         for (List<String> record : resultSet) {
             table.addCell(record.get(0));
