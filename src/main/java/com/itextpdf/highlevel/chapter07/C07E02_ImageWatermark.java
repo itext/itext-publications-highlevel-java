@@ -2,12 +2,10 @@
  * This example was written by Bruno Lowagie
  * in the context of the book: iText 7 layout objects
  */
-package com.itextpdf.highlevel.chapter06;
+package com.itextpdf.highlevel.chapter07;
 
 import com.itextpdf.io.font.FontConstants;
 import com.itextpdf.io.image.ImageDataFactory;
-import com.itextpdf.kernel.color.Color;
-import com.itextpdf.kernel.color.DeviceCmyk;
 import com.itextpdf.kernel.events.Event;
 import com.itextpdf.kernel.events.IEventHandler;
 import com.itextpdf.kernel.events.PdfDocumentEvent;
@@ -35,15 +33,15 @@ import java.io.IOException;
 /**
  * @author Bruno Lowagie (iText Software)
  */
-public class C06E01_TextWatermark {
+public class C07E02_ImageWatermark {
     public static final String SRC = "src/main/resources/txt/jekyll_hyde.txt";
     public static final String IMG = "src/main/resources/img/3132614.jpg";
-    public static final String DEST = "results/chapter06/jekyll_hydeV1.pdf";
+    public static final String DEST = "results/chapter07/jekyll_hydeV2.pdf";
     
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C06E01_TextWatermark().createPdf(DEST);
+        new C07E02_ImageWatermark().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
@@ -51,7 +49,7 @@ public class C06E01_TextWatermark {
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
         Image img = new Image(ImageDataFactory.create(IMG));
         pdf.addEventHandler(PdfDocumentEvent.END_PAGE,
-                new TextWatermark());
+                new TransparentImage(img));
         // Initialize document
         Document document = new Document(pdf);
         PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
@@ -88,15 +86,14 @@ public class C06E01_TextWatermark {
         //Close document
         document.close();
     }
-    protected class TextWatermark implements IEventHandler {
-        
-        Color lime, blue;
-        PdfFont helvetica;
+    protected class TransparentImage implements IEventHandler {
 
-        protected TextWatermark() throws IOException {
-            helvetica = PdfFontFactory.createFont(FontConstants.HELVETICA);
-            lime = new DeviceCmyk(0.208f, 0, 0.584f, 0);
-            blue = new DeviceCmyk(0.445f, 0.0546f, 0, 0.0667f);
+        protected PdfExtGState gState;
+        protected Image img;
+        
+        public TransparentImage(Image img) {
+            this.img = img;
+            gState = new PdfExtGState().setFillOpacity(0.2f);
         }
         
         @Override
@@ -104,23 +101,12 @@ public class C06E01_TextWatermark {
             PdfDocumentEvent docEvent = (PdfDocumentEvent) event;
             PdfDocument pdfDoc = docEvent.getDocument();
             PdfPage page = docEvent.getPage();
-            int pageNumber = pdfDoc.getPageNumber(page);
             Rectangle pageSize = page.getPageSize();
             PdfCanvas pdfCanvas = new PdfCanvas(page.newContentStreamBefore(), page.getResources(), pdfDoc);
-            pdfCanvas.saveState()
-                .setFillColor(pageNumber % 2 == 1 ? lime : blue)
-                .rectangle(pageSize.getLeft(), pageSize.getBottom(),
-                    pageSize.getWidth(), pageSize.getHeight())
-                .fill().restoreState();
-            if (pageNumber > 1) {
-                pdfCanvas.beginText()
-                    .setFontAndSize(helvetica, 10)
-                    .moveText(pageSize.getWidth() / 2 - 120, pageSize.getTop() - 20)
-                    .showText("The Strange Case of Dr. Jekyll and Mr. Hyde")
-                    .moveText(120, -pageSize.getTop() + 40)
-                    .showText(String.valueOf(pageNumber))
-                    .endText();
-            }
+            pdfCanvas.saveState().setExtGState(gState);
+            Canvas canvas = new Canvas(pdfCanvas, pdfDoc, page.getPageSize());
+            canvas.add(img.scaleAbsolute(pageSize.getWidth(), pageSize.getHeight()));
+            pdfCanvas.restoreState();
             pdfCanvas.release();
         }
     }
