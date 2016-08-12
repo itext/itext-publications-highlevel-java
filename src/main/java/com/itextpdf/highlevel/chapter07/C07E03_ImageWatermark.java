@@ -15,20 +15,29 @@ import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfPage;
 import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.kernel.pdf.action.PdfAction;
 import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
+import com.itextpdf.kernel.pdf.canvas.draw.DottedLine;
 import com.itextpdf.kernel.pdf.extgstate.PdfExtGState;
 import com.itextpdf.layout.Canvas;
 import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.Div;
+import com.itextpdf.layout.element.AreaBreak;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Tab;
+import com.itextpdf.layout.element.TabStop;
 import com.itextpdf.layout.hyphenation.HyphenationConfig;
+import com.itextpdf.layout.property.AreaBreakType;
+import com.itextpdf.layout.property.TabAlignment;
 import com.itextpdf.layout.property.TextAlignment;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.AbstractMap.SimpleEntry;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Bruno Lowagie (iText Software)
@@ -48,40 +57,67 @@ public class C07E03_ImageWatermark {
         //Initialize PDF document
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
         Image img = new Image(ImageDataFactory.create(IMG));
-        pdf.addEventHandler(PdfDocumentEvent.END_PAGE,
-                new TransparentImage(img));
+        IEventHandler handler = new TransparentImage(img);
+        pdf.addEventHandler(PdfDocumentEvent.START_PAGE, handler);
         // Initialize document
         Document document = new Document(pdf);
-        PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
         PdfFont bold = PdfFontFactory.createFont(FontConstants.HELVETICA_BOLD);
         document.setTextAlignment(TextAlignment.JUSTIFIED)
             .setHyphenation(new HyphenationConfig("en", "uk", 3, 3));
         
+        
+        
         BufferedReader br = new BufferedReader(new FileReader(SRC));
-        String line;
-        Div div = new Div();
+        String name, line;
+        Paragraph p;
+        boolean title = true;
+        int counter = 0;
+        List<SimpleEntry<String,SimpleEntry<String, Integer>>> toc = new ArrayList<>();
         while ((line = br.readLine()) != null) {
-            document.add(new Paragraph(line)
-                .setFont(bold).setFontSize(12)
-                .setMarginBottom(0)
-                .setKeepWithNext(true));
-            div = new Div()
-                .setFont(font).setFontSize(11)
-                .setMarginBottom(18);
-            while ((line = br.readLine()) != null) {
-                div.add(
-                    new Paragraph(line)
-                        .setMarginBottom(0)
-                        .setFirstLineIndent(36)
-                        .setMultipliedLeading(1.2f)
-                );
+            p = new Paragraph(line);
+            p.setKeepTogether(true);
+            if (title) {
+                name = String.format("title%02d", counter++);
+                p.setFont(bold).setFontSize(12)
+                    .setKeepWithNext(true)
+                    .setDestination(name);
+                title = false;
+                document.add(p);
+                toc.add(new SimpleEntry(name, new SimpleEntry(line, pdf.getNumberOfPages())));
+            }
+            else {
+                p.setFirstLineIndent(36);
                 if (line.isEmpty()) {
-                    document.add(div);
-                    break;
+                    p.setMarginBottom(12);
+                    title = true;
                 }
+                else {
+                    p.setMarginBottom(0);
+                }
+                document.add(p);
             }
         }
-        document.add(div);
+        
+        pdf.removeEventHandler(PdfDocumentEvent.START_PAGE, handler);
+        document.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
+        
+        p = new Paragraph().setFont(bold)
+            .add("Table of Contents").setDestination("toc");
+        document.add(p);
+        
+        toc.remove(0);
+        List<TabStop> tabstops = new ArrayList();
+        tabstops.add(new TabStop(580, TabAlignment.RIGHT, new DottedLine()));
+        for (SimpleEntry<String, SimpleEntry<String, Integer>> entry : toc) {
+            SimpleEntry<String, Integer> text = entry.getValue();
+            p = new Paragraph()
+                .addTabStops(tabstops)
+                .add(text.getKey())
+                .add(new Tab())
+                .add(String.valueOf(text.getValue()))
+                .setAction(PdfAction.createGoTo(entry.getKey()));
+            document.add(p);
+        }
 
         //Close document
         document.close();
