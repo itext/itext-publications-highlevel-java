@@ -1,6 +1,6 @@
 /*
  * This example was written by Bruno Lowagie
- * in the context of the book: iText 7 layout objects
+ * in the context of the book: iText 7 building blocks
  */
 package com.itextpdf.highlevel.notused;
 
