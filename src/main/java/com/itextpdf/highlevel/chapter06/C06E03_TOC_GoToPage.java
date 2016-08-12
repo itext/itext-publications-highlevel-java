@@ -74,6 +74,7 @@ public class C06E03_TOC_GoToPage {
                     .setDestination(name);
                 title = false;
                 document.add(p);
+                // The following line is problematic when using setKeepWithNext
                 toc.add(new SimpleEntry(line, pdf.getNumberOfPages()));
             }
             else {

@@ -4,9 +4,7 @@
  */
 package com.itextpdf.highlevel.chapter06;
 
-import static com.itextpdf.highlevel.chapter06.C06E01_URIAction.SRC;
 import com.itextpdf.highlevel.util.CsvTo2DList;
-import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.color.Color;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfName;
@@ -14,11 +12,6 @@ import com.itextpdf.kernel.pdf.PdfOutline;
 import com.itextpdf.kernel.pdf.PdfPage;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.action.PdfAction;
-import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.Image;
-import com.itextpdf.layout.element.ListItem;
-import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.property.ListNumberingType;
 
 import java.io.File;
 import java.io.IOException;
@@ -40,7 +33,7 @@ public class C06E12_Outlines {
     
     public void createPdf(String dest) throws IOException {
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
-        PdfPage page = pdf.addNewPage();
+        pdf.addNewPage();
         pdf.getCatalog().setPageMode(PdfName.UseOutlines);
         PdfOutline root = pdf.getOutlines(false);
         List<List<String>> resultSet = CsvTo2DList.convert(SRC, "|");

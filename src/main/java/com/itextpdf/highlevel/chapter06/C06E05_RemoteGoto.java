@@ -36,7 +36,7 @@ public class C06E05_RemoteGoto {
                 new File(C06E04_TOC_GoToNamed.DEST).getName(), 1, true));
         Link link2 = new Link("table of contents",
             PdfAction.createGoToR(
-                new File(C06E04_TOC_GoToNamed.DEST).getName(), "toc", true));
+                new File(C06E04_TOC_GoToNamed.DEST).getName(), "toc", false));
         Paragraph p = new Paragraph()
             .add("Read the amazing horror story ")
             .add(link1.setFontColor(Color.BLUE))
