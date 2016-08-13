@@ -11,6 +11,7 @@ import com.itextpdf.kernel.pdf.PdfName;
 import com.itextpdf.kernel.pdf.PdfOutline;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.action.PdfAction;
+import com.itextpdf.test.annotations.WrapToTest;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,6 +20,7 @@ import java.util.List;
 /**
  * @author Bruno Lowagie (iText Software)
  */
+@WrapToTest
 public class C06E12_Outlines {
     
     public static final String SRC = "src/main/resources/data/jekyll_hyde.csv";

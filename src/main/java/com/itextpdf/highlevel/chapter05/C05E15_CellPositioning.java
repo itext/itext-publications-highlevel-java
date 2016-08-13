@@ -14,6 +14,7 @@ import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.property.UnitValue;
 import com.itextpdf.layout.renderer.CellRenderer;
 import com.itextpdf.layout.renderer.DrawContext;
+import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.IOException;
 
@@ -21,6 +22,7 @@ import java.io.IOException;
  *
  * @author Bruno Lowagie (iText Software)
  */
+@WrapToTest
 public class C05E15_CellPositioning {
     
     public static final String DEST = "results/chapter05/cell_position.pdf";

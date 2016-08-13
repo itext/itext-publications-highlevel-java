@@ -13,12 +13,14 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.List;
 import com.itextpdf.layout.element.ListItem;
 import com.itextpdf.layout.property.ListNumberingType;
+import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.IOException;
 
 /**
  * @author Bruno Lowagie (iText Software)
  */
+@WrapToTest
 public class C04E10_NestedLists {
     
     public static final String DEST = "results/chapter04/nested_list.pdf";

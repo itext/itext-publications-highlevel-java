@@ -15,12 +15,14 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.AreaBreak;
 import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.IOException;
 
 /**
  * @author iText
  */
+@WrapToTest
 public class C07E01_EventHandlers {
     
     public static final String DEST = "results/chapter07/jekyll_hyde_page_orientation.pdf";

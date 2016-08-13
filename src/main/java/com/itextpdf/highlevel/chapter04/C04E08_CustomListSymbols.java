@@ -20,12 +20,14 @@ import com.itextpdf.layout.element.List;
 import com.itextpdf.layout.element.Text;
 import com.itextpdf.layout.property.ListNumberingType;
 import com.itextpdf.layout.property.ListSymbolAlignment;
+import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.IOException;
 
 /**
  * @author Bruno Lowagie (iText Software)
  */
+@WrapToTest
 public class C04E08_CustomListSymbols {
     
     public static final String DEST = "results/chapter04/custom_list_symbols.pdf";

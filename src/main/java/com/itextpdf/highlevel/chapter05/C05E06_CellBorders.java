@@ -20,12 +20,14 @@ import com.itextpdf.layout.property.HorizontalAlignment;
 import com.itextpdf.layout.renderer.CellRenderer;
 import com.itextpdf.layout.renderer.DrawContext;
 import com.itextpdf.layout.renderer.IRenderer;
+import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.IOException;
 
 /**
  * @author Bruno Lowagie (iText Software)
  */
+@WrapToTest
 public class C05E06_CellBorders {
     
     private class RoundedCornersCellRenderer extends CellRenderer {

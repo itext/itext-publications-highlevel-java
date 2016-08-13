@@ -16,12 +16,14 @@ import com.itextpdf.layout.property.Background;
 import com.itextpdf.layout.property.Property;
 import com.itextpdf.layout.renderer.DrawContext;
 import com.itextpdf.layout.renderer.ParagraphRenderer;
+import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.IOException;
 
 /**
  * @author Bruno Lowagie (iText Software)
  */
+@WrapToTest
 public class C04E06_CustomParagraph {
     
     class MyParagraphRenderer extends ParagraphRenderer {

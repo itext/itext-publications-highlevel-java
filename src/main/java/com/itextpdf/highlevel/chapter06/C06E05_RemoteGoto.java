@@ -11,12 +11,14 @@ import com.itextpdf.kernel.pdf.action.PdfAction;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Link;
 import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.IOException;
 
 /**
  * @author iText
  */
+@WrapToTest
 public class C06E05_RemoteGoto {
     
     public static final String DEST = "results/chapter06/jekyll_hyde_remote.pdf";
