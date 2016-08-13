@@ -42,15 +42,15 @@ import java.util.List;
 /**
  * @author Bruno Lowagie (iText Software)
  */
-public class C07E03_ImageWatermark {
+public class C07E04_ImageWatermark {
     public static final String SRC = "src/main/resources/txt/jekyll_hyde.txt";
     public static final String IMG = "src/main/resources/img/3132614.jpg";
-    public static final String DEST = "results/chapter07/jekyll_hydeV2.pdf";
+    public static final String DEST = "results/chapter07/jekyll_hydeV3.pdf";
     
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C07E03_ImageWatermark().createPdf(DEST);
+        new C07E04_ImageWatermark().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
@@ -64,9 +64,7 @@ public class C07E03_ImageWatermark {
         PdfFont bold = PdfFontFactory.createFont(FontConstants.HELVETICA_BOLD);
         document.setTextAlignment(TextAlignment.JUSTIFIED)
             .setHyphenation(new HyphenationConfig("en", "uk", 3, 3));
-        
-        
-        
+
         BufferedReader br = new BufferedReader(new FileReader(SRC));
         String name, line;
         Paragraph p;

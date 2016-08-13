@@ -23,7 +23,7 @@ import java.io.IOException;
  *
  * @author iText
  */
-public class C07E04_AddRemovePages {
+public class C07E05_AddRemovePages {
     
     public static final String SRC = "src/main/resources/pdfs/jekyll_hyde_bookmarked.pdf";
     public static final String DEST = "results/chapter07/jekyll_hyde_updated.pdf";
@@ -31,7 +31,7 @@ public class C07E04_AddRemovePages {
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C07E04_AddRemovePages().manipulatePdf(SRC, DEST);
+        new C07E05_AddRemovePages().manipulatePdf(SRC, DEST);
     }
     
     public void manipulatePdf(String src, String dest) throws IOException {
