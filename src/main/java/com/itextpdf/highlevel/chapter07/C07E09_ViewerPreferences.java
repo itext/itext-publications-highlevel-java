@@ -9,23 +9,24 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfDocumentInfo;
 import com.itextpdf.kernel.pdf.PdfViewerPreferences;
 import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.kernel.pdf.WriterProperties;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.IOException;
 
 /**
  * @author Bruno Lowagie (iText Software)
  */
-public class C07E08_ViewerPreferences {
+@WrapToTest
+public class C07E09_ViewerPreferences {
     
     public static final String DEST = "results/chapter07/viewerpreferences.pdf";
     
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C07E08_ViewerPreferences().createPdf(DEST);
+        new C07E09_ViewerPreferences().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
