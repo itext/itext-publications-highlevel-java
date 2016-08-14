@@ -54,7 +54,7 @@ public class C06E12_Outlines {
             director.setColor(Color.RED);
             PdfOutline place = info.addOutline("Produced in " + record.get(4));
             place.setColor(Color.MAGENTA);
-            PdfOutline year = info.addOutline("Released in " + record.get(5));
+            PdfOutline year = info.addOutline("Released in " + record.get(1));
             year.setColor(Color.DARK_GRAY);
         }
         pdf.close();
