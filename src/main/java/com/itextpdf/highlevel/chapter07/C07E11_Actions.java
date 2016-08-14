@@ -54,7 +54,7 @@ public class C07E11_Actions {
         pdf.getCatalog().setOpenAction(
                 PdfDestination.makeDestination(new PdfString("toc")));
         pdf.getCatalog().setAdditionalAction(
-            new PdfName("WC"), PdfAction.createJavaScript("app.alert('Thank you for reading');"));
+            PdfName.WC, PdfAction.createJavaScript("app.alert('Thank you for reading');"));
         pdf.addNewPage().setAdditionalAction(
             PdfName.O, PdfAction.createJavaScript("app.alert('This is where it starts!');"));
         // Initialize document
