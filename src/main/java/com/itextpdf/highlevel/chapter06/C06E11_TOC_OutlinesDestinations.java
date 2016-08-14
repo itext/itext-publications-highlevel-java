@@ -55,20 +55,17 @@ public class C06E11_TOC_OutlinesDestinations {
             .setFontSize(11);
         
         BufferedReader br = new BufferedReader(new FileReader(SRC));
-        String name, line;
+        String line;
         Paragraph p;
         boolean title = true;
-        int counter = 0;
         PdfOutline outline = null;
         while ((line = br.readLine()) != null) {
             p = new Paragraph(line);
             p.setKeepTogether(true);
             if (title) {
-                name = String.format("title%02d", counter++);
                 outline = createOutline(outline, pdf, line, p);
                 p.setFont(bold).setFontSize(12)
-                    .setKeepWithNext(true)
-                    .setDestination(name);
+                    .setKeepWithNext(true);
                 title = false;
                 document.add(p);
             }
