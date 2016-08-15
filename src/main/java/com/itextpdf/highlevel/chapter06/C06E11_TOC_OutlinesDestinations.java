@@ -111,8 +111,10 @@ public class C06E11_TOC_OutlinesDestinations {
         public void draw(DrawContext drawContext) {
             super.draw(drawContext);
             Rectangle rect = getOccupiedAreaBBox();
-            PdfDestination dest = PdfExplicitDestination.createXYZ(drawContext.getDocument().getLastPage(),
-                    rect.getLeft(), rect.getTop(), 0);
+            PdfDestination dest =
+                PdfExplicitDestination.createFitH(
+                    drawContext.getDocument().getLastPage(),
+                    rect.getTop());
             PdfOutline outline = parent.addOutline(title);
             outline.addDestination(dest);
         }
