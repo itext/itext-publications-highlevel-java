@@ -10,14 +10,11 @@ import org.junit.experimental.categories.Category;
 import org.junit.runners.Parameterized;
 
 @Category(SampleTest.class)
-public class HighLevelWrapperTest extends WrappedSamplesRunner {
-
+public class HighLevelWrapperWithEncryptionTest extends WrappedSamplesRunner {
     @Parameterized.Parameters(name = "{index}: {0}")
     public static Collection<Object[]> data() {
         RunnerSearchConfig searchConfig = new RunnerSearchConfig();
-        searchConfig.addPackageToRunnerSearchPath("com.itextpdf.highlevel");
-        searchConfig.ignorePackageOrClass("com.itextpdf.highlevel.chapter02.C02E15_ShowTextAlignedKerned");
-        searchConfig.ignorePackageOrClass("com.itextpdf.highlevel.chapter07.C07E14_Encrypted");
+        searchConfig.addClassToRunnerSearchPath("com.itextpdf.highlevel.chapter07.C07E14_Encrypted");
         return generateTestsList(searchConfig);
     }
 
@@ -29,7 +26,8 @@ public class HighLevelWrapperTest extends WrappedSamplesRunner {
     @Override
     protected void comparePdf(String outPath, String dest, String cmp) throws Exception {
         CompareTool compareTool = new CompareTool();
-        addError(compareTool.compareByContent(dest, cmp, outPath, "diff_"));
-        addError(compareTool.compareDocumentInfo(dest, cmp));
+        byte[] ownerPass = "abcdefg".getBytes();
+        addError(compareTool.compareByContent(dest, cmp, outPath, "diff_", ownerPass, ownerPass));
+        addError(compareTool.compareDocumentInfo(dest, cmp, ownerPass, ownerPass));
     }
 }
