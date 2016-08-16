@@ -27,9 +27,9 @@ public class C07E01_EventHandlers {
     
     public static final String DEST = "results/chapter07/jekyll_hyde_page_orientation.pdf";
     
-    public static final PdfNumber INVERTEDPORTRAIT = new PdfNumber(180);
-    public static final PdfNumber LANDSCAPE = new PdfNumber(90);
     public static final PdfNumber PORTRAIT = new PdfNumber(0);
+    public static final PdfNumber LANDSCAPE = new PdfNumber(90);
+    public static final PdfNumber INVERTEDPORTRAIT = new PdfNumber(180);
     public static final PdfNumber SEASCAPE = new PdfNumber(270);
     
     public static void main(String args[]) throws IOException {

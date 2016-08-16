@@ -27,9 +27,12 @@ import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Tab;
 import com.itextpdf.layout.element.TabStop;
 import com.itextpdf.layout.hyphenation.HyphenationConfig;
+import com.itextpdf.layout.layout.LayoutContext;
+import com.itextpdf.layout.layout.LayoutResult;
 import com.itextpdf.layout.property.AreaBreakType;
 import com.itextpdf.layout.property.TabAlignment;
 import com.itextpdf.layout.property.TextAlignment;
+import com.itextpdf.layout.renderer.ParagraphRenderer;
 import com.itextpdf.test.annotations.WrapToTest;
 
 import java.io.BufferedReader;
@@ -78,12 +81,15 @@ public class C07E04_ImageWatermark {
             p.setKeepTogether(true);
             if (title) {
                 name = String.format("title%02d", counter++);
+                SimpleEntry<String, Integer> titlePage
+                        = new SimpleEntry(line, pdf.getNumberOfPages());
                 p.setFont(bold).setFontSize(12)
                     .setKeepWithNext(true)
-                    .setDestination(name);
+                    .setDestination(name)
+                    .setNextRenderer(new UpdatePageRenderer(p, titlePage));
                 title = false;
                 document.add(p);
-                toc.add(new SimpleEntry(name, new SimpleEntry(line, pdf.getNumberOfPages())));
+                toc.add(new SimpleEntry(name, titlePage));
             }
             else {
                 p.setFirstLineIndent(36);
@@ -122,6 +128,23 @@ public class C07E04_ImageWatermark {
         //Close document
         document.close();
     }
+    
+    protected class UpdatePageRenderer extends ParagraphRenderer {
+        protected SimpleEntry<String, Integer> entry;
+
+        public UpdatePageRenderer(Paragraph modelElement, SimpleEntry<String, Integer> entry) {
+            super(modelElement);
+            this.entry = entry;
+        }
+
+        @Override
+        public LayoutResult layout(LayoutContext layoutContext) {
+            LayoutResult result = super.layout(layoutContext);
+            entry.setValue(layoutContext.getArea().getPageNumber());
+            return result;
+        }
+    }
+    
     protected class TransparentImage implements IEventHandler {
 
         protected PdfExtGState gState;
