@@ -19,7 +19,6 @@ import com.itextpdf.kernel.pdf.xobject.PdfFormXObject;
 import com.itextpdf.layout.Canvas;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Div;
-import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.hyphenation.HyphenationConfig;
 import com.itextpdf.layout.property.TextAlignment;
@@ -47,6 +46,8 @@ public class C07E03_PageXofY {
     public void createPdf(String dest) throws IOException {
         //Initialize PDF document
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
+        pdf.addEventHandler(PdfDocumentEvent.START_PAGE,
+            new Header("The Strange Case of Dr. Jekyll and Mr. Hyde"));
         PageXofY event = new PageXofY(pdf);
         pdf.addEventHandler(PdfDocumentEvent.END_PAGE, event);
         // Initialize document
@@ -86,12 +87,40 @@ public class C07E03_PageXofY {
         document.close();
     }
     
+    protected class Header implements IEventHandler {
+        String header;
+        
+        public Header(String header) {
+            this.header = header;
+        }
+        
+        @Override
+        public void handleEvent(Event event) {
+            PdfDocumentEvent docEvent = (PdfDocumentEvent) event;
+            PdfDocument pdf = docEvent.getDocument();
+            PdfPage page = docEvent.getPage();
+            if (pdf.getPageNumber(page) == 1) return;
+            Rectangle pageSize = page.getPageSize();
+            PdfCanvas pdfCanvas = new PdfCanvas(
+                page.newContentStreamBefore(), page.getResources(), pdf);
+            Canvas canvas = new Canvas(pdfCanvas, pdf, pageSize);
+            canvas.showTextAligned(header,
+                pageSize.getWidth() / 2,
+                pageSize.getTop() - 30, TextAlignment.CENTER);
+        }
+    }
+    
     protected class PageXofY implements IEventHandler {
         
         protected PdfFormXObject placeholder;
+        protected float side = 20;
+        protected float x = 300;
+        protected float y = 25;
+        protected float space = 4.5f;
+        protected float descent = 3;
         
         public PageXofY(PdfDocument pdf) {
-            placeholder = new PdfFormXObject(new Rectangle(0, 0, 20, 20));
+            placeholder = new PdfFormXObject(new Rectangle(0, 0, side, side));
         }
         
         @Override
@@ -105,16 +134,16 @@ public class C07E03_PageXofY {
                 page.newContentStreamBefore(), page.getResources(), pdf);
             Canvas canvas = new Canvas(pdfCanvas, pdf, pageSize);
             Paragraph p = new Paragraph()
-                .add("Page ").add(String.valueOf(pageNumber)).add(" of ")
-                .add(new Image(placeholder).setRelativePosition(0, 0, 0, -5.7f))
-                .setFixedPosition(250, 30, 100);
-            canvas.add(p);
+                .add("Page ").add(String.valueOf(pageNumber)).add(" of");
+            canvas.showTextAligned(p, x, y, TextAlignment.RIGHT);
+            pdfCanvas.addXObject(placeholder, x + space, y - descent);
             pdfCanvas.release();
         }
         
         public void writeTotal(PdfDocument pdf) {
             Paragraph p = new Paragraph()
-                .add(String.valueOf(pdf.getNumberOfPages()));
+                .add(String.valueOf(pdf.getNumberOfPages()))
+                .setFixedPosition(0, descent, side);
             Canvas canvas = new Canvas(placeholder, pdf);
             canvas.add(p);
         }

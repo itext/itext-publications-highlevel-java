@@ -4,7 +4,6 @@
  */
 package com.itextpdf.highlevel.chapter07;
 
-import static com.itextpdf.highlevel.chapter07.C07E06_PageLabels.SRC;
 import com.itextpdf.io.font.FontConstants;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
@@ -39,6 +38,7 @@ import java.util.List;
 @WrapToTest
 public class C07E07_PageLayoutPageMode {
     
+    public static final String SRC = "src/main/resources/txt/jekyll_hyde.txt";
     public static final String DEST = "results/chapter07/page_mode_page_layout.pdf";
     
     public static void main(String args[]) throws IOException {
