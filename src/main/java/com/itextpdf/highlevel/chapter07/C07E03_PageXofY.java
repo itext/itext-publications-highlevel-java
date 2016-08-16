@@ -141,11 +141,9 @@ public class C07E03_PageXofY {
         }
         
         public void writeTotal(PdfDocument pdf) {
-            Paragraph p = new Paragraph()
-                .add(String.valueOf(pdf.getNumberOfPages()))
-                .setFixedPosition(0, descent, side);
             Canvas canvas = new Canvas(placeholder, pdf);
-            canvas.add(p);
+            canvas.showTextAligned(String.valueOf(pdf.getNumberOfPages()),
+                0, descent, TextAlignment.LEFT);
         }
     }
 }
