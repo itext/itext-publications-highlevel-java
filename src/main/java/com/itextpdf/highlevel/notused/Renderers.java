@@ -14,7 +14,6 @@ import com.itextpdf.layout.element.AreaBreak;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.property.AreaBreakType;
 import com.itextpdf.layout.renderer.DocumentRenderer;
-import com.itextpdf.test.annotations.WrapToTest;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +21,6 @@ import java.io.IOException;
 /**
  * @author Bruno Lowagie (iText Software)
  */
-@WrapToTest
 public class Renderers {
     public static final String DEST = "results/notused/renderers.pdf";
     public static final String TEXT =
