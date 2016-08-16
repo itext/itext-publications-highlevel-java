@@ -5,6 +5,7 @@
 package com.itextpdf.highlevel.chapter07;
 
 import com.itextpdf.io.font.FontConstants;
+import com.itextpdf.kernel.color.Color;
 import com.itextpdf.kernel.events.Event;
 import com.itextpdf.kernel.events.IEventHandler;
 import com.itextpdf.kernel.events.PdfDocumentEvent;
@@ -102,7 +103,7 @@ public class C07E03_PageXofY {
             if (pdf.getPageNumber(page) == 1) return;
             Rectangle pageSize = page.getPageSize();
             PdfCanvas pdfCanvas = new PdfCanvas(
-                page.newContentStreamBefore(), page.getResources(), pdf);
+                page.getLastContentStream(), page.getResources(), pdf);
             Canvas canvas = new Canvas(pdfCanvas, pdf, pageSize);
             canvas.showTextAligned(header,
                 pageSize.getWidth() / 2,
@@ -131,7 +132,7 @@ public class C07E03_PageXofY {
             int pageNumber = pdf.getPageNumber(page);
             Rectangle pageSize = page.getPageSize();
             PdfCanvas pdfCanvas = new PdfCanvas(
-                page.newContentStreamBefore(), page.getResources(), pdf);
+                page.getLastContentStream(), page.getResources(), pdf);
             Canvas canvas = new Canvas(pdfCanvas, pdf, pageSize);
             Paragraph p = new Paragraph()
                 .add("Page ").add(String.valueOf(pageNumber)).add(" of");
