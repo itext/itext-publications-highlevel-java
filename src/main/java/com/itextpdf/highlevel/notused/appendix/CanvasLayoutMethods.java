@@ -64,7 +64,7 @@ public class CanvasLayoutMethods {
                 if (!text.get(glyphPos).hasValidUnicode()) {
                     return false;
                 }
-                int charCode = (int)text.get(glyphPos).getUnicode();
+                int charCode = text.get(glyphPos).getUnicode();
                 return (charCode < ' ' || charCode == 'i');
             }
             
