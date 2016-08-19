@@ -27,6 +27,7 @@ public class HighLevelWrapperWithEncryptionTest extends WrappedSamplesRunner {
     protected void comparePdf(String outPath, String dest, String cmp) throws Exception {
         CompareTool compareTool = new CompareTool();
         byte[] ownerPass = "abcdefg".getBytes();
+        compareTool.enableEncryptionCompare();
         addError(compareTool.compareByContent(dest, cmp, outPath, "diff_", ownerPass, ownerPass));
         addError(compareTool.compareDocumentInfo(dest, cmp, ownerPass, ownerPass));
     }
