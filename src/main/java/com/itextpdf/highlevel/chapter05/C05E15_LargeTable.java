@@ -16,14 +16,14 @@ import java.io.IOException;
  * @author Bruno Lowagie (iText Software)
  */
 @WrapToTest
-public class C05E16_LargeTable {
+public class C05E15_LargeTable {
     
     public static final String DEST = "results/chapter05/large_table.pdf";
        
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C05E16_LargeTable().createPdf(DEST);
+        new C05E15_LargeTable().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
