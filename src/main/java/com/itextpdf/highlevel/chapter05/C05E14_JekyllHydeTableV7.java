@@ -54,7 +54,7 @@ public class C05E14_JekyllHydeTableV7 {
             table.addCell(record.get(0));
             table.addCell(record.get(1));
             Cell cell = new Cell().add(record.get(2));
-            cell.setNextRenderer(new RunlenghtRenderer(cell, record.get(5)));
+            cell.setNextRenderer(new RunlengthRenderer(cell, record.get(5)));
             table.addCell(cell);
             table.addCell(record.get(3));
             table.addCell(record.get(4));
@@ -64,10 +64,10 @@ public class C05E14_JekyllHydeTableV7 {
         document.close();
     }
     
-    private class RunlenghtRenderer extends CellRenderer {
+    private class RunlengthRenderer extends CellRenderer {
         private int runlength;
 
-        public RunlenghtRenderer(Cell modelElement, String duration) {
+        public RunlengthRenderer(Cell modelElement, String duration) {
             super(modelElement);
             if (duration.trim().isEmpty()) runlength = 0;
             else runlength = Integer.parseInt(duration);
@@ -75,7 +75,7 @@ public class C05E14_JekyllHydeTableV7 {
 
         @Override
         public CellRenderer getNextRenderer() {
-            return new RunlenghtRenderer(getModelElement(), String.valueOf(runlength));
+            return new RunlengthRenderer(getModelElement(), String.valueOf(runlength));
         }
 
         @Override
