@@ -14,6 +14,7 @@
         <java.version>1.7</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <typography.version>1.0.1-SNAPSHOT</typography.version>
+        <licensekey.version>2.0.3-SNAPSHOT</licensekey.version>
     </properties>
 
     <repositories>
@@ -70,6 +71,11 @@
             <groupId>com.itextpdf</groupId>
             <artifactId>typography</artifactId>
             <version>${typography.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itext-licensekey</artifactId>
+            <version>${licensekey.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>

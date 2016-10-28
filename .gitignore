@@ -127,6 +127,8 @@ ehthumbs.db
 # Folder config file
 Desktop.ini
 
+src/main/resources/license/
+
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
