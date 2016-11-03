@@ -1,5 +1,7 @@
 # Created by https://www.gitignore.io
 
+src/main/resources/license/
+
 ### Java ###
 *.class
 
