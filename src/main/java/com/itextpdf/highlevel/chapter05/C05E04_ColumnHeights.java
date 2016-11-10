@@ -41,9 +41,9 @@ public class C05E04_ColumnHeights {
         Document document = new Document(pdf);
         Table table = new Table(1);
         table.addCell(p);
-        Cell cell = new Cell().setHeight(16).add(p);
+        Cell cell = new Cell().setMinHeight(16).add(p);
         table.addCell(cell);
-        cell = new Cell().setHeight(144).add(p);
+        cell = new Cell().setMinHeight(144).add(p);
         table.addCell(cell);
         cell = new Cell().add(p).setRotationAngle(Math.PI / 6);
         table.addCell(cell);
