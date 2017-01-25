@@ -1,7 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+    This file is part of the iText (R) project.
+    Copyright (c) 1998-2017 iText Group NV
+    Authors: iText Software.
+
+    For more information, please contact iText Software at this address:
+    sales@itextpdf.com
  */
 package com.itextpdf.highlevel.notused.appendix;
 
@@ -26,20 +29,20 @@ import java.io.IOException;
  * @author iText
  */
 public class CanvasLayoutMethods {
-    
+
     public static final String DEST = "results/appendix/canvas_layout_methods.pdf";
-    
+
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
         new CanvasLayoutMethods().createPdf(DEST);
     }
-    
-    
+
+
     public void createPdf(String dest) throws IOException {
         // Initialize PDF document
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
-        
+
         PdfPage page = pdf.addNewPage();
         PdfCanvas pdfCanvas = new PdfCanvas(page);
         Rectangle rectangle = new Rectangle(36, 36, 523, 770);
@@ -67,7 +70,7 @@ public class CanvasLayoutMethods {
                 int charCode = text.get(glyphPos).getUnicode();
                 return (charCode < ' ' || charCode == 'i');
             }
-            
+
         });
         canvas.add(p);
         canvas.setSplitCharacters(new DefaultSplitCharacters());

@@ -1,7 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+    This file is part of the iText (R) project.
+    Copyright (c) 1998-2017 iText Group NV
+    Authors: iText Software.
+
+    For more information, please contact iText Software at this address:
+    sales@itextpdf.com
  */
 package com.itextpdf.highlevel.chapter02;
 
@@ -30,11 +33,11 @@ import java.io.IOException;
  */
 @WrapToTest
 public class C02E03_CanvasRepeat {
-    
+
     class MyCanvasRenderer extends CanvasRenderer {
-        
+
         protected boolean full = false;
-        
+
         private MyCanvasRenderer(Canvas canvas) {
             super(canvas);
         }
@@ -44,24 +47,24 @@ public class C02E03_CanvasRepeat {
             super.addChild(renderer);
             full = Boolean.TRUE.equals(getPropertyAsBoolean(Property.FULL));
         }
-        
+
         public boolean isFull() {
             return full;
         }
     }
-    
+
     public static final String DEST = "results/chapter02/canvas_repeat.pdf";
-    
+
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
         new C02E03_CanvasRepeat().createPdf(DEST);
     }
-    
+
     public void createPdf(String dest) throws IOException {
         //Initialize PDF document
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
-        
+
         PdfPage page = pdf.addNewPage();
         PdfCanvas pdfCanvas = new PdfCanvas(page);
         Rectangle rectangle = new Rectangle(36, 500, 100, 250);
@@ -77,9 +80,9 @@ public class C02E03_CanvasRepeat {
         Paragraph p = new Paragraph().add(title).add(" by ").add(author);
         while (!renderer.isFull())
             canvas.add(p);
-        
+
         //Close document
         pdf.close();
     }
-    
+
 }

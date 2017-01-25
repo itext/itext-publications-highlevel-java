@@ -1,7 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+    This file is part of the iText (R) project.
+    Copyright (c) 1998-2017 iText Group NV
+    Authors: iText Software.
+
+    For more information, please contact iText Software at this address:
+    sales@itextpdf.com
  */
 package com.itextpdf.highlevel.chapter07;
 
@@ -26,16 +29,16 @@ import java.io.IOException;
  */
 @WrapToTest
 public class C07E05_AddRemovePages {
-    
+
     public static final String SRC = "src/main/resources/pdfs/jekyll_hyde_bookmarked.pdf";
     public static final String DEST = "results/chapter07/jekyll_hyde_updated.pdf";
-    
+
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
         new C07E05_AddRemovePages().manipulatePdf(SRC, DEST);
     }
-    
+
     public void manipulatePdf(String src, String dest) throws IOException {
         PdfReader reader = new PdfReader(src);
         PdfWriter writer = new PdfWriter(dest);
@@ -51,7 +54,7 @@ public class C07E05_AddRemovePages {
         }
         pdf.close();
     }
-    
+
     protected class AddPageHandler implements IEventHandler {
 
         @Override
@@ -63,9 +66,9 @@ public class C07E05_AddRemovePages {
             Canvas canvas = new Canvas(pdfCanvas, pdf, page.getPageSize());
             canvas.add(new Paragraph().add(docEvent.getType()));
         }
-        
+
     }
-    
+
     protected class RemovePageHandler implements IEventHandler {
 
         @Override
@@ -73,6 +76,6 @@ public class C07E05_AddRemovePages {
             PdfDocumentEvent docEvent = (PdfDocumentEvent) event;
             System.out.println(docEvent.getType());
         }
-        
+
     }
 }
