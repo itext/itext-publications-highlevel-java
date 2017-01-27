@@ -19,7 +19,6 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.HorizontalAlignment;
-import com.itextpdf.layout.property.UnitValue;
 import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.IOException;
@@ -44,7 +43,7 @@ public class C05E05_CellMarginPadding {
         
         // Initialize document
         Document document = new Document(pdf);
-        Table table = new Table(UnitValue.createPercentArray(new float[]{2, 1, 1}));
+        Table table = new Table(new float[]{2, 1, 1});
         table.setBackgroundColor(Color.ORANGE);
         table.setWidthPercent(80);
         table.setHorizontalAlignment(HorizontalAlignment.CENTER);
