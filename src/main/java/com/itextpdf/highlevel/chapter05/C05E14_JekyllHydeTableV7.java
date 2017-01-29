@@ -52,8 +52,7 @@ public class C05E14_JekyllHydeTableV7 {
         
         // Initialize document
         Document document = new Document(pdf, PageSize.A4.rotate());
-        Table table = new Table(UnitValue.createPercentArray(new float[]{3, 2, 14, 9, 4, 3}));
-        table.setWidthPercent(100);
+        Table table = new Table(UnitValue.createPercentArray(new float[]{9, 6, 40, 24, 12, 9}));
         List<List<String>> resultSet = CsvTo2DList.convert(SRC, "|");
         List<String> header = resultSet.remove(0);
         for (String field : header) {

@@ -55,7 +55,7 @@ public class C05E13_JekyllHydeTableV6 {
         Document document = new Document(pdf, PageSize.A4.rotate());
         List<List<String>> resultSet = CsvTo2DList.convert(SRC, "|");
         List<String> header = resultSet.remove(0);
-        Table table = new Table(UnitValue.createPercentArray(new float[]{3, 2, 14, 9, 4, 3}));
+        Table table = new Table(UnitValue.createPercentArray(new float[]{9, 6, 40, 24, 12, 9}));
         int nRows = resultSet.size();
         table.setNextRenderer(new AlternatingBackgroundTableRenderer(
             table, new Table.RowRange(0, nRows - 1)));

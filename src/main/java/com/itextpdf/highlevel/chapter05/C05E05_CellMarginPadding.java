@@ -44,7 +44,7 @@ public class C05E05_CellMarginPadding {
         
         // Initialize document
         Document document = new Document(pdf);
-        Table table = new Table(UnitValue.createPercentArray(new float[]{2, 1, 1}));
+        Table table = new Table(UnitValue.createPercentArray(new float[]{40, 20, 20}));
         table.setBackgroundColor(Color.ORANGE);
         table.setWidthPercent(80);
         table.setHorizontalAlignment(HorizontalAlignment.CENTER);
