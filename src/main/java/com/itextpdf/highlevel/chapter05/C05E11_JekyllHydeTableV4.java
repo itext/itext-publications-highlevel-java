@@ -48,7 +48,7 @@ public class C05E11_JekyllHydeTableV4 {
         
         // Initialize document
         Document document = new Document(pdf, PageSize.A4.rotate());
-        Table table = new Table(UnitValue.createPercentArray(new float[]{10, 90}));
+        Table table = new Table(UnitValue.createPercentArray(new float[]{3, 32}));
         List<List<String>> resultSet = CsvTo2DList.convert(SRC, "|");
         resultSet.remove(0);
         table.addHeaderCell("imdb")

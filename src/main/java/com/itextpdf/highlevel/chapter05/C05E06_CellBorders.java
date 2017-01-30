@@ -86,7 +86,7 @@ public class C05E06_CellBorders {
         // Initialize document
         Document document = new Document(pdf);
         
-        Table table1 = new Table(UnitValue.createPercentArray(new float[]{40, 20, 20}));
+        Table table1 = new Table(UnitValue.createPercentArray(new float[]{2, 1, 1}));
         table1.setWidthPercent(80);
         table1.setHorizontalAlignment(HorizontalAlignment.CENTER);
         table1.addCell(
@@ -105,7 +105,7 @@ public class C05E06_CellBorders {
             .setBorderBottom(new SolidBorder(2)));
         document.add(table1);
         
-        Table table2 = new Table(UnitValue.createPercentArray(new float[]{40, 20, 20}));
+        Table table2 = new Table(UnitValue.createPercentArray(new float[]{2, 1, 1}));
         table2.setMarginTop(10);
         table2.setBorder(new SolidBorder(1));
         table2.setWidthPercent(80);
@@ -124,7 +124,7 @@ public class C05E06_CellBorders {
             .add("row 2; cell 2").setBorder(Border.NO_BORDER));
         document.add(table2);
         
-        Table table3 = new Table(UnitValue.createPercentArray(new float[]{40, 20, 20}));
+        Table table3 = new Table(UnitValue.createPercentArray(new float[]{2, 1, 1}));
         table3.setMarginTop(10);
         table3.setWidthPercent(80);
         table3.setHorizontalAlignment(HorizontalAlignment.CENTER);

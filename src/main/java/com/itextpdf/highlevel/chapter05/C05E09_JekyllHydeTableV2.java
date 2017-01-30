@@ -44,7 +44,7 @@ public class C05E09_JekyllHydeTableV2 {
     public void createPdf(String dest) throws IOException {
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
         Document document = new Document(pdf, PageSize.A4.rotate());
-        Table table = new Table(UnitValue.createPercentArray(new float[]{9, 6, 40, 24, 12, 9}));
+        Table table = new Table(UnitValue.createPercentArray(new float[]{3, 2, 14, 9, 4, 3}));
         List<List<String>> resultSet = CsvTo2DList.convert(SRC, "|");
         List<String> header = resultSet.remove(0);
         for (String field : header) {
