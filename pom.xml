@@ -4,7 +4,7 @@
 
     <groupId>com.itextpdf.publications</groupId>
     <artifactId>highlevel</artifactId>
-    <version>7.0.3-SNAPSHOT</version>
+    <version>7.0.4-SNAPSHOT</version>
 
     <name>iText 7 Publications: Building blocks</name>
     <url>http://developers.itextpdf.com/content/itext-7-building-blocks</url>
@@ -14,7 +14,7 @@
         <java.version>1.7</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <typography.version>1.0.3-SNAPSHOT</typography.version>
-        <licensekey.version>2.0.3</licensekey.version>
+        <licensekey.version>2.0.4</licensekey.version>
     </properties>
 
     <repositories>
