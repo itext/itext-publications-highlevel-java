@@ -18,6 +18,7 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Cell;
+import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.UnitValue;
 import com.itextpdf.test.annotations.WrapToTest;
@@ -54,7 +55,7 @@ public class C05E08_JekyllHydeTableV1 {
         for (String field : header) {
             table.addHeaderCell(field);
         }
-        Cell cell = new Cell(1, 6).add("Continued on next page...");
+        Cell cell = new Cell(1, 6).add(new Paragraph("Continued on next page..."));
         table.addFooterCell(cell)
             .setSkipLastFooter(true);
         for (List<String> record : resultSet) {

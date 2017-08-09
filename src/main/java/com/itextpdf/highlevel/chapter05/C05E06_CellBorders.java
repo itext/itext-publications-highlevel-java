@@ -12,7 +12,7 @@
  */
 package com.itextpdf.highlevel.chapter05;
 
-import com.itextpdf.kernel.color.Color;
+import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
@@ -23,6 +23,7 @@ import com.itextpdf.layout.border.DashedBorder;
 import com.itextpdf.layout.border.DottedBorder;
 import com.itextpdf.layout.border.SolidBorder;
 import com.itextpdf.layout.element.Cell;
+import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.HorizontalAlignment;
 import com.itextpdf.layout.property.UnitValue;
@@ -90,18 +91,18 @@ public class C05E06_CellBorders {
         table1.setWidthPercent(80);
         table1.setHorizontalAlignment(HorizontalAlignment.CENTER);
         table1.addCell(
-            new Cell(1, 3).add("Cell with colspan 3")
+            new Cell(1, 3).add(new Paragraph("Cell with colspan 3"))
                 .setPadding(10).setMargin(5).setBorder(new DashedBorder(0.5f)));
-        table1.addCell(new Cell(2, 1).add("Cell with rowspan 2")
+        table1.addCell(new Cell(2, 1).add(new Paragraph("Cell with rowspan 2"))
             .setMarginTop(5).setMarginBottom(5)
             .setBorderBottom(new DottedBorder(0.5f))
             .setBorderLeft(new DottedBorder(0.5f)));
-        table1.addCell(new Cell().add("row 1; cell 1")
+        table1.addCell(new Cell().add(new Paragraph("row 1; cell 1"))
             .setBorder(new DottedBorder(Color.ORANGE, 0.5f)));
-        table1.addCell(new Cell().add("row 1; cell 2"));
-        table1.addCell(new Cell().add("row 2; cell 1").setMargin(10)
+        table1.addCell(new Cell().add(new Paragraph("row 1; cell 2")));
+        table1.addCell(new Cell().add(new Paragraph("row 2; cell 1")).setMargin(10)
             .setBorderBottom(new SolidBorder(2)));
-        table1.addCell(new Cell().add("row 2; cell 2").setPadding(10)
+        table1.addCell(new Cell().add(new Paragraph("row 2; cell 2")).setPadding(10)
             .setBorderBottom(new SolidBorder(2)));
         document.add(table1);
         
@@ -111,36 +112,36 @@ public class C05E06_CellBorders {
         table2.setWidthPercent(80);
         table2.setHorizontalAlignment(HorizontalAlignment.CENTER);
         table2.addCell(new Cell(1, 3)
-            .add("Cell with colspan 3").setBorder(Border.NO_BORDER));
+            .add(new Paragraph("Cell with colspan 3")).setBorder(Border.NO_BORDER));
         table2.addCell(new Cell(2, 1)
-            .add("Cell with rowspan 2").setBorder(Border.NO_BORDER));
+            .add(new Paragraph("Cell with rowspan 2")).setBorder(Border.NO_BORDER));
         table2.addCell(new Cell()
-            .add("row 1; cell 1").setBorder(Border.NO_BORDER));
+            .add(new Paragraph("row 1; cell 1")).setBorder(Border.NO_BORDER));
         table2.addCell(new Cell()
-            .add("row 1; cell 2").setBorder(Border.NO_BORDER));
+            .add(new Paragraph("row 1; cell 2")).setBorder(Border.NO_BORDER));
         table2.addCell(new Cell()
-            .add("row 2; cell 1").setBorder(Border.NO_BORDER));
+            .add(new Paragraph("row 2; cell 1")).setBorder(Border.NO_BORDER));
         table2.addCell(new Cell()
-            .add("row 2; cell 2").setBorder(Border.NO_BORDER));
+            .add(new Paragraph("row 2; cell 2")).setBorder(Border.NO_BORDER));
         document.add(table2);
         
         Table table3 = new Table(UnitValue.createPercentArray(new float[]{2, 1, 1}));
         table3.setMarginTop(10);
         table3.setWidthPercent(80);
         table3.setHorizontalAlignment(HorizontalAlignment.CENTER);
-        Cell cell = new RoundedCornersCell(1, 3).add("Cell with colspan 3")
+        Cell cell = new RoundedCornersCell(1, 3).add(new Paragraph("Cell with colspan 3"))
                 .setPadding(10).setMargin(5).setBorder(Border.NO_BORDER);
         table3.addCell(cell);
-        cell = new RoundedCornersCell(2, 1).add("Cell with rowspan 2")
+        cell = new RoundedCornersCell(2, 1).add(new Paragraph("Cell with rowspan 2"))
             .setMarginTop(5).setMarginBottom(5);
         table3.addCell(cell);
-        cell = new RoundedCornersCell().add("row 1; cell 1");
+        cell = new RoundedCornersCell().add(new Paragraph("row 1; cell 1"));
         table3.addCell(cell);
-        cell = new RoundedCornersCell().add("row 1; cell 2");
+        cell = new RoundedCornersCell().add(new Paragraph("row 1; cell 2"));
         table3.addCell(cell);
-        cell = new RoundedCornersCell().add("row 2; cell 1").setMargin(10);
+        cell = new RoundedCornersCell().add(new Paragraph("row 2; cell 1")).setMargin(10);
         table3.addCell(cell);
-        cell = new RoundedCornersCell().add("row 2; cell 2").setPadding(10);
+        cell = new RoundedCornersCell().add(new Paragraph("row 2; cell 2")).setPadding(10);
         table3.addCell(cell);
         document.add(table3);
         document.close();

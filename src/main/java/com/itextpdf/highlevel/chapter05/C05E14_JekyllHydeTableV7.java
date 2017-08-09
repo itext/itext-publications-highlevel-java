@@ -13,7 +13,7 @@
 package com.itextpdf.highlevel.chapter05;
 
 import com.itextpdf.highlevel.util.CsvTo2DList;
-import com.itextpdf.kernel.color.Color;
+import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -21,6 +21,7 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Cell;
+import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.UnitValue;
 import com.itextpdf.layout.renderer.CellRenderer;
@@ -61,7 +62,7 @@ public class C05E14_JekyllHydeTableV7 {
         for (List<String> record : resultSet) {
             table.addCell(record.get(0));
             table.addCell(record.get(1));
-            Cell cell = new Cell().add(record.get(2));
+            Cell cell = new Cell().add(new Paragraph(record.get(2)));
             cell.setNextRenderer(new RunlengthRenderer(cell, record.get(5)));
             table.addCell(cell);
             table.addCell(record.get(3));

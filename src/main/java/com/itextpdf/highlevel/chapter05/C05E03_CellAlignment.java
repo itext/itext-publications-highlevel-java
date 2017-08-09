@@ -50,8 +50,8 @@ public class C05E03_CellAlignment {
         table.setWidthPercent(80);
         table.setHorizontalAlignment(HorizontalAlignment.CENTER);
         table.setTextAlignment(TextAlignment.CENTER);
-        table.addCell(new Cell(1, 3).add("Cell with colspan 3"));
-        table.addCell(new Cell(2, 1).add("Cell with rowspan 2")
+        table.addCell(new Cell(1, 3).add(new Paragraph("Cell with colspan 3")));
+        table.addCell(new Cell(2, 1).add(new Paragraph("Cell with rowspan 2"))
             .setTextAlignment(TextAlignment.RIGHT));
         table.addCell("row 1; cell 1");
         table.addCell("row 1; cell 2");
@@ -62,10 +62,10 @@ public class C05E03_CellAlignment {
             .add(new Paragraph("Center"))
             .add(new Paragraph("Right").setTextAlignment(TextAlignment.RIGHT));
         table.addCell(cell);
-        cell = new Cell().add("Middle")
+        cell = new Cell().add(new Paragraph("Middle"))
             .setVerticalAlignment(VerticalAlignment.MIDDLE);
         table.addCell(cell);
-        cell = new Cell().add("Bottom")
+        cell = new Cell().add(new Paragraph("Bottom"))
             .setVerticalAlignment(VerticalAlignment.BOTTOM);
         table.addCell(cell);
         document.add(table);

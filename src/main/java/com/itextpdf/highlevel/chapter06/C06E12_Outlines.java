@@ -13,7 +13,7 @@
 package com.itextpdf.highlevel.chapter06;
 
 import com.itextpdf.highlevel.util.CsvTo2DList;
-import com.itextpdf.kernel.color.Color;
+import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfName;
 import com.itextpdf.kernel.pdf.PdfOutline;

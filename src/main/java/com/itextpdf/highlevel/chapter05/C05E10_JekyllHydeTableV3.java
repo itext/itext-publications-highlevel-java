@@ -20,6 +20,7 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Image;
+import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.UnitValue;
 import com.itextpdf.test.annotations.WrapToTest;
@@ -67,7 +68,7 @@ public class C05E10_JekyllHydeTableV3 {
                 cell.add(img);
             }
             else {
-                cell.add(record.get(0));
+                cell.add(new Paragraph(record.get(0)));
             }
             table.addCell(cell);
             table.addCell(record.get(1));

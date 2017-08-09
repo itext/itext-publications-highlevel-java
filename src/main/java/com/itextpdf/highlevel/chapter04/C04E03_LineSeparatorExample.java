@@ -14,7 +14,7 @@ package com.itextpdf.highlevel.chapter04;
 
 import com.itextpdf.highlevel.util.CsvTo2DList;
 import com.itextpdf.io.image.ImageDataFactory;
-import com.itextpdf.kernel.color.Color;
+import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.action.PdfAction;
