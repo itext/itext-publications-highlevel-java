@@ -21,7 +21,7 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.action.PdfAction;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.Style;
-import com.itextpdf.layout.border.DottedBorder;
+import com.itextpdf.layout.borders.DottedBorder;
 import com.itextpdf.layout.element.AreaBreak;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.hyphenation.HyphenationConfig;
