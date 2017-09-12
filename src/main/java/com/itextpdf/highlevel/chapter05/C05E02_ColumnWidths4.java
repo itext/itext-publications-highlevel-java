@@ -29,7 +29,7 @@ import java.io.IOException;
 @WrapToTest
 public class C05E02_ColumnWidths4 {
     
-    public static final String DEST = "results/chapter05/column_widths2.pdf";
+    public static final String DEST = "results/chapter05/column_widths4.pdf";
        
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
