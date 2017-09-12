@@ -48,11 +48,17 @@ public class C05E06_CellBorders {
         public void drawBorder(DrawContext drawContext) {
             Rectangle occupiedAreaBBox = getOccupiedAreaBBox();
             float[] margins = getMargins();
+            System.out.println(String.format("%s %s %s %s", margins[0], margins[1], margins[2], margins[3]));
             Rectangle rectangle = applyMargins(occupiedAreaBBox, margins, false);
             PdfCanvas canvas = drawContext.getCanvas();
             canvas.roundRectangle(rectangle.getX() + 1, rectangle.getY() + 1,
                 rectangle.getWidth() - 2, rectangle.getHeight() -2, 5).stroke();
             super.drawBorder(drawContext);
+        }
+        
+        @Override
+        protected Rectangle applyMargins(Rectangle rect, float[] margins, boolean reverse) {
+            return rect.<Rectangle>applyMargins(margins[0], margins[1], margins[2], margins[3], reverse);
         }
     }
     
