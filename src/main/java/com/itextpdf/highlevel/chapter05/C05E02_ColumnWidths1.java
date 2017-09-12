@@ -25,14 +25,14 @@ import java.io.IOException;
  * @author Bruno Lowagie (iText Software)
  */
 @WrapToTest
-public class C05E01_MyFirstTable {
+public class C05E02_ColumnWidths1 {
     
-    public static final String DEST = "results/chapter05/my_first_table.pdf";
+    public static final String DEST = "results/chapter05/my_second_table.pdf";
        
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C05E01_MyFirstTable().createPdf(DEST);
+        new C05E02_ColumnWidths1().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
@@ -41,7 +41,7 @@ public class C05E01_MyFirstTable {
         
         // Initialize document
         Document document = new Document(pdf);
-        Table table = new Table(new float[] {1, 1, 1});
+        Table table = new Table(new float[]{200, 100, 100});
         table.addCell(new Cell(1, 3).add("Cell with colspan 3"));
         table.addCell(new Cell(2, 1).add("Cell with rowspan 2"));
         table.addCell("row 1; cell 1");

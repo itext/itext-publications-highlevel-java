@@ -27,14 +27,14 @@ import java.io.IOException;
  * @author Bruno Lowagie (iText Software)
  */
 @WrapToTest
-public class C05E02_ColumnWidths {
+public class C05E02_ColumnWidths3 {
     
     public static final String DEST = "results/chapter05/column_widths.pdf";
        
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C05E02_ColumnWidths().createPdf(DEST);
+        new C05E02_ColumnWidths3().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
@@ -44,7 +44,7 @@ public class C05E02_ColumnWidths {
         // Initialize document
         Document document = new Document(pdf);
         Table table = new Table(UnitValue.createPercentArray(new float[]{2, 1, 1}));
-        table.setWidthPercent(80);
+        table.setWidth(450);
         table.setHorizontalAlignment(HorizontalAlignment.CENTER);
         table.addCell(new Cell(1, 3).add("Cell with colspan 3"));
         table.addCell(new Cell(2, 1).add("Cell with rowspan 2"));
