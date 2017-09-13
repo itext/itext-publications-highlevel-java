@@ -19,6 +19,7 @@ import com.itextpdf.layout.border.DashedBorder;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
+import com.itextpdf.layout.property.UnitValue;
 import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.IOException;
@@ -47,11 +48,14 @@ public class C05E04_ColumnHeights {
         
         // Initialize document
         Document document = new Document(pdf);
-        Table table = new Table(1);
+        Table table = new Table(UnitValue.createPercentArray(new float[]{1}));
+        table.setWidthPercent(100);
         table.addCell(p);
-        Cell cell = new Cell().setMinHeight(16).add(p);
+        Cell cell = new Cell().setHeight(45).add(p);
         table.addCell(cell);
-        cell = new Cell().setMinHeight(144).add(p);
+        cell = new Cell().setMinHeight(45).add(p);
+        table.addCell(cell);
+        cell = new Cell().setMinHeight(135).add(p);
         table.addCell(cell);
         cell = new Cell().add(p).setRotationAngle(Math.PI / 6);
         table.addCell(cell);
