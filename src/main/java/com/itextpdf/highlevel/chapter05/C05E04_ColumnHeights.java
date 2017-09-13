@@ -57,6 +57,10 @@ public class C05E04_ColumnHeights {
         table.addCell(cell);
         cell = new Cell().setMinHeight(135).add(p);
         table.addCell(cell);
+        cell = new Cell().setMaxHeight(45).add(p);
+        table.addCell(cell);
+        cell = new Cell().setMaxHeight(135).add(p);
+        table.addCell(cell);
         cell = new Cell().add(p).setRotationAngle(Math.PI / 6);
         table.addCell(cell);
         document.add(table);
