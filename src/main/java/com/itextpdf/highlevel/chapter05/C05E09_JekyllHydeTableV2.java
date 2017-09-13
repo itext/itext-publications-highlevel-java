@@ -55,7 +55,7 @@ public class C05E09_JekyllHydeTableV2 {
                 table.addCell(field);
             }
         }
-        Table outerTable = new Table(1)
+        Table outerTable = new Table(new float[]{1})
             .addHeaderCell("Continued from previous page:")
             .setSkipFirstHeader(true)
             .addCell(new Cell().add(table).setPadding(0));

@@ -42,12 +42,12 @@ public class C05E07_NestedTable {
         
         // Initialize document
         Document document = new Document(pdf);
-        Table table = new Table(2);
-        table.setWidthPercent(80);
-        table.setHorizontalAlignment(HorizontalAlignment.CENTER);
+        Table table = new Table(new float[]{1, 1})
+            .setWidthPercent(80)
+            .setHorizontalAlignment(HorizontalAlignment.CENTER);
         table.addCell(new Cell(1, 2).add("Cell with colspan 2"));
         table.addCell(new Cell().add("Cell with rowspan 1"));
-        Table inner = new Table(2);
+        Table inner = new Table(new float[]{1, 1});
         inner.addCell("row 1; cell 1");
         inner.addCell("row 1; cell 2");
         inner.addCell("row 2; cell 1");
@@ -55,19 +55,35 @@ public class C05E07_NestedTable {
         table.addCell(inner);
         document.add(table);
         
-        table = new Table(2);
-        table.setMarginTop(10);
-        table.setWidthPercent(80);
-        table.setHorizontalAlignment(HorizontalAlignment.CENTER);
+        table = new Table(new float[]{1, 1})
+            .setMarginTop(10)
+            .setWidthPercent(80)
+            .setHorizontalAlignment(HorizontalAlignment.CENTER);
         table.addCell(new Cell(1, 2).add("Cell with colspan 2"));
         table.addCell(new Cell().add("Cell with rowspan 1"));
-        inner = new Table(2);
+        inner = new Table(new float[]{1, 1});
         inner.addCell("row 1; cell 1");
         inner.addCell("row 1; cell 2");
         inner.addCell("row 2; cell 1");
         inner.addCell("row 2; cell 2");
         table.addCell(new Cell().add(inner).setPadding(0));
         document.add(table);
+
+        table = new Table(new float[]{1, 1})
+            .setMarginTop(10)
+            .setWidthPercent(80)
+            .setHorizontalAlignment(HorizontalAlignment.CENTER);
+        table.addCell(new Cell(1, 2).add("Cell with colspan 2"));
+        table.addCell(new Cell().add("Cell with rowspan 1"));
+        inner = new Table(new float[]{1, 1})
+            .setWidthPercent(100);
+        inner.addCell("row 1; cell 1");
+        inner.addCell("row 1; cell 2");
+        inner.addCell("row 2; cell 1");
+        inner.addCell("row 2; cell 2");
+        table.addCell(new Cell().add(inner).setPadding(0));
+        document.add(table);
+        
         document.close();
     }
 }
