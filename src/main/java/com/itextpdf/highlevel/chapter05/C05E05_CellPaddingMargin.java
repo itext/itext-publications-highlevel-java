@@ -33,11 +33,16 @@ import java.io.IOException;
 @WrapToTest
 public class C05E05_CellPaddingMargin {
     
-    public static final String DEST = "results/chapter05/cell_margin_padding2.pdf";
+    public static final String DEST = "results/chapter05/cell_margin_padding.pdf";
        
     private class MarginCellRenderer extends CellRenderer {
         public MarginCellRenderer(Cell modelElement) {
             super(modelElement);
+        }
+        
+        @Override
+        public IRenderer getNextRenderer() {
+        	return new MarginCellRenderer((Cell)getModelElement());
         }
         
         @Override
