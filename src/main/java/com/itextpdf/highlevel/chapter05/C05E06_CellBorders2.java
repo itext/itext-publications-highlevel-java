@@ -50,7 +50,7 @@ public class C05E06_CellBorders2 {
         Document document = new Document(pdf);
         
         Table table = new Table(UnitValue.createPercentArray(new float[]{2, 1, 1}));
-        table.setBorder(new SolidBorder(1))
+        table.setBorder(new SolidBorder(3))
             .setWidthPercent(80)
             .setHorizontalAlignment(HorizontalAlignment.CENTER)
             .setTextAlignment(TextAlignment.CENTER);
@@ -62,18 +62,10 @@ public class C05E06_CellBorders2 {
             .add("Cell with rowspan 2")
             .setVerticalAlignment(VerticalAlignment.MIDDLE)
             .setBorder(Border.NO_BORDER));
-        table.addCell(new Cell()
-            .add("row 1; cell 1")
-            .setBorder(Border.NO_BORDER));
-        table.addCell(new Cell()
-            .add("row 1; cell 2")
-            .setBorder(Border.NO_BORDER));
-        table.addCell(new Cell()
-            .add("row 2; cell 1")
-            .setBorder(Border.NO_BORDER));
-        table.addCell(new Cell()
-            .add("row 2; cell 2")
-            .setBorder(Border.NO_BORDER));
+        table.addCell(new Cell().add("row 1; cell 1"));
+        table.addCell(new Cell().add("row 1; cell 2"));
+        table.addCell(new Cell().add("row 2; cell 1"));
+        table.addCell(new Cell().add("row 2; cell 2"));
         document.add(table);
         
         document.close();
