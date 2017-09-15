@@ -37,15 +37,15 @@ import com.itextpdf.test.annotations.WrapToTest;
 @WrapToTest
 public class C05E06_CellBorders4 {
     
-    private class BorderlessTableRenderer extends TableRenderer {
+    private class RoundedCornersTableRenderer extends TableRenderer {
 
-        public BorderlessTableRenderer(Table modelElement) {
+        public RoundedCornersTableRenderer(Table modelElement) {
             super(modelElement);
         }
 
         @Override
         public IRenderer getNextRenderer() {
-            return new BorderlessTableRenderer((Table)getModelElement());
+            return new RoundedCornersTableRenderer((Table)getModelElement());
         }
 
         @Override
@@ -142,7 +142,7 @@ public class C05E06_CellBorders4 {
         cell = new RoundedCornersCell()
             .add("row 2; cell 2");
         table.addCell(cell);
-        table.setNextRenderer(new BorderlessTableRenderer(table));
+        table.setNextRenderer(new RoundedCornersTableRenderer(table));
         document.add(table);
         
         document.close();
