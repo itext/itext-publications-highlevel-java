@@ -44,7 +44,7 @@ public class C01E02_Text_Paragraph_Cardo2 {
     protected PdfFont italic;
     
     public static void main(String args[]) throws IOException {
-        File file = new File(DEST);
+        File file = new File(String.format(DEST, 1));
         file.getParentFile().mkdirs();
         C01E02_Text_Paragraph_Cardo2 app = new C01E02_Text_Paragraph_Cardo2();
         FontProgram fontProgram = FontProgramFactory.createFont(REGULAR);
