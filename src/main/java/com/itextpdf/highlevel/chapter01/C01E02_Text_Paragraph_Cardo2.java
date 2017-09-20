@@ -22,7 +22,6 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Text;
-import com.itextpdf.test.annotations.WrapToTest;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,7 +29,6 @@ import java.io.IOException;
 /**
  * @author Bruno Lowagie (iText Software)
  */
-@WrapToTest
 public class C01E02_Text_Paragraph_Cardo2 {
     
     public static final String DEST = "results/chapter01/text_paragraph_cardo%s.pdf";
@@ -44,7 +42,7 @@ public class C01E02_Text_Paragraph_Cardo2 {
     protected PdfFont italic;
     
     public static void main(String args[]) throws IOException {
-        File file = new File(String.format(DEST, 1));
+        File file = new File(DEST);
         file.getParentFile().mkdirs();
         C01E02_Text_Paragraph_Cardo2 app = new C01E02_Text_Paragraph_Cardo2();
         FontProgram fontProgram = FontProgramFactory.createFont(REGULAR);
