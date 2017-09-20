@@ -40,7 +40,7 @@ public class C05E15_LargeTable {
         
         // Initialize document
         Document document = new Document(pdf);
-        Table table = new Table(3, true);
+        Table table = new Table(new float[]{100, 100, 100}, true);
         table.addHeaderCell("Table header 1");
         table.addHeaderCell("Table header 2");
         table.addHeaderCell("Table header 3");

@@ -12,34 +12,30 @@
  */
 package com.itextpdf.highlevel.chapter05;
 
-import com.itextpdf.highlevel.util.CsvTo2DList;
-import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
+import com.itextpdf.layout.property.HorizontalAlignment;
 import com.itextpdf.layout.property.UnitValue;
 import com.itextpdf.test.annotations.WrapToTest;
-
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 /**
- * @author iText
+ * @author Bruno Lowagie (iText Software)
  */
 @WrapToTest
-public class C05E11_JekyllHydeTableV4 {
+public class C05E02_ColumnWidths4 {
     
-    public static final String SRC = "src/main/resources/data/jekyll_hyde.csv";
-    public static final String DEST = "results/chapter05/jekyll_hyde_table4.pdf";
+    public static final String DEST = "results/chapter05/column_widths4.pdf";
        
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C05E11_JekyllHydeTableV4().createPdf(DEST);
+        new C05E02_ColumnWidths4().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
@@ -47,24 +43,16 @@ public class C05E11_JekyllHydeTableV4 {
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
         
         // Initialize document
-        Document document = new Document(pdf, PageSize.A4.rotate());
-        Table table = new Table(UnitValue.createPercentArray(new float[]{3, 32}));
-        table.setWidthPercent(100);
-        List<List<String>> resultSet = CsvTo2DList.convert(SRC, "|");
-        resultSet.remove(0);
-        table.addHeaderCell("imdb")
-            .addHeaderCell("Information about the movie");
-        Cell cell;
-        for (List<String> record : resultSet) {
-            table.addCell(record.get(0));
-            cell = new Cell()
-                .add(new Paragraph(record.get(1)))
-                .add(new Paragraph(record.get(2)))
-                .add(new Paragraph(record.get(3)))
-                .add(new Paragraph(record.get(4)))
-                .add(new Paragraph(record.get(5)));
-            table.addCell(cell);
-        }
+        Document document = new Document(pdf);
+        Table table = new Table(UnitValue.createPercentArray(new float[]{2, 1, 1}));
+        table.setWidthPercent(80);
+        table.setHorizontalAlignment(HorizontalAlignment.CENTER);
+        table.addCell(new Cell(1, 3).add(new Paragraph("Cell with colspan 3")));
+        table.addCell(new Cell(2, 1).add(new Paragraph("Cell with rowspan 2")));
+        table.addCell("row 1; cell 1");
+        table.addCell("row 1; cell 2");
+        table.addCell("row 2; cell 1");
+        table.addCell("row 2; cell 2");
         document.add(table);
         document.close();
     }
