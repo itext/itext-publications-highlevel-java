@@ -29,17 +29,17 @@ import java.io.IOException;
  */
 @WrapToTest
 public class C02E15_ShowTextAlignedKerned {
-    public static String KEY = "src/main/resources/license/itextkey-typography.xml";
+    public static String KEY = "/itextkey-html2pdf_typography.xml";
     public static final String DEST = "results/chapter02/showtextalignedkerned.pdf";
     
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
+        LicenseKey.loadLicenseFile(System.getenv("ITEXT7_LICENSEKEY") + KEY);
         new C02E15_ShowTextAlignedKerned().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException {
-        LicenseKey.loadLicenseFile(new FileInputStream(KEY));
         //Initialize PDF document
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
         

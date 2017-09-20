@@ -55,7 +55,7 @@ public class C02E12_JekyllHydeV8 {
         PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
         PdfFont bold = PdfFontFactory.createFont(FontConstants.HELVETICA_BOLD);
         document.setTextAlignment(TextAlignment.JUSTIFIED)
-            .setHyphenation(new HyphenationConfig("en", "uk", 3, 3))
+            .setHyphenation(new HyphenationConfig("en", null, 3, 3))
             .setFont(font)
             .setFontSize(11);
         

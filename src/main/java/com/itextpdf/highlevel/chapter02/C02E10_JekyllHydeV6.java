@@ -78,7 +78,7 @@ public class C02E10_JekyllHydeV6 {
         PdfFont bold = PdfFontFactory.createFont(FontConstants.HELVETICA_BOLD);
         document.setTextAlignment(TextAlignment.JUSTIFIED)
             .setFont(font)
-            .setHyphenation(new HyphenationConfig("en", "uk", 3, 3));
+            .setHyphenation(new HyphenationConfig("en", null, 3, 3));
         
         BufferedReader br = new BufferedReader(new FileReader(SRC));
         String line;
