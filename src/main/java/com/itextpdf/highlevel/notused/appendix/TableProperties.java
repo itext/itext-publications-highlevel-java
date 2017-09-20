@@ -27,6 +27,7 @@ import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.hyphenation.HyphenationConfig;
 import com.itextpdf.layout.property.HorizontalAlignment;
 import com.itextpdf.layout.property.TextAlignment;
+import com.itextpdf.layout.property.UnitValue;
 
 import java.io.File;
 import java.io.IOException;
@@ -75,7 +76,7 @@ public class TableProperties {
     }
     
     public Table createNewTable() {
-        Table table = new Table(2);
+        Table table = new Table(UnitValue.createPercentArray(2)).useAllAvailableWidth();
         table.addCell("test1");
         table.addCell("test2");
         table.addCell("test3");

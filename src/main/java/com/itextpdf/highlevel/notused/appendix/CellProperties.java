@@ -29,6 +29,7 @@ import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.hyphenation.HyphenationConfig;
 import com.itextpdf.layout.property.HorizontalAlignment;
 import com.itextpdf.layout.property.TextAlignment;
+import com.itextpdf.layout.property.UnitValue;
 import com.itextpdf.layout.property.VerticalAlignment;
 
 import java.io.File;
@@ -52,7 +53,7 @@ public class CellProperties {
 
         // Initialize document
         Document document = new Document(pdf);
-        Table table = new Table(2);
+        Table table = new Table(UnitValue.createPercentArray(2)).useAllAvailableWidth();
         PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
         table.addCell(new Cell().add(new Paragraph("Test 1")).setHeight(50).setDestination("Top"));
         Style style = new Style();
