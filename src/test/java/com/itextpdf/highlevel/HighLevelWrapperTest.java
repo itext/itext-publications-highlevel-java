@@ -12,10 +12,11 @@ import com.itextpdf.kernel.utils.CompareTool;
 import com.itextpdf.test.RunnerSearchConfig;
 import com.itextpdf.test.WrappedSamplesRunner;
 import com.itextpdf.test.annotations.type.SampleTest;
-import java.util.Collection;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runners.Parameterized;
+
+import java.util.Collection;
 
 @Category(SampleTest.class)
 public class HighLevelWrapperTest extends WrappedSamplesRunner {
@@ -24,7 +25,6 @@ public class HighLevelWrapperTest extends WrappedSamplesRunner {
     public static Collection<Object[]> data() {
         RunnerSearchConfig searchConfig = new RunnerSearchConfig();
         searchConfig.addPackageToRunnerSearchPath("com.itextpdf.highlevel");
-        searchConfig.ignorePackageOrClass("com.itextpdf.highlevel.chapter02.C02E15_ShowTextAlignedKerned");
         searchConfig.ignorePackageOrClass("com.itextpdf.highlevel.chapter07.C07E14_Encrypted");
         return generateTestsList(searchConfig);
     }
