@@ -99,6 +99,7 @@ public class C02E10_JekyllHydeV6 {
             }
             document.add(p);
         }
+        br.close();
 
         document.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
         document.setRenderer(new DocumentRenderer(document)); 

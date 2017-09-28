@@ -87,6 +87,7 @@ public class C02E12_JekyllHydeV8 {
             }
             document.add(p);
         }
+        br.close();
         String total = renderer.toString().replace("{totalpages}",
                 String.valueOf(pdf.getNumberOfPages()));
         ((TextRenderer)renderer).setText(total);

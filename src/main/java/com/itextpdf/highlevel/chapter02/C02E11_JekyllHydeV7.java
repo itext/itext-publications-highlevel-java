@@ -142,6 +142,7 @@ public class C02E11_JekyllHydeV7 {
             }
             document.add(p);
         }
+        br.close();
         renderer.flush();
         document.close();
         

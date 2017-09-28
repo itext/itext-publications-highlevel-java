@@ -80,6 +80,7 @@ public class C02E13_JekyllHydeV9 {
             }
             document.add(p);
         }
+        br.close();
         
         int n = pdf.getNumberOfPages();
         Paragraph footer;

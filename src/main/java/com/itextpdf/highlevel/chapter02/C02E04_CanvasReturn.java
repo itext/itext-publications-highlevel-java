@@ -59,11 +59,13 @@ public class C02E04_CanvasReturn {
         Text author = new Text("Robert Louis Stevenson").setFont(font);
         Paragraph p = new Paragraph().add(title).add(" by ").add(author);
         canvas1.add(p);
+        canvas1.close();
         
         PdfPage page2 = pdf.addNewPage();
         PdfCanvas pdfCanvas2 = new PdfCanvas(page2);
         Canvas canvas2 = new Canvas(pdfCanvas2, pdf, rectangle);
         canvas2.add(new Paragraph("Dr. Jekyll and Mr. Hyde"));
+        canvas2.close();
         
         PdfPage page1 = pdf.getFirstPage();
         PdfCanvas pdfCanvas1 = new PdfCanvas(
@@ -76,6 +78,7 @@ public class C02E04_CanvasReturn {
                 .restoreState();
         Canvas canvas = new Canvas(pdfCanvas1, pdf, rectangle);
         canvas.add(new Paragraph("Dr. Jekyll and Mr. Hyde"));
+        canvas.close();
         
         //Close document
         pdf.close();

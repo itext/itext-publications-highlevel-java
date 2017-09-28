@@ -92,6 +92,7 @@ public class C02E08_JekyllHydeV4 {
             }
             document.add(p);
         }
+        br.close();
 
         //Close document
         document.close();

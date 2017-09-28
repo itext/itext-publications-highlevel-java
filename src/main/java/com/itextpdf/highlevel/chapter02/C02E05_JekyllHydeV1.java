@@ -49,6 +49,7 @@ public class C02E05_JekyllHydeV1 {
         while ((line = br.readLine()) != null) {
             document.add(new Paragraph(line));
         }
+        br.close();
 
         //Close document
         document.close();

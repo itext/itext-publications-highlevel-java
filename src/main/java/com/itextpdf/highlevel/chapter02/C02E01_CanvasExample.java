@@ -58,6 +58,7 @@ public class C02E01_CanvasExample {
         Text author = new Text("Robert Louis Stevenson").setFont(font);
         Paragraph p = new Paragraph().add(title).add(" by ").add(author);
         canvas.add(p);
+        canvas.close();
         
         //Close document
         pdf.close();

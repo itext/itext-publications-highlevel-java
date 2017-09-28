@@ -80,7 +80,7 @@ public class C02E03_CanvasRepeat {
         Paragraph p = new Paragraph().add(title).add(" by ").add(author);
         while (!renderer.isFull())
             canvas.add(p);
-
+        canvas.close();
         //Close document
         pdf.close();
     }

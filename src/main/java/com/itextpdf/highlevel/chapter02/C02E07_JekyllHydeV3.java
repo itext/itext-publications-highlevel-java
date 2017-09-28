@@ -78,6 +78,7 @@ public class C02E07_JekyllHydeV3 {
             }
             document.add(p);
         }
+        br.close();
 
         //Close document
         document.close();
