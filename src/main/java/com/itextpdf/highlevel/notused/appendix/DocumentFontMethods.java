@@ -13,7 +13,7 @@
 package com.itextpdf.highlevel.notused.appendix;
 
 import com.itextpdf.io.font.FontConstants;
-import com.itextpdf.kernel.color.Color;
+import com.itextpdf.kernel.color.ColorConstants;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -55,7 +55,7 @@ public class DocumentFontMethods {
         document.setFontSize(18);
         p = new Paragraph("Testing font methods: changed font size");
         document.add(p);
-        document.setFontColor(Color.BLUE);
+        document.setFontColor(ColorConstants.BLUE);
         p = new Paragraph("Testing font methods: changed color");
         document.add(p);
         document.setBold();
@@ -78,7 +78,7 @@ public class DocumentFontMethods {
         document.add(p);
         document.setProperty(Property.UNDERLINE, null);
         document.setUnderline(2, 4);
-        document.setUnderline(Color.BLUE, 5, 0.1f, 2, -0.5f, PdfCanvasConstants.LineCapStyle.ROUND);
+        document.setUnderline(ColorConstants.BLUE, 5, 0.1f, 2, -0.5f, PdfCanvasConstants.LineCapStyle.ROUND);
         p = new Paragraph("Testing font methods: underline (custom)");
         document.add(p);
         document.setProperty(Property.UNDERLINE, null);
@@ -86,7 +86,7 @@ public class DocumentFontMethods {
         p = new Paragraph("Testing font methods: change text rendering mode");
         document.add(p);
         document.setStrokeWidth(0.1f);
-        document.setStrokeColor(Color.BLUE);
+        document.setStrokeColor(ColorConstants.BLUE);
         p = new Paragraph("Testing font methods: change stroke width and color");
         document.add(p);
         //Close document

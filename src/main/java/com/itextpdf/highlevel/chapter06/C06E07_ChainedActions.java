@@ -12,7 +12,7 @@
  */
 package com.itextpdf.highlevel.chapter06;
 
-import com.itextpdf.kernel.color.Color;
+import com.itextpdf.kernel.color.ColorConstants;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.action.PdfAction;
@@ -47,7 +47,7 @@ public class C06E07_ChainedActions {
         Link link = new Link("here", action);
         Paragraph p = new Paragraph()
             .add("Click ")
-            .add(link.setFontColor(Color.BLUE))
+            .add(link.setFontColor(ColorConstants.BLUE))
             .add(" if you want to be scared.");
         document.add(p);
         document.close();

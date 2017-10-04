@@ -13,7 +13,7 @@
 package com.itextpdf.highlevel.chapter05;
 
 import com.itextpdf.highlevel.util.CsvTo2DList;
-import com.itextpdf.kernel.color.Color;
+import com.itextpdf.kernel.color.ColorConstants;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -104,10 +104,10 @@ class AlternatingBackgroundTableRenderer extends TableRenderer {
             PdfCanvas canvas = drawContext.getCanvas();
             canvas.saveState();
             if (isOdd) {
-                canvas.setFillColor(Color.LIGHT_GRAY);
+                canvas.setFillColor(ColorConstants.LIGHT_GRAY);
                 isOdd = false;
             } else {
-                canvas.setFillColor(Color.YELLOW);
+                canvas.setFillColor(ColorConstants.YELLOW);
                 isOdd = true;
             }
             canvas.rectangle(rect);

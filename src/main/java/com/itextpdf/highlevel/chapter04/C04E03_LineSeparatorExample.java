@@ -14,7 +14,7 @@ package com.itextpdf.highlevel.chapter04;
 
 import com.itextpdf.highlevel.util.CsvTo2DList;
 import com.itextpdf.io.image.ImageDataFactory;
-import com.itextpdf.kernel.color.Color;
+import com.itextpdf.kernel.color.ColorConstants;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.action.PdfAction;
@@ -47,7 +47,7 @@ public class C04E03_LineSeparatorExample {
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
         Document document = new Document(pdf);
         SolidLine line = new SolidLine(1f);
-        line.setColor(Color.RED);
+        line.setColor(ColorConstants.RED);
         LineSeparator ls = new LineSeparator(line);
         ls.setWidthPercent(50);
         ls.setMarginTop(5);

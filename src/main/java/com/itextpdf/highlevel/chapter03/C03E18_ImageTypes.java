@@ -14,7 +14,7 @@ package com.itextpdf.highlevel.chapter03;
 
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
-import com.itextpdf.kernel.color.Color;
+import com.itextpdf.kernel.color.ColorConstants;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
@@ -84,7 +84,7 @@ public class C03E18_ImageTypes {
         
         // GIF
         Image img5 = new Image(ImageDataFactory.create(TEST5));
-        img5.setBackgroundColor(Color.LIGHT_GRAY);
+        img5.setBackgroundColor(ColorConstants.LIGHT_GRAY);
         document.add(img5);
         
         // AWT

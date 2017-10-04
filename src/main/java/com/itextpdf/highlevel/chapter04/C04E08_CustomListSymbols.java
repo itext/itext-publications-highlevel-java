@@ -14,7 +14,7 @@ package com.itextpdf.highlevel.chapter04;
 
 import com.itextpdf.io.font.FontConstants;
 import com.itextpdf.io.image.ImageDataFactory;
-import com.itextpdf.kernel.color.Color;
+import com.itextpdf.kernel.color.ColorConstants;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.geom.PageSize;
@@ -74,7 +74,7 @@ public class C04E08_CustomListSymbols {
         
         list = new List();
         PdfFont font = PdfFontFactory.createFont(FontConstants.ZAPFDINGBATS);
-        list.setListSymbol(new Text("*").setFont(font).setFontColor(Color.ORANGE));
+        list.setListSymbol(new Text("*").setFont(font).setFontColor(ColorConstants.ORANGE));
         list.setSymbolIndent(10);
         list.add("Dr. Jekyll");
         list.add("Mr. Hyde");

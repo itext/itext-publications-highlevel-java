@@ -13,7 +13,7 @@
 package com.itextpdf.highlevel.chapter05;
 
 import com.itextpdf.highlevel.util.CsvTo2DList;
-import com.itextpdf.kernel.color.Color;
+import com.itextpdf.kernel.color.ColorConstants;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -93,12 +93,12 @@ public class C05E14_JekyllHydeTableV7 {
             PdfCanvas canvas = drawContext.getCanvas();
             canvas.saveState();
             if (runlength < 90) {
-                canvas.setFillColor(Color.GREEN);
+                canvas.setFillColor(ColorConstants.GREEN);
             } else if (runlength > 240) {
                 runlength = 240;
-                canvas.setFillColor(Color.RED);
+                canvas.setFillColor(ColorConstants.RED);
             } else {
-                canvas.setFillColor(Color.ORANGE);
+                canvas.setFillColor(ColorConstants.ORANGE);
             }
             Rectangle rect = getOccupiedAreaBBox();
             canvas.rectangle(rect.getLeft(), rect.getBottom(),

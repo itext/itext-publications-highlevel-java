@@ -12,7 +12,7 @@
  */
 package com.itextpdf.highlevel.chapter06;
 
-import com.itextpdf.kernel.color.Color;
+import com.itextpdf.kernel.color.ColorConstants;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.action.PdfAction;
@@ -49,9 +49,9 @@ public class C06E05_RemoteGoto {
                 new File(C06E04_TOC_GoToNamed.DEST).getName(), "toc", false));
         Paragraph p = new Paragraph()
             .add("Read the amazing horror story ")
-            .add(link1.setFontColor(Color.BLUE))
+            .add(link1.setFontColor(ColorConstants.BLUE))
             .add(" or, if you're too afraid to start reading the story, read the ")
-            .add(link2.setFontColor(Color.BLUE))
+            .add(link2.setFontColor(ColorConstants.BLUE))
             .add(".");
         document.add(p);
         document.close();

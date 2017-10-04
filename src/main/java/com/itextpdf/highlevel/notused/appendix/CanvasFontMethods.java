@@ -13,7 +13,7 @@
 package com.itextpdf.highlevel.notused.appendix;
 
 import com.itextpdf.io.font.FontConstants;
-import com.itextpdf.kernel.color.Color;
+import com.itextpdf.kernel.color.ColorConstants;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.geom.Rectangle;
@@ -61,7 +61,7 @@ public class CanvasFontMethods {
         canvas.setFontSize(18);
         p = new Paragraph("Testing font methods: changed font size");
         canvas.add(p);
-        canvas.setFontColor(Color.BLUE);
+        canvas.setFontColor(ColorConstants.BLUE);
         p = new Paragraph("Testing font methods: changed color");
         canvas.add(p);
         canvas.setBold();
@@ -84,7 +84,7 @@ public class CanvasFontMethods {
         canvas.add(p);
         canvas.setProperty(Property.UNDERLINE, null);
         canvas.setUnderline(2, 4);
-        canvas.setUnderline(Color.BLUE, 5, 0.1f, 2, -0.5f, PdfCanvasConstants.LineCapStyle.ROUND);
+        canvas.setUnderline(ColorConstants.BLUE, 5, 0.1f, 2, -0.5f, PdfCanvasConstants.LineCapStyle.ROUND);
         p = new Paragraph("Testing font methods: underline (custom)");
         canvas.add(p);
         canvas.setProperty(Property.UNDERLINE, null);
@@ -92,7 +92,7 @@ public class CanvasFontMethods {
         p = new Paragraph("Testing font methods: change text rendering mode");
         canvas.add(p);
         canvas.setStrokeWidth(0.1f);
-        canvas.setStrokeColor(Color.BLUE);
+        canvas.setStrokeColor(ColorConstants.BLUE);
         p = new Paragraph("Testing font methods: change stroke width and color");
         canvas.add(p);
         //Close document

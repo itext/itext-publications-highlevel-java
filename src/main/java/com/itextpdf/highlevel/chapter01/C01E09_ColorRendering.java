@@ -12,7 +12,7 @@
  */
 package com.itextpdf.highlevel.chapter01;
 
-import com.itextpdf.kernel.color.Color;
+import com.itextpdf.kernel.color.ColorConstants;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.canvas.PdfCanvasConstants;
@@ -46,13 +46,13 @@ public class C01E09_ColorRendering {
         Document document = new Document(pdf);
         
         // Add content
-        Text title1 = new Text("The Strange Case of ").setFontColor(Color.BLUE);
+        Text title1 = new Text("The Strange Case of ").setFontColor(ColorConstants.BLUE);
         Text title2 = new Text("Dr. Jekyll")
-                .setStrokeColor(Color.GREEN)
+                .setStrokeColor(ColorConstants.GREEN)
                 .setTextRenderingMode(PdfCanvasConstants.TextRenderingMode.FILL_STROKE);
         Text title3 = new Text(" and ");
         Text title4 = new Text("Mr. Hyde")
-                .setStrokeColor(Color.RED).setStrokeWidth(0.5f)
+                .setStrokeColor(ColorConstants.RED).setStrokeWidth(0.5f)
                 .setTextRenderingMode(PdfCanvasConstants.TextRenderingMode.STROKE);
         Paragraph p = new Paragraph().setFontSize(24)
                 .add(title1).add(title2).add(title3).add(title4);

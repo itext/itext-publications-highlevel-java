@@ -13,7 +13,7 @@
 package com.itextpdf.highlevel.chapter02;
 
 import com.itextpdf.io.font.FontConstants;
-import com.itextpdf.kernel.color.Color;
+import com.itextpdf.kernel.color.ColorConstants;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.geom.Rectangle;
@@ -72,7 +72,7 @@ public class C02E04_CanvasReturn {
             page1.newContentStreamBefore(), page1.getResources(), pdf);
         rectangle = new Rectangle(100, 700, 100, 100);
         pdfCanvas1.saveState()
-                .setFillColor(Color.CYAN)
+                .setFillColor(ColorConstants.CYAN)
                 .rectangle(rectangle)
                 .fill()
                 .restoreState();

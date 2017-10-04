@@ -13,7 +13,7 @@
 package com.itextpdf.highlevel.notused.appendix;
 
 import com.itextpdf.io.font.FontConstants;
-import com.itextpdf.kernel.color.Color;
+import com.itextpdf.kernel.color.ColorConstants;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -53,27 +53,27 @@ public class ParagraphProperties {
         Paragraph p;
         PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
         Style style = new Style();
-        style.setBackgroundColor(Color.YELLOW);
+        style.setBackgroundColor(ColorConstants.YELLOW);
         p = getNewParagraphInstance().addStyle(style).setBorder(new SolidBorder(0.5f)).setDestination("Top");
         document.add(p);
         p = getNewParagraphInstance();
-        p.setBackgroundColor(Color.GRAY).setWidth(150).setHorizontalAlignment(HorizontalAlignment.CENTER).setTextAlignment(TextAlignment.CENTER);
+        p.setBackgroundColor(ColorConstants.GRAY).setWidth(150).setHorizontalAlignment(HorizontalAlignment.CENTER).setTextAlignment(TextAlignment.CENTER);
         document.add(p);
         document.add(getNewParagraphInstance().setRotationAngle(Math.PI / 18));
         document.add(getNewParagraphInstance().setWidth(150).setHyphenation(new HyphenationConfig("en", "uk", 3, 3)));
-        document.add(getNewParagraphInstance().setHeight(120).setVerticalAlignment(VerticalAlignment.BOTTOM).setBackgroundColor(Color.YELLOW).setRelativePosition(10, 10, 50, 10));
-        document.add(getNewParagraphInstance().setWidthPercent(80).setFont(font).setFontSize(8).setFontColor(Color.RED));
+        document.add(getNewParagraphInstance().setHeight(120).setVerticalAlignment(VerticalAlignment.BOTTOM).setBackgroundColor(ColorConstants.YELLOW).setRelativePosition(10, 10, 50, 10));
+        document.add(getNewParagraphInstance().setWidthPercent(80).setFont(font).setFontSize(8).setFontColor(ColorConstants.RED));
         document.add(new AreaBreak());
         document.add(getNewParagraphInstance().setFixedPosition(100, 400, 350).setAction(PdfAction.createGoTo("Top")));
         document.add(new AreaBreak());
-        document.add(getNewParagraphInstance().setBackgroundColor(Color.YELLOW).setMarginBottom(10));
-        document.add(getNewParagraphInstance().setBackgroundColor(Color.LIGHT_GRAY).setPaddingLeft(20).setPaddingRight(50));
-        document.add(getNewParagraphInstance().setBackgroundColor(Color.YELLOW));
-        document.add(getNewParagraphInstance().setBackgroundColor(Color.LIGHT_GRAY));
-        document.add(getNewParagraphInstance().setBackgroundColor(Color.YELLOW));
-        document.add(getNewParagraphInstance().setBackgroundColor(Color.LIGHT_GRAY).setMargin(50).setPadding(30));
-        document.add(getNewParagraphInstance().setBackgroundColor(Color.YELLOW));
-        document.add(getNewParagraphInstance().setBackgroundColor(Color.LIGHT_GRAY));
+        document.add(getNewParagraphInstance().setBackgroundColor(ColorConstants.YELLOW).setMarginBottom(10));
+        document.add(getNewParagraphInstance().setBackgroundColor(ColorConstants.LIGHT_GRAY).setPaddingLeft(20).setPaddingRight(50));
+        document.add(getNewParagraphInstance().setBackgroundColor(ColorConstants.YELLOW));
+        document.add(getNewParagraphInstance().setBackgroundColor(ColorConstants.LIGHT_GRAY));
+        document.add(getNewParagraphInstance().setBackgroundColor(ColorConstants.YELLOW));
+        document.add(getNewParagraphInstance().setBackgroundColor(ColorConstants.LIGHT_GRAY).setMargin(50).setPadding(30));
+        document.add(getNewParagraphInstance().setBackgroundColor(ColorConstants.YELLOW));
+        document.add(getNewParagraphInstance().setBackgroundColor(ColorConstants.LIGHT_GRAY));
         document.close();
     }
     

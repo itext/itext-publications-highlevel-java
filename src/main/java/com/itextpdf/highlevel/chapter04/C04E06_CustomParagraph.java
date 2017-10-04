@@ -12,7 +12,7 @@
  */
 package com.itextpdf.highlevel.chapter04;
 
-import com.itextpdf.kernel.color.Color;
+import com.itextpdf.kernel.color.ColorConstants;
 import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
@@ -90,12 +90,12 @@ public class C04E06_CustomParagraph {
         
         Paragraph p1 = new Paragraph(
             "The Strange Case of Dr. Jekyll and Mr. Hyde");
-        p1.setBackgroundColor(Color.ORANGE);
+        p1.setBackgroundColor(ColorConstants.ORANGE);
         document.add(p1);
         
         Paragraph p2 = new Paragraph(
             "The Strange Case of Dr. Jekyll and Mr. Hyde");
-        p2.setBackgroundColor(Color.ORANGE);
+        p2.setBackgroundColor(ColorConstants.ORANGE);
         p2.setNextRenderer(new MyParagraphRenderer(p2));
         document.add(p2);
         
