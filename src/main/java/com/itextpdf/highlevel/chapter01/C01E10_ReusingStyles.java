@@ -13,7 +13,7 @@
 package com.itextpdf.highlevel.chapter01;
 
 import com.itextpdf.io.font.FontConstants;
-import com.itextpdf.kernel.colors.Color;
+import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -32,7 +32,7 @@ import java.io.IOException;
  */
 @WrapToTest
 public class C01E10_ReusingStyles {
-    
+
     public static final String DEST = "results/chapter01/style_example.pdf";
 
     public static void main(String args[]) throws IOException {
@@ -48,8 +48,8 @@ public class C01E10_ReusingStyles {
         normal.setFont(font).setFontSize(14);
         Style code = new Style();
         PdfFont monospace = PdfFontFactory.createFont(FontConstants.COURIER);
-        code.setFont(monospace).setFontColor(Color.RED)
-                .setBackgroundColor(Color.LIGHT_GRAY);
+        code.setFont(monospace).setFontColor(ColorConstants.RED)
+                .setBackgroundColor(ColorConstants.LIGHT_GRAY);
         Paragraph p = new Paragraph();
         p.add(new Text("The Strange Case of ").addStyle(normal));
         p.add(new Text("Dr. Jekyll").addStyle(code));

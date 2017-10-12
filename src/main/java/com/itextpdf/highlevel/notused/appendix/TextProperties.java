@@ -12,7 +12,7 @@
  */
 package com.itextpdf.highlevel.notused.appendix;
 
-import com.itextpdf.kernel.colors.Color;
+import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.action.PdfAction;
@@ -29,14 +29,14 @@ import java.io.IOException;
  * @author Bruno Lowagie (iText Software)
  */
 public class TextProperties {
-    
+
     public static final String DEST = "results/appendix/text_properties.pdf";
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
         new TextProperties().createPdf(DEST);
     }
-    
+
     public void createPdf(String dest) throws IOException {
         // Initialize PDF document
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
@@ -48,7 +48,7 @@ public class TextProperties {
         document.add(new Paragraph(t1));
         Text t2 = new Text("Test").setBorder(new SolidBorder(0.5f));
         document.add(new Paragraph(t2));
-        Text t3 = new Text("Test").setBorderLeft(new SolidBorder(0.5f)).setBackgroundColor(Color.LIGHT_GRAY);
+        Text t3 = new Text("Test").setBorderLeft(new SolidBorder(0.5f)).setBackgroundColor(ColorConstants.LIGHT_GRAY);
         document.add(new Paragraph(t3));
         Text t4 = new Text("AWAY AGAIN").setCharacterSpacing(10);
         document.add(new Paragraph(t4));

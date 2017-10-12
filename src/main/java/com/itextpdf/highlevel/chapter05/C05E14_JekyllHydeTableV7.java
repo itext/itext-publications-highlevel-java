@@ -13,7 +13,7 @@
 package com.itextpdf.highlevel.chapter05;
 
 import com.itextpdf.highlevel.util.CsvTo2DList;
-import com.itextpdf.kernel.colors.Color;
+import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -37,20 +37,20 @@ import java.util.List;
  */
 @WrapToTest
 public class C05E14_JekyllHydeTableV7 {
-    
+
     public static final String SRC = "src/main/resources/data/jekyll_hyde.csv";
     public static final String DEST = "results/chapter05/jekyll_hyde_table7.pdf";
-       
+
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
         new C05E14_JekyllHydeTableV7().createPdf(DEST);
     }
-    
+
     public void createPdf(String dest) throws IOException {
         //Initialize PDF document
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
-        
+
         // Initialize document
         Document document = new Document(pdf, PageSize.A4.rotate());
         Table table = new Table(UnitValue.createPercentArray(new float[]{3, 2, 14, 9, 4, 3}));
@@ -73,7 +73,7 @@ public class C05E14_JekyllHydeTableV7 {
         document.add(table);
         document.close();
     }
-    
+
     private class RunlengthRenderer extends CellRenderer {
         private int runlength;
 
@@ -94,12 +94,12 @@ public class C05E14_JekyllHydeTableV7 {
             PdfCanvas canvas = drawContext.getCanvas();
             canvas.saveState();
             if (runlength < 90) {
-                canvas.setFillColor(Color.GREEN);
+                canvas.setFillColor(ColorConstants.GREEN);
             } else if (runlength > 240) {
                 runlength = 240;
-                canvas.setFillColor(Color.RED);
+                canvas.setFillColor(ColorConstants.RED);
             } else {
-                canvas.setFillColor(Color.ORANGE);
+                canvas.setFillColor(ColorConstants.ORANGE);
             }
             Rectangle rect = getOccupiedAreaBBox();
             canvas.rectangle(rect.getLeft(), rect.getBottom(),

@@ -15,7 +15,7 @@ package com.itextpdf.highlevel.chapter05;
 import java.io.File;
 import java.io.IOException;
 
-import com.itextpdf.kernel.colors.Color;
+import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
@@ -67,7 +67,7 @@ public class C05E06_CellBorders1 {
             .setBorderLeft(new DottedBorder(0.5f)));
         table.addCell(new Cell()
             .add(new Paragraph("row 1; cell 1"))
-            .setBorder(new DottedBorder(Color.ORANGE, 0.5f)));
+            .setBorder(new DottedBorder(ColorConstants.ORANGE, 0.5f)));
         table.addCell(new Cell()
             .add(new Paragraph("row 1; cell 2")));
         table.addCell(new Cell()

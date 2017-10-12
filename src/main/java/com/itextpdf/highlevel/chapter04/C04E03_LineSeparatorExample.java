@@ -14,7 +14,7 @@ package com.itextpdf.highlevel.chapter04;
 
 import com.itextpdf.highlevel.util.CsvTo2DList;
 import com.itextpdf.io.image.ImageDataFactory;
-import com.itextpdf.kernel.colors.Color;
+import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.action.PdfAction;
@@ -33,21 +33,21 @@ import java.util.List;
  */
 @WrapToTest
 public class C04E03_LineSeparatorExample {
-    
+
     public static final String SRC = "src/main/resources/data/jekyll_hyde.csv";
     public static final String DEST = "results/chapter04/jekyll_hyde_overviewV3.pdf";
-       
+
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
         new C04E03_LineSeparatorExample().createPdf(DEST);
     }
-    
+
     public void createPdf(String dest) throws IOException {
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
         Document document = new Document(pdf);
         SolidLine line = new SolidLine(1f);
-        line.setColor(Color.RED);
+        line.setColor(ColorConstants.RED);
         LineSeparator ls = new LineSeparator(line);
         ls.setWidthPercent(50);
         ls.setMarginTop(5);
@@ -78,5 +78,5 @@ public class C04E03_LineSeparatorExample {
         }
         document.close();
     }
-    
+
 }

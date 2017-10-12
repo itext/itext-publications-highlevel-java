@@ -12,7 +12,7 @@
  */
 package com.itextpdf.highlevel.chapter04;
 
-import com.itextpdf.kernel.colors.Color;
+import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
@@ -33,7 +33,7 @@ import java.io.IOException;
  */
 @WrapToTest
 public class C04E06_CustomParagraph {
-    
+
     class MyParagraphRenderer extends ParagraphRenderer {
 
         public MyParagraphRenderer(Paragraph modelElement) {
@@ -72,33 +72,33 @@ public class C04E06_CustomParagraph {
             }
         }
     }
-    
+
     public static final String DEST = "results/chapter04/custom_paragraph.pdf";
-    
+
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
         new C04E06_CustomParagraph().createPdf(DEST);
     }
-    
+
     public void createPdf(String dest) throws IOException {
         // Initialize PDF document
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
-        
+
         // Initialize document
         Document document = new Document(pdf);
-        
+
         Paragraph p1 = new Paragraph(
             "The Strange Case of Dr. Jekyll and Mr. Hyde");
-        p1.setBackgroundColor(Color.ORANGE);
+        p1.setBackgroundColor(ColorConstants.ORANGE);
         document.add(p1);
-        
+
         Paragraph p2 = new Paragraph(
             "The Strange Case of Dr. Jekyll and Mr. Hyde");
-        p2.setBackgroundColor(Color.ORANGE);
+        p2.setBackgroundColor(ColorConstants.ORANGE);
         p2.setNextRenderer(new MyParagraphRenderer(p2));
         document.add(p2);
-        
+
         document.close();
     }
 }
