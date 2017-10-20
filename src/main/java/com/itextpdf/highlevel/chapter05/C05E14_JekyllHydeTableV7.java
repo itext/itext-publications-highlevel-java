@@ -26,6 +26,7 @@ import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.UnitValue;
 import com.itextpdf.layout.renderer.CellRenderer;
 import com.itextpdf.layout.renderer.DrawContext;
+import com.itextpdf.layout.renderer.IRenderer;
 import com.itextpdf.test.annotations.WrapToTest;
 
 import java.io.File;
@@ -84,8 +85,8 @@ public class C05E14_JekyllHydeTableV7 {
         }
 
         @Override
-        public CellRenderer getNextRenderer() {
-            return new RunlengthRenderer(getModelElement(), String.valueOf(runlength));
+        public IRenderer getNextRenderer() {
+            return new RunlengthRenderer((Cell) getModelElement(), String.valueOf(runlength));
         }
 
         @Override
