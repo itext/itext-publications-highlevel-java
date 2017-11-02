@@ -12,7 +12,7 @@
  */
 package com.itextpdf.highlevel.notused.appendix;
 
-import com.itextpdf.io.font.FontConstants;
+import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
@@ -48,7 +48,7 @@ public class DocumentFontMethods {
         Paragraph p;
         p = new Paragraph("Testing font methods");
         document.add(p);
-        PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
+        PdfFont font = PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN);
         document.setFont(font);
         p = new Paragraph("Testing font methods: changed font");
         document.add(p);

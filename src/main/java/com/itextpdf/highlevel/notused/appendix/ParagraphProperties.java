@@ -12,7 +12,7 @@
  */
 package com.itextpdf.highlevel.notused.appendix;
 
-import com.itextpdf.io.font.FontConstants;
+import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
@@ -52,7 +52,7 @@ public class ParagraphProperties {
         // Initialize document
         Document document = new Document(pdf);
         Paragraph p;
-        PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
+        PdfFont font = PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN);
         Style style = new Style();
         style.setBackgroundColor(ColorConstants.YELLOW);
         p = getNewParagraphInstance().addStyle(style).setBorder(new SolidBorder(0.5f)).setDestination("Top");

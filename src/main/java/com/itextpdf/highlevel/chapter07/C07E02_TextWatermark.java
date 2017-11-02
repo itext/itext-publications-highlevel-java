@@ -12,7 +12,7 @@
  */
 package com.itextpdf.highlevel.chapter07;
 
-import com.itextpdf.io.font.FontConstants;
+import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.colors.DeviceCmyk;
 import com.itextpdf.kernel.events.Event;
@@ -58,8 +58,8 @@ public class C07E02_TextWatermark {
                 new TextWatermark());
         // Initialize document
         Document document = new Document(pdf);
-        PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
-        PdfFont bold = PdfFontFactory.createFont(FontConstants.HELVETICA_BOLD);
+        PdfFont font = PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN);
+        PdfFont bold = PdfFontFactory.createFont(StandardFonts.HELVETICA_BOLD);
         document.setTextAlignment(TextAlignment.JUSTIFIED)
             .setHyphenation(new HyphenationConfig("en", "uk", 3, 3));
         
@@ -98,7 +98,7 @@ public class C07E02_TextWatermark {
         PdfFont helvetica;
 
         protected TextWatermark() throws IOException {
-            helvetica = PdfFontFactory.createFont(FontConstants.HELVETICA);
+            helvetica = PdfFontFactory.createFont(StandardFonts.HELVETICA);
             lime = new DeviceCmyk(0.208f, 0, 0.584f, 0);
             blue = new DeviceCmyk(0.445f, 0.0546f, 0, 0.0667f);
         }

@@ -12,7 +12,7 @@
  */
 package com.itextpdf.highlevel.notused.appendix;
 
-import com.itextpdf.io.font.FontConstants;
+import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
@@ -54,7 +54,7 @@ public class CellProperties {
         // Initialize document
         Document document = new Document(pdf);
         Table table = new Table(UnitValue.createPercentArray(2)).useAllAvailableWidth();
-        PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
+        PdfFont font = PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN);
         table.addCell(new Cell().add(new Paragraph("Test 1")).setHeight(50).setDestination("Top"));
         Style style = new Style();
         style.setBackgroundColor(ColorConstants.YELLOW);

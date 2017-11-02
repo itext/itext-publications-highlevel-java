@@ -12,7 +12,7 @@
  */
 package com.itextpdf.highlevel.notused.appendix;
 
-import com.itextpdf.io.font.FontConstants;
+import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
@@ -53,7 +53,7 @@ public class DivProperties {
         Style style = new Style();
         style.setBackgroundColor(ColorConstants.YELLOW).setBorder(new SolidBorder(0.5f));
         document.add(createNewDiv().addStyle(style).setWidth(350).setHorizontalAlignment(HorizontalAlignment.CENTER).setTextAlignment(TextAlignment.CENTER).setDestination("Top"));
-        PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
+        PdfFont font = PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN);
         document.add(createNewDiv().setRotationAngle(Math.PI / 18).setFont(font).setFontSize(8).setFontColor(ColorConstants.RED));
         document.add(createNewDiv().setWidth(350).setHyphenation(new HyphenationConfig("en", "uk", 3, 3)).setKeepWithNext(true));
         document.add(createNewDiv().setWidth(UnitValue.createPercentValue(70)).setKeepTogether(true));

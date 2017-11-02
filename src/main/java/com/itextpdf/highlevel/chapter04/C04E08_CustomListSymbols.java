@@ -12,7 +12,7 @@
  */
 package com.itextpdf.highlevel.chapter04;
 
-import com.itextpdf.io.font.FontConstants;
+import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.font.PdfFont;
@@ -73,7 +73,7 @@ public class C04E08_CustomListSymbols {
         document.add(list);
 
         list = new List();
-        PdfFont font = PdfFontFactory.createFont(FontConstants.ZAPFDINGBATS);
+        PdfFont font = PdfFontFactory.createFont(StandardFonts.ZAPFDINGBATS);
         list.setListSymbol(new Text("*").setFont(font).setFontColor(ColorConstants.ORANGE));
         list.setSymbolIndent(10);
         list.add("Dr. Jekyll");
