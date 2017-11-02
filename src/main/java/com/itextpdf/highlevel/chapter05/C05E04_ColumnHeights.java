@@ -49,7 +49,7 @@ public class C05E04_ColumnHeights {
         // Initialize document
         Document document = new Document(pdf);
         Table table = new Table(UnitValue.createPercentArray(new float[]{1}));
-        table.setWidthPercent(100);
+        table.setWidth(UnitValue.createPercentValue(100));
         table.addCell(p);
         Cell cell = new Cell().setHeight(45).add(p);
         table.addCell(cell);

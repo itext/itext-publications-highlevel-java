@@ -24,6 +24,7 @@ import com.itextpdf.layout.element.AreaBreak;
 import com.itextpdf.layout.element.LineSeparator;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.property.HorizontalAlignment;
+import com.itextpdf.layout.property.UnitValue;
 import com.itextpdf.layout.property.VerticalAlignment;
 
 import java.io.File;
@@ -55,7 +56,7 @@ public class ListSeparatorProperties {
         document.add(createNewSeparator().setMargin(10).setVerticalAlignment(VerticalAlignment.BOTTOM).setBorder(new SolidBorder(0.5f)));
         document.add(createNewSeparator().setMargin(10).setWidth(300));
         document.add(createNewSeparator().setMargin(10).setRelativePosition(10, 10, 50, 10));
-        document.add(createNewSeparator().setMargin(10).setWidthPercent(50));
+        document.add(createNewSeparator().setMargin(10).setWidth(UnitValue.createPercentValue(50)));
         document.add(createNewSeparator().setMargin(10).setWidth(50).setAction(PdfAction.createGoTo("Top")));
         document.add(createNewSeparator().setFixedPosition(100, 200, 350));
         document.add(new AreaBreak());

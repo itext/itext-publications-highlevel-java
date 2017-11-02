@@ -47,7 +47,7 @@ public class C05E03_CellAlignment {
         // Initialize document
         Document document = new Document(pdf);
         Table table = new Table(UnitValue.createPercentArray(new float[]{2, 1, 1}));
-        table.setWidthPercent(80);
+        table.setWidth(UnitValue.createPercentValue(80));
         table.setHorizontalAlignment(HorizontalAlignment.CENTER);
         table.setTextAlignment(TextAlignment.CENTER);
         table.addCell(new Cell(1, 3).add(new Paragraph("Cell with colspan 3")));

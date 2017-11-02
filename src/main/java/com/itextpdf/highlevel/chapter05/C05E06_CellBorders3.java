@@ -47,7 +47,7 @@ public class C05E06_CellBorders3 {
         @Override
         public void drawBorder(DrawContext drawContext) {
             Rectangle occupiedAreaBBox = getOccupiedAreaBBox();
-            float[] margins = getMargins();
+            UnitValue[] margins = getMargins();
             Rectangle rectangle = applyMargins(occupiedAreaBBox, margins, false);
             PdfCanvas canvas = drawContext.getCanvas();
             canvas.roundRectangle(rectangle.getX(), rectangle.getY(),
@@ -61,8 +61,8 @@ public class C05E06_CellBorders3 {
         }
 
         @Override
-        protected Rectangle applyMargins(Rectangle rect, float[] margins, boolean reverse) {
-            return rect.<Rectangle>applyMargins(margins[0], margins[1], margins[2], margins[3], reverse);
+        protected Rectangle applyMargins(Rectangle rect, UnitValue[] margins, boolean reverse) {
+            return rect.<Rectangle>applyMargins(margins[0].getValue(), margins[1].getValue(), margins[2].getValue(), margins[3].getValue(), reverse); // TODO
         }
     }
 
@@ -102,7 +102,7 @@ public class C05E06_CellBorders3 {
         Document document = new Document(pdf);
 
         Table table = new Table(UnitValue.createPercentArray(new float[]{2, 1, 1}));
-        table.setWidthPercent(80)
+        table.setWidth(UnitValue.createPercentValue(80))
             .setHorizontalAlignment(HorizontalAlignment.CENTER)
             .setTextAlignment(TextAlignment.CENTER);
         Cell cell = new RoundedCornersCell(1, 3)

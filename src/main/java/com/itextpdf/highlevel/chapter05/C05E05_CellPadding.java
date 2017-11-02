@@ -47,7 +47,7 @@ public class C05E05_CellPadding {
         Document document = new Document(pdf);
         Table table = new Table(UnitValue.createPercentArray(new float[]{2, 1, 1}));
         table.setBackgroundColor(ColorConstants.ORANGE);
-        table.setWidthPercent(80);
+        table.setWidth(UnitValue.createPercentValue(80));
         table.setHorizontalAlignment(HorizontalAlignment.CENTER);
         table.addCell(
             new Cell(1, 3).add(new Paragraph("Cell with colspan 3"))

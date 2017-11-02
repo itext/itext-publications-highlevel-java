@@ -52,7 +52,7 @@ public class C05E06_CellBorders2 {
 
         Table table = new Table(UnitValue.createPercentArray(new float[]{2, 1, 1}));
         table.setBorder(new SolidBorder(3))
-            .setWidthPercent(80)
+            .setWidth(UnitValue.createPercentValue(80))
             .setHorizontalAlignment(HorizontalAlignment.CENTER)
             .setTextAlignment(TextAlignment.CENTER);
         table.addCell(new Cell(1, 3)

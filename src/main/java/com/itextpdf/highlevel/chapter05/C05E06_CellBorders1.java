@@ -53,7 +53,7 @@ public class C05E06_CellBorders1 {
         Document document = new Document(pdf);
 
         Table table = new Table(UnitValue.createPercentArray(new float[]{2, 1, 1}));
-        table.setWidthPercent(80)
+        table.setWidth(UnitValue.createPercentValue(80))
             .setHorizontalAlignment(HorizontalAlignment.CENTER)
             .setTextAlignment(TextAlignment.CENTER);
         table.addCell(new Cell(1, 3)

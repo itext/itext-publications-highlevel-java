@@ -27,6 +27,7 @@ import com.itextpdf.layout.element.Div;
 import com.itextpdf.layout.hyphenation.HyphenationConfig;
 import com.itextpdf.layout.property.HorizontalAlignment;
 import com.itextpdf.layout.property.TextAlignment;
+import com.itextpdf.layout.property.UnitValue;
 
 import java.io.File;
 import java.io.IOException;
@@ -55,7 +56,7 @@ public class DivProperties {
         PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
         document.add(createNewDiv().setRotationAngle(Math.PI / 18).setFont(font).setFontSize(8).setFontColor(ColorConstants.RED));
         document.add(createNewDiv().setWidth(350).setHyphenation(new HyphenationConfig("en", "uk", 3, 3)).setKeepWithNext(true));
-        document.add(createNewDiv().setWidthPercent(70).setKeepTogether(true));
+        document.add(createNewDiv().setWidth(UnitValue.createPercentValue(70)).setKeepTogether(true));
         document.add(createNewDiv().setHeight(350).setBackgroundColor(ColorConstants.YELLOW).setAction(PdfAction.createGoTo("Top")).setRelativePosition(10, 10, 50, 10));
         document.add(new AreaBreak());
         document.add(createNewDiv().setFixedPosition(100, 400, 350));

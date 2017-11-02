@@ -56,10 +56,10 @@ public class C05E13_JekyllHydeTableV6 {
         List<List<String>> resultSet = CsvTo2DList.convert(SRC, "|");
         List<String> header = resultSet.remove(0);
         Table table = new Table(UnitValue.createPercentArray(new float[]{3, 2, 14, 9, 4, 3}));
+        table.setWidth(UnitValue.createPercentValue(100));
         int nRows = resultSet.size();
         table.setNextRenderer(new AlternatingBackgroundTableRenderer(
             table, new Table.RowRange(0, nRows - 1)));
-        table.setWidthPercent(100);
         for (String field : header) {
             table.addHeaderCell(field);
         }

@@ -19,6 +19,7 @@ import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.HorizontalAlignment;
+import com.itextpdf.layout.property.UnitValue;
 import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.IOException;
@@ -44,7 +45,7 @@ public class C05E07_NestedTable {
         // Initialize document
         Document document = new Document(pdf);
         Table table = new Table(new float[]{1, 1})
-            .setWidthPercent(80)
+            .setWidth(UnitValue.createPercentValue(80))
             .setHorizontalAlignment(HorizontalAlignment.CENTER);
         table.addCell(new Cell(1, 2).add(new Paragraph("Cell with colspan 2")));
         table.addCell(new Cell().add(new Paragraph("Cell with rowspan 1")));
@@ -58,7 +59,7 @@ public class C05E07_NestedTable {
 
         table = new Table(new float[]{1, 1})
             .setMarginTop(10)
-            .setWidthPercent(80)
+            .setWidth(UnitValue.createPercentValue(80))
             .setHorizontalAlignment(HorizontalAlignment.CENTER);
         table.addCell(new Cell(1, 2).add(new Paragraph("Cell with colspan 2")));
         table.addCell(new Cell().add(new Paragraph("Cell with rowspan 1")));
@@ -72,12 +73,12 @@ public class C05E07_NestedTable {
 
         table = new Table(new float[]{1, 1})
             .setMarginTop(10)
-            .setWidthPercent(80)
+            .setWidth(UnitValue.createPercentValue(80))
             .setHorizontalAlignment(HorizontalAlignment.CENTER);
         table.addCell(new Cell(1, 2).add(new Paragraph("Cell with colspan 2")));
         table.addCell(new Cell().add(new Paragraph("Cell with rowspan 1")));
         inner = new Table(new float[]{1, 1})
-            .setWidthPercent(100);
+            .setWidth(UnitValue.createPercentValue(100));
         inner.addCell("row 1; cell 1");
         inner.addCell("row 1; cell 2");
         inner.addCell("row 2; cell 1");

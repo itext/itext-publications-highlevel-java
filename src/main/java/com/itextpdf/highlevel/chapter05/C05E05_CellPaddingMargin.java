@@ -47,8 +47,8 @@ public class C05E05_CellPaddingMargin {
         }
 
         @Override
-        protected Rectangle applyMargins(Rectangle rect, float[] margins, boolean reverse) {
-            return rect.<Rectangle>applyMargins(margins[0], margins[1], margins[2], margins[3], reverse);
+        protected Rectangle applyMargins(Rectangle rect, UnitValue[] margins, boolean reverse) {
+            return rect.<Rectangle>applyMargins(margins[0].getValue(), margins[1].getValue(), margins[2].getValue(), margins[3].getValue(), reverse); // TODO
         }
     }
 
@@ -81,7 +81,7 @@ public class C05E05_CellPaddingMargin {
         Document document = new Document(pdf);
         Table table = new Table(UnitValue.createPercentArray(new float[]{2, 1, 1}));
         table.setBackgroundColor(ColorConstants.ORANGE);
-        table.setWidthPercent(80);
+        table.setWidth(UnitValue.createPercentValue(80));
         table.setHorizontalAlignment(HorizontalAlignment.CENTER);
         table.addCell(
             new MarginCell(1, 3).add(new Paragraph("Cell with colspan 3"))

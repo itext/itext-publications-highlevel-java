@@ -27,6 +27,7 @@ import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.hyphenation.HyphenationConfig;
 import com.itextpdf.layout.property.HorizontalAlignment;
 import com.itextpdf.layout.property.TextAlignment;
+import com.itextpdf.layout.property.UnitValue;
 import com.itextpdf.layout.property.VerticalAlignment;
 
 import java.io.File;
@@ -62,7 +63,7 @@ public class ParagraphProperties {
         document.add(getNewParagraphInstance().setRotationAngle(Math.PI / 18));
         document.add(getNewParagraphInstance().setWidth(150).setHyphenation(new HyphenationConfig("en", "uk", 3, 3)));
         document.add(getNewParagraphInstance().setHeight(120).setVerticalAlignment(VerticalAlignment.BOTTOM).setBackgroundColor(ColorConstants.YELLOW).setRelativePosition(10, 10, 50, 10));
-        document.add(getNewParagraphInstance().setWidthPercent(80).setFont(font).setFontSize(8).setFontColor(ColorConstants.RED));
+        document.add(getNewParagraphInstance().setWidth(UnitValue.createPercentValue(80)).setFont(font).setFontSize(8).setFontColor(ColorConstants.RED));
         document.add(new AreaBreak());
         document.add(getNewParagraphInstance().setFixedPosition(100, 400, 350).setAction(PdfAction.createGoTo("Top")));
         document.add(new AreaBreak());

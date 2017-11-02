@@ -22,6 +22,7 @@ import com.itextpdf.kernel.pdf.canvas.draw.SolidLine;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.borders.SolidBorder;
 import com.itextpdf.layout.element.*;
+import com.itextpdf.layout.property.UnitValue;
 import com.itextpdf.test.annotations.WrapToTest;
 
 import java.io.File;
@@ -49,7 +50,7 @@ public class C04E03_LineSeparatorExample {
         SolidLine line = new SolidLine(1f);
         line.setColor(ColorConstants.RED);
         LineSeparator ls = new LineSeparator(line);
-        ls.setWidthPercent(50);
+        ls.setWidth(UnitValue.createPercentValue(50));
         ls.setMarginTop(5);
         List<List<String>> resultSet = CsvTo2DList.convert(SRC, "|");
         resultSet.remove(0);

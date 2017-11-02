@@ -57,7 +57,7 @@ public class TableProperties {
         document.add(createNewTable().setBorder(new DottedBorder(5)).setHyphenation(new HyphenationConfig("en", "uk", 3, 3)));
         document.add(createNewTable().setTextAlignment(TextAlignment.CENTER));
         document.add(ListSeparatorProperties.createNewSeparator().setMargin(10).setWidth(300).setKeepWithNext(true));
-        document.add(createNewTable().setKeepTogether(true).setWidthPercent(90));
+        document.add(createNewTable().setKeepTogether(true).setWidth(UnitValue.createPercentValue(90)));
         document.add(createNewTable());
         document.add(createNewTable().setRelativePosition(10, 10, 50, 10));
         document.add(createNewTable());

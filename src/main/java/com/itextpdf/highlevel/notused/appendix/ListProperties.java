@@ -27,6 +27,7 @@ import com.itextpdf.layout.element.List;
 import com.itextpdf.layout.hyphenation.HyphenationConfig;
 import com.itextpdf.layout.property.HorizontalAlignment;
 import com.itextpdf.layout.property.TextAlignment;
+import com.itextpdf.layout.property.UnitValue;
 
 import java.io.File;
 import java.io.IOException;
@@ -56,7 +57,7 @@ public class ListProperties {
         document.add(createNewList().setRotationAngle(Math.PI / 18).setFont(font).setFontSize(8).setFontColor(ColorConstants.RED));
         document.add(createNewList().setHyphenation(new HyphenationConfig("en", "uk", 3, 3)).setBorder(new SolidBorder(0.5f)).setKeepWithNext(true));
         document.add(createNewList().setKeepTogether(true).setHeight(200));
-        document.add(createNewList().setWidthPercent(50));
+        document.add(createNewList().setWidth(UnitValue.createPercentValue(50)));
         document.add(createNewList().setRelativePosition(10, 10, 50, 10));
         document.add(createNewList());
         document.add(new AreaBreak());
