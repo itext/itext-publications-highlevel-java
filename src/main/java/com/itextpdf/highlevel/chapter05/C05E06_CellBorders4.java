@@ -85,7 +85,7 @@ public class C05E06_CellBorders4 {
 
         @Override
         protected Rectangle applyMargins(Rectangle rect, UnitValue[] margins, boolean reverse) {
-            return rect.<Rectangle>applyMargins(margins[0].getValue(), margins[1].getValue(), margins[2].getValue(), margins[3].getValue(), reverse); // TODO
+            return rect.<Rectangle>applyMargins(margins[0].getValue(), margins[1].getValue(), margins[2].getValue(), margins[3].getValue(), reverse);
         }
     }
 
