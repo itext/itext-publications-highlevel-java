@@ -17,7 +17,6 @@ import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.canvas.CanvasArtifact;
-import com.itextpdf.kernel.pdf.tagutils.IAccessibleElement;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.property.Background;
@@ -46,8 +45,7 @@ public class C04E06_CustomParagraph {
             if (background != null) {
                 Rectangle bBox = getOccupiedAreaBBox();
                 boolean isTagged =
-                    drawContext.isTaggingEnabled()
-                    && getModelElement() instanceof IAccessibleElement;
+                    drawContext.isTaggingEnabled();
                 if (isTagged) {
                     drawContext.getCanvas().openTag(new CanvasArtifact());
                 }
