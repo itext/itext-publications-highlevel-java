@@ -12,7 +12,7 @@
  */
 package com.itextpdf.highlevel.chapter07;
 
-import com.itextpdf.io.font.FontConstants;
+import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.events.Event;
 import com.itextpdf.kernel.events.IEventHandler;
@@ -73,7 +73,7 @@ public class C07E13_Compressed {
         pdf.addEventHandler(PdfDocumentEvent.START_PAGE, handler);
         // Initialize document
         Document document = new Document(pdf);
-        PdfFont bold = PdfFontFactory.createFont(FontConstants.HELVETICA_BOLD);
+        PdfFont bold = PdfFontFactory.createFont(StandardFonts.HELVETICA_BOLD);
         document.setTextAlignment(TextAlignment.JUSTIFIED)
             .setHyphenation(new HyphenationConfig("en", "uk", 3, 3));
 

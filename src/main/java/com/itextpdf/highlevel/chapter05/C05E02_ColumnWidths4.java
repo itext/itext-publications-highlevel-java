@@ -16,6 +16,7 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Cell;
+import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.HorizontalAlignment;
 import com.itextpdf.layout.property.UnitValue;
@@ -44,10 +45,10 @@ public class C05E02_ColumnWidths4 {
         // Initialize document
         Document document = new Document(pdf);
         Table table = new Table(UnitValue.createPercentArray(new float[]{2, 1, 1}));
-        table.setWidthPercent(80);
+        table.setWidth(UnitValue.createPercentValue(80));
         table.setHorizontalAlignment(HorizontalAlignment.CENTER);
-        table.addCell(new Cell(1, 3).add("Cell with colspan 3"));
-        table.addCell(new Cell(2, 1).add("Cell with rowspan 2"));
+        table.addCell(new Cell(1, 3).add(new Paragraph("Cell with colspan 3")));
+        table.addCell(new Cell(2, 1).add(new Paragraph("Cell with rowspan 2")));
         table.addCell("row 1; cell 1");
         table.addCell("row 1; cell 2");
         table.addCell("row 2; cell 1");

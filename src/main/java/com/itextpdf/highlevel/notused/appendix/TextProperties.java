@@ -12,13 +12,13 @@
  */
 package com.itextpdf.highlevel.notused.appendix;
 
-import com.itextpdf.kernel.color.ColorConstants;
+import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.action.PdfAction;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.Style;
-import com.itextpdf.layout.border.SolidBorder;
+import com.itextpdf.layout.borders.SolidBorder;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Text;
 
@@ -29,14 +29,14 @@ import java.io.IOException;
  * @author Bruno Lowagie (iText Software)
  */
 public class TextProperties {
-    
+
     public static final String DEST = "results/appendix/text_properties.pdf";
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
         new TextProperties().createPdf(DEST);
     }
-    
+
     public void createPdf(String dest) throws IOException {
         // Initialize PDF document
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));

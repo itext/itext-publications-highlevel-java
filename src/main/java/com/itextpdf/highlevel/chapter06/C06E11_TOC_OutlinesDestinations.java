@@ -12,7 +12,7 @@
  */
 package com.itextpdf.highlevel.chapter06;
 
-import com.itextpdf.io.font.FontConstants;
+import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.geom.Rectangle;
@@ -55,8 +55,8 @@ public class C06E11_TOC_OutlinesDestinations {
         pdf.getCatalog().setPageMode(PdfName.UseOutlines);
         // Initialize document
         Document document = new Document(pdf);
-        PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
-        PdfFont bold = PdfFontFactory.createFont(FontConstants.HELVETICA_BOLD);
+        PdfFont font = PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN);
+        PdfFont bold = PdfFontFactory.createFont(StandardFonts.HELVETICA_BOLD);
         document.setTextAlignment(TextAlignment.JUSTIFIED)
             .setHyphenation(new HyphenationConfig("en", "uk", 3, 3))
             .setFont(font)

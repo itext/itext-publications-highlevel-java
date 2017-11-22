@@ -12,8 +12,8 @@
  */
 package com.itextpdf.highlevel.notused.appendix;
 
-import com.itextpdf.io.font.FontConstants;
-import com.itextpdf.kernel.color.ColorConstants;
+import com.itextpdf.io.font.constants.StandardFonts;
+import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -21,12 +21,13 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.action.PdfAction;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.Style;
-import com.itextpdf.layout.border.DottedBorder;
+import com.itextpdf.layout.borders.DottedBorder;
 import com.itextpdf.layout.element.AreaBreak;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.hyphenation.HyphenationConfig;
 import com.itextpdf.layout.property.HorizontalAlignment;
 import com.itextpdf.layout.property.TextAlignment;
+import com.itextpdf.layout.property.UnitValue;
 
 import java.io.File;
 import java.io.IOException;
@@ -35,28 +36,28 @@ import java.io.IOException;
  * @author iText
  */
 public class TableProperties {
-    
+
     public static final String DEST = "results/appendix/table_properties.pdf";
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
         new TableProperties().createPdf(DEST);
     }
-    
+
     public void createPdf(String dest) throws IOException {
         // Initialize PDF document
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
 
         // Initialize document
         Document document = new Document(pdf);
-        PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
+        PdfFont font = PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN);
         Style style = new Style();
         style.setBackgroundColor(ColorConstants.YELLOW);
         document.add(createNewTable().addStyle(style).setDestination("Top").setWidth(300).setHorizontalAlignment(HorizontalAlignment.CENTER)).setHorizontalAlignment(HorizontalAlignment.CENTER);
         document.add(createNewTable().setBorder(new DottedBorder(5)).setHyphenation(new HyphenationConfig("en", "uk", 3, 3)));
         document.add(createNewTable().setTextAlignment(TextAlignment.CENTER));
         document.add(ListSeparatorProperties.createNewSeparator().setMargin(10).setWidth(300).setKeepWithNext(true));
-        document.add(createNewTable().setKeepTogether(true).setWidthPercent(90));
+        document.add(createNewTable().setKeepTogether(true).setWidth(UnitValue.createPercentValue(90)));
         document.add(createNewTable());
         document.add(createNewTable().setRelativePosition(10, 10, 50, 10));
         document.add(createNewTable());
@@ -73,9 +74,9 @@ public class TableProperties {
         document.add(createNewTable().setBackgroundColor(ColorConstants.LIGHT_GRAY));
         document.close();
     }
-    
+
     public Table createNewTable() {
-        Table table = new Table(2);
+        Table table = new Table(UnitValue.createPercentArray(2)).useAllAvailableWidth();
         table.addCell("test1");
         table.addCell("test2");
         table.addCell("test3");

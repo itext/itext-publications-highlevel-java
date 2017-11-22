@@ -14,14 +14,15 @@ package com.itextpdf.highlevel.chapter04;
 
 import com.itextpdf.highlevel.util.CsvTo2DList;
 import com.itextpdf.io.image.ImageDataFactory;
-import com.itextpdf.kernel.color.ColorConstants;
+import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.action.PdfAction;
 import com.itextpdf.kernel.pdf.canvas.draw.SolidLine;
 import com.itextpdf.layout.Document;
-import com.itextpdf.layout.border.SolidBorder;
+import com.itextpdf.layout.borders.SolidBorder;
 import com.itextpdf.layout.element.*;
+import com.itextpdf.layout.property.UnitValue;
 import com.itextpdf.test.annotations.WrapToTest;
 
 import java.io.File;
@@ -33,23 +34,23 @@ import java.util.List;
  */
 @WrapToTest
 public class C04E03_LineSeparatorExample {
-    
+
     public static final String SRC = "src/main/resources/data/jekyll_hyde.csv";
     public static final String DEST = "results/chapter04/jekyll_hyde_overviewV3.pdf";
-       
+
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
         new C04E03_LineSeparatorExample().createPdf(DEST);
     }
-    
+
     public void createPdf(String dest) throws IOException {
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
         Document document = new Document(pdf);
         SolidLine line = new SolidLine(1f);
         line.setColor(ColorConstants.RED);
         LineSeparator ls = new LineSeparator(line);
-        ls.setWidthPercent(50);
+        ls.setWidth(UnitValue.createPercentValue(50));
         ls.setMarginTop(5);
         List<List<String>> resultSet = CsvTo2DList.convert(SRC, "|");
         resultSet.remove(0);
@@ -78,5 +79,5 @@ public class C04E03_LineSeparatorExample {
         }
         document.close();
     }
-    
+
 }

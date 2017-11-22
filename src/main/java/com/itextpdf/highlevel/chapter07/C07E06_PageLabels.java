@@ -12,10 +12,10 @@
  */
 package com.itextpdf.highlevel.chapter07;
 
-import com.itextpdf.io.font.FontConstants;
+import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
-import com.itextpdf.kernel.pdf.PageLabelNumberingStyleConstants;
+import com.itextpdf.kernel.pdf.PageLabelNumberingStyle;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfPage;
 import com.itextpdf.kernel.pdf.PdfWriter;
@@ -57,7 +57,7 @@ public class C07E06_PageLabels {
     public void createPdf(String dest) throws IOException {
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
         PdfPage page = pdf.addNewPage();
-        page.setPageLabel(PageLabelNumberingStyleConstants.LOWERCASE_ROMAN_NUMERALS, null);
+        page.setPageLabel(PageLabelNumberingStyle.LOWERCASE_ROMAN_NUMERALS, null);
         
         Document document = new Document(pdf);
         document.add(new Paragraph().add("Page left blank intentionally"));
@@ -67,9 +67,9 @@ public class C07E06_PageLabels {
         document.add(new Paragraph().add("Page left blank intentionally"));
         document.add(new AreaBreak());
         page = pdf.getLastPage();
-        page.setPageLabel(PageLabelNumberingStyleConstants.DECIMAL_ARABIC_NUMERALS, null, 1);
-                PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
-        PdfFont bold = PdfFontFactory.createFont(FontConstants.HELVETICA_BOLD);
+        page.setPageLabel(PageLabelNumberingStyle.DECIMAL_ARABIC_NUMERALS, null, 1);
+                PdfFont font = PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN);
+        PdfFont bold = PdfFontFactory.createFont(StandardFonts.HELVETICA_BOLD);
         document.setTextAlignment(TextAlignment.JUSTIFIED)
             .setHyphenation(new HyphenationConfig("en", "uk", 3, 3))
             .setFont(font)

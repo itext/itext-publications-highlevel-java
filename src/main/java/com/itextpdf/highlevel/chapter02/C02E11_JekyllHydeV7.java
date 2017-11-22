@@ -12,7 +12,7 @@
  */
 package com.itextpdf.highlevel.chapter02;
 
-import com.itextpdf.io.font.FontConstants;
+import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.geom.PageSize;
@@ -25,6 +25,7 @@ import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.hyphenation.HyphenationConfig;
 import com.itextpdf.layout.layout.LayoutArea;
 import com.itextpdf.layout.layout.LayoutResult;
+import com.itextpdf.layout.layout.RootLayoutArea;
 import com.itextpdf.layout.property.AreaBreakType;
 import com.itextpdf.layout.property.TextAlignment;
 import com.itextpdf.layout.renderer.DocumentRenderer;
@@ -65,7 +66,7 @@ public class C02E11_JekyllHydeV7 {
                 super.updateCurrentArea(overflowResult);
             }
             currentAreaNumber = nextAreaNumber + 1;
-            return (currentArea = new LayoutArea(currentPageNumber, columns[nextAreaNumber++ % columns.length].clone()));
+            return (currentArea = new RootLayoutArea(currentPageNumber, columns[nextAreaNumber++ % columns.length].clone()));
         }
     
         @Override
@@ -116,8 +117,8 @@ public class C02E11_JekyllHydeV7 {
         DocumentRenderer renderer = new MyColumnRenderer(document, columns);
         document.setRenderer(renderer);
         
-        PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
-        PdfFont bold = PdfFontFactory.createFont(FontConstants.HELVETICA_BOLD);
+        PdfFont font = PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN);
+        PdfFont bold = PdfFontFactory.createFont(StandardFonts.HELVETICA_BOLD);
         document.setTextAlignment(TextAlignment.JUSTIFIED)
             .setFont(font)
             .setHyphenation(new HyphenationConfig("en", null, 3, 3));

@@ -12,7 +12,7 @@
  */
 package com.itextpdf.highlevel.chapter02;
 
-import com.itextpdf.io.font.FontConstants;
+import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.geom.PageSize;
@@ -74,8 +74,8 @@ public class C02E10_JekyllHydeV6 {
         document.setRenderer(new ColumnDocumentRenderer(document, columns));
         document.add(new AreaBreak(AreaBreakType.LAST_PAGE));   
         
-        PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
-        PdfFont bold = PdfFontFactory.createFont(FontConstants.HELVETICA_BOLD);
+        PdfFont font = PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN);
+        PdfFont bold = PdfFontFactory.createFont(StandardFonts.HELVETICA_BOLD);
         document.setTextAlignment(TextAlignment.JUSTIFIED)
             .setFont(font)
             .setHyphenation(new HyphenationConfig("en", null, 3, 3));

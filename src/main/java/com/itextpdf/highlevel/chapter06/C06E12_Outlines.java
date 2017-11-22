@@ -13,7 +13,7 @@
 package com.itextpdf.highlevel.chapter06;
 
 import com.itextpdf.highlevel.util.CsvTo2DList;
-import com.itextpdf.kernel.color.ColorConstants;
+import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfName;
 import com.itextpdf.kernel.pdf.PdfOutline;
@@ -30,16 +30,16 @@ import java.util.List;
  */
 @WrapToTest
 public class C06E12_Outlines {
-    
+
     public static final String SRC = "src/main/resources/data/jekyll_hyde.csv";
     public static final String DEST = "results/chapter06/jekyll_hyde_outlines.pdf";
-       
+
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
         new C06E12_Outlines().createPdf(DEST);
     }
-    
+
     public void createPdf(String dest) throws IOException {
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
         pdf.addNewPage();
@@ -67,5 +67,5 @@ public class C06E12_Outlines {
         }
         pdf.close();
     }
-    
+
 }

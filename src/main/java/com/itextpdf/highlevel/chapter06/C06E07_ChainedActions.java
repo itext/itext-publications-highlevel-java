@@ -12,7 +12,7 @@
  */
 package com.itextpdf.highlevel.chapter06;
 
-import com.itextpdf.kernel.color.ColorConstants;
+import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.action.PdfAction;
@@ -28,16 +28,16 @@ import java.io.IOException;
  */
 @WrapToTest
 public class C06E07_ChainedActions {
-    
+
     public static final String DEST = "results/chapter06/jekyll_hyde_chained.pdf";
-    
-    
+
+
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
         new C06E07_ChainedActions().createPdf(DEST);
     }
-    
+
     public void createPdf(String dest) throws IOException {
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
         Document document = new Document(pdf);

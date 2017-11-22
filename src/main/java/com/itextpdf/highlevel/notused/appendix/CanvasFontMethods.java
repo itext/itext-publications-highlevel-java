@@ -12,8 +12,8 @@
  */
 package com.itextpdf.highlevel.notused.appendix;
 
-import com.itextpdf.io.font.FontConstants;
-import com.itextpdf.kernel.color.ColorConstants;
+import com.itextpdf.io.font.constants.StandardFonts;
+import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.geom.Rectangle;
@@ -33,19 +33,19 @@ import java.io.IOException;
  * @author Bruno Lowagie (iText Software)
  */
 public class CanvasFontMethods {
-    
+
     public static final String DEST = "results/appendix/canvas_font_methods.pdf";
-    
+
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
         new CanvasFontMethods().createPdf(DEST);
     }
-    
+
     public void createPdf(String dest) throws IOException {
         // Initialize PDF document
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
-        
+
         // Initialize document
         PdfPage page = pdf.addNewPage();
         PdfCanvas pdfCanvas = new PdfCanvas(page);
@@ -54,7 +54,7 @@ public class CanvasFontMethods {
         Paragraph p;
         p = new Paragraph("Testing font methods");
         canvas.add(p);
-        PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
+        PdfFont font = PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN);
         canvas.setFont(font);
         p = new Paragraph("Testing font methods: changed font");
         canvas.add(p);

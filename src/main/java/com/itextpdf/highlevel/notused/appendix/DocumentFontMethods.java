@@ -12,8 +12,8 @@
  */
 package com.itextpdf.highlevel.notused.appendix;
 
-import com.itextpdf.io.font.FontConstants;
-import com.itextpdf.kernel.color.ColorConstants;
+import com.itextpdf.io.font.constants.StandardFonts;
+import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -30,15 +30,15 @@ import java.io.IOException;
  * @author Bruno Lowagie (iText Software)
  */
 public class DocumentFontMethods {
-    
+
     public static final String DEST = "results/appendix/document_font_methods.pdf";
-    
+
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
         new DocumentFontMethods().createPdf(DEST);
     }
-    
+
     public void createPdf(String dest) throws IOException {
         // Initialize PDF document
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
@@ -48,7 +48,7 @@ public class DocumentFontMethods {
         Paragraph p;
         p = new Paragraph("Testing font methods");
         document.add(p);
-        PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
+        PdfFont font = PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN);
         document.setFont(font);
         p = new Paragraph("Testing font methods: changed font");
         document.add(p);

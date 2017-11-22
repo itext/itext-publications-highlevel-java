@@ -19,6 +19,7 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.property.HorizontalAlignment;
+import com.itextpdf.layout.property.UnitValue;
 import com.itextpdf.test.annotations.WrapToTest;
 
 import java.io.File;
@@ -44,7 +45,7 @@ public class C03E15_MaryReillyV8 {
         document.add(p);
         Image img = new Image(ImageDataFactory.create(MARY));
         img.setHorizontalAlignment(HorizontalAlignment.CENTER);
-        img.setWidthPercent(80);
+        img.setWidth(UnitValue.createPercentValue(80));
         document.add(img);
         document.close();
     }

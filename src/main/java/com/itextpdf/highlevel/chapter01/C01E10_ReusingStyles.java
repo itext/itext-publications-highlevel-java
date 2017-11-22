@@ -12,8 +12,8 @@
  */
 package com.itextpdf.highlevel.chapter01;
 
-import com.itextpdf.io.font.FontConstants;
-import com.itextpdf.kernel.color.ColorConstants;
+import com.itextpdf.io.font.constants.StandardFonts;
+import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -32,7 +32,7 @@ import java.io.IOException;
  */
 @WrapToTest
 public class C01E10_ReusingStyles {
-    
+
     public static final String DEST = "results/chapter01/style_example.pdf";
 
     public static void main(String args[]) throws IOException {
@@ -44,10 +44,10 @@ public class C01E10_ReusingStyles {
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
         Document document = new Document(pdf);
         Style normal = new Style();
-        PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
+        PdfFont font = PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN);
         normal.setFont(font).setFontSize(14);
         Style code = new Style();
-        PdfFont monospace = PdfFontFactory.createFont(FontConstants.COURIER);
+        PdfFont monospace = PdfFontFactory.createFont(StandardFonts.COURIER);
         code.setFont(monospace).setFontColor(ColorConstants.RED)
                 .setBackgroundColor(ColorConstants.LIGHT_GRAY);
         Paragraph p = new Paragraph();

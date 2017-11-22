@@ -20,6 +20,7 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Image;
+import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.UnitValue;
 import com.itextpdf.test.annotations.WrapToTest;
@@ -50,7 +51,6 @@ public class C05E10_JekyllHydeTableV3 {
         // Initialize document
         Document document = new Document(pdf, PageSize.A4.rotate());
         Table table = new Table(UnitValue.createPercentArray(new float[]{3, 2, 14, 9, 4, 3}));
-        table.setWidthPercent(100);
         List<List<String>> resultSet = CsvTo2DList.convert(SRC, "|");
         List<String> header = resultSet.remove(0);
         for (String field : header) {
@@ -64,11 +64,11 @@ public class C05E10_JekyllHydeTableV3 {
             if (file.exists()) {
                 Image img = new Image(ImageDataFactory.create(file.getPath()));
                 img.setAutoScaleWidth(true);
-                img.setWidthPercent(100);
+                img.setWidth(UnitValue.createPercentValue(100));
                 cell.add(img);
             }
             else {
-                cell.add(record.get(0));
+                cell.add(new Paragraph(record.get(0)));
             }
             table.addCell(cell);
             table.addCell(record.get(1));
