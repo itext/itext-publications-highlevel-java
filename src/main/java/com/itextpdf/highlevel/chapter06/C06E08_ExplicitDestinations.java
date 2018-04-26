@@ -41,17 +41,19 @@ public class C06E08_ExplicitDestinations {
     public void createPdf(String dest) throws IOException {
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
         Document document = new Document(pdf);
+        // here we need to add pages to the document beforehand, because we'll need to get their instances for destination creation
+        pdf.addNewPage();
+        pdf.addNewPage();
         
-        PdfDestination jekyll = PdfExplicitDestination.createFitH(1, 416);
-        PdfDestination hyde = PdfExplicitDestination.createXYZ(1, 150, 516, 2);
-        PdfDestination jekyll2 = PdfExplicitDestination.createFitR(2, 50, 380, 130, 440);
+        PdfDestination jekyll = PdfExplicitDestination.createFitH(pdf.getPage(1), 416);
+        PdfDestination hyde = PdfExplicitDestination.createXYZ(pdf.getPage(1), 150, 516, 2);
+        PdfDestination jekyll2 = PdfExplicitDestination.createFitR(pdf.getPage(2), 50, 380, 130, 440);
         document.add(new Paragraph()
                 .add(new Link("Link to Dr. Jekyll", jekyll)));
         document.add(new Paragraph()
                 .add(new Link("Link to Mr. Hyde", hyde)));
         document.add(new Paragraph()
                 .add(new Link("Link to Dr. Jekyll on page 2", jekyll2)));
-        
         document.add(new Paragraph()
             .setFixedPosition(50, 400, 80)
             .add("Dr. Jekyll"));

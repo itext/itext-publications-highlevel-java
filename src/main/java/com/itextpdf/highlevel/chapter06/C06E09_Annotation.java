@@ -55,8 +55,10 @@ public class C06E09_Annotation {
             .add("Click ")
             .add(link1)
             .add(" if you want to be scared."));
+        // here we need to add a page to the document beforehand, because we'll need to get its instance for destination creation
+        pdf.addNewPage();
         PdfAnnotation la2 = new PdfLinkAnnotation(new Rectangle(0, 0, 0, 0))
-            .setDestination(PdfExplicitDestination.createFit(2))
+            .setDestination(PdfExplicitDestination.createFit(pdf.getPage(2)))
             .setHighlightMode(PdfAnnotation.HIGHLIGHT_PUSH)
             .setBorderStyle(PdfAnnotation.STYLE_INSET);
         Link link2 = new Link("next page", (PdfLinkAnnotation)la2);

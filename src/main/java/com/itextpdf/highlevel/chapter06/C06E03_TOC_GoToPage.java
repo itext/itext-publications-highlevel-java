@@ -113,7 +113,7 @@ public class C06E03_TOC_GoToPage {
                 .add(new Tab())
                 .add(String.valueOf(entry.getValue()))
                 .setAction(PdfAction.createGoTo(
-                        PdfExplicitDestination.createFit(entry.getValue())));
+                        PdfExplicitDestination.createFit(pdf.getPage(entry.getValue()))));
             document.add(p);
         }
         
