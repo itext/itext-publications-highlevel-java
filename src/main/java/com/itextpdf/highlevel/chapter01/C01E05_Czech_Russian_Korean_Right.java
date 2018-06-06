@@ -19,6 +19,7 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.licensekey.LicenseKey;
 import com.itextpdf.test.annotations.WrapToTest;
 
 import java.io.File;
@@ -29,12 +30,12 @@ import java.io.IOException;
  */
 @WrapToTest
 public class C01E05_Czech_Russian_Korean_Right {
-    
+
     public static final String DEST = "results/chapter01/czech_russian_korean.pdf";
-    
+
     public static final String FONT = "src/main/resources/fonts/FreeSans.ttf";
     public static final String HCRBATANG = "src/main/resources/fonts/HANBatang.ttf";
-    
+
     public static final String CZECH =
             "Podivn\u00fd p\u0159\u00edpad Dr. Jekylla a pana Hyda";
     public static final String RUSSIAN =
@@ -46,20 +47,21 @@ public class C01E05_Czech_Russian_Korean_Right {
             + "\u0425\u0430\u0439\u0434\u0430";
     public static final String KOREAN =
             "\ud558\uc774\ub4dc, \uc9c0\ud0ac, \ub098";
-    
+
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
+        LicenseKey.loadLicenseFile(System.getenv("ITEXT7_LICENSEKEY") + "/itextkey-html2pdf_typography.xml");
         new C01E05_Czech_Russian_Korean_Right().createPdf(DEST);
     }
-    
+
     public void createPdf(String dest) throws IOException {
         // Initialize PDF document
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
-        
+
         // Initialize document
         Document document = new Document(pdf);
-        
+
         // Add content
         PdfFont font1250 = PdfFontFactory.createFont(FONT, PdfEncodings.CP1250, true);
         document.add(new Paragraph().setFont(font1250)
@@ -70,7 +72,7 @@ public class C01E05_Czech_Russian_Korean_Right {
         PdfFont fontUnicode = PdfFontFactory.createFont(HCRBATANG, PdfEncodings.IDENTITY_H, true);
         document.add(new Paragraph().setFont(fontUnicode)
                 .add(KOREAN).add(" by Robert Louis Stevenson"));
-        
+
         //Close document
         document.close();
     }
