@@ -20,14 +20,12 @@ import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.UnitValue;
-import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.IOException;
 
 /**
  * @author Bruno Lowagie (iText Software)
  */
-@WrapToTest
 public class C05E04_ColumnHeights {
     
     public static final String DEST = "results/chapter05/column_heights.pdf";

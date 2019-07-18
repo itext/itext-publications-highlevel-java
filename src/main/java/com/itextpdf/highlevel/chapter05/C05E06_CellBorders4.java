@@ -30,12 +30,9 @@ import com.itextpdf.layout.renderer.CellRenderer;
 import com.itextpdf.layout.renderer.DrawContext;
 import com.itextpdf.layout.renderer.IRenderer;
 import com.itextpdf.layout.renderer.TableRenderer;
-import com.itextpdf.test.annotations.WrapToTest;
-
 /**
  * @author Bruno Lowagie (iText Software)
  */
-@WrapToTest
 public class C05E06_CellBorders4 {
 
     private class RoundedCornersTableRenderer extends TableRenderer {

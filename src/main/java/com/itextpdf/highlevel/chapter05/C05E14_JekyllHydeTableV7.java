@@ -27,8 +27,6 @@ import com.itextpdf.layout.property.UnitValue;
 import com.itextpdf.layout.renderer.CellRenderer;
 import com.itextpdf.layout.renderer.DrawContext;
 import com.itextpdf.layout.renderer.IRenderer;
-import com.itextpdf.test.annotations.WrapToTest;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -36,7 +34,6 @@ import java.util.List;
 /**
  * @author iText
  */
-@WrapToTest
 public class C05E14_JekyllHydeTableV7 {
 
     public static final String SRC = "src/main/resources/data/jekyll_hyde.csv";

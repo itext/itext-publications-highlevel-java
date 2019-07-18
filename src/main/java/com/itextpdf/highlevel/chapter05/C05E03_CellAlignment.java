@@ -22,14 +22,12 @@ import com.itextpdf.layout.property.HorizontalAlignment;
 import com.itextpdf.layout.property.TextAlignment;
 import com.itextpdf.layout.property.UnitValue;
 import com.itextpdf.layout.property.VerticalAlignment;
-import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.IOException;
 
 /**
  * @author Bruno Lowagie (iText Software)
  */
-@WrapToTest
 public class C05E03_CellAlignment {
     
     public static final String DEST = "results/chapter05/cell_alignment.pdf";

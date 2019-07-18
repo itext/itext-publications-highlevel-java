@@ -18,12 +18,9 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.test.annotations.WrapToTest;
-
 import java.io.File;
 import java.io.IOException;
 
-@WrapToTest
 public class C03E11_MaryReillyV4 {
     
     public static final String MARY = "src/main/resources/img/0117002.jpg";

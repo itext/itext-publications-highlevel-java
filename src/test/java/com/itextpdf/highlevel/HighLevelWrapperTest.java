@@ -29,6 +29,10 @@ public class HighLevelWrapperTest extends WrappedSamplesRunner {
         RunnerSearchConfig searchConfig = new RunnerSearchConfig();
         searchConfig.addPackageToRunnerSearchPath("com.itextpdf.highlevel");
         searchConfig.ignorePackageOrClass("com.itextpdf.highlevel.chapter07.C07E14_Encrypted");
+        searchConfig.ignorePackageOrClass("com.itextpdf.highlevel.chapter01.C01E02_Text_Paragraph_Cardo2");
+        searchConfig.ignorePackageOrClass("com.itextpdf.highlevel.notused");
+        searchConfig.ignorePackageOrClass("com.itextpdf.highlevel.util");
+        searchConfig.ignorePackageOrClass("com.itextpdf.highlevel.chapter05.AlternatingBackgroundTableRenderer");
         return generateTestsList(searchConfig);
     }
 

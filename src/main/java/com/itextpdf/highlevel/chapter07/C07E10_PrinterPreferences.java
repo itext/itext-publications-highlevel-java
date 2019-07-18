@@ -20,14 +20,12 @@ import com.itextpdf.kernel.pdf.PdfViewerPreferences.PdfViewerPreferencesConstant
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.IOException;
 
 /**
  * @author Bruno Lowagie (iText Software)
  */
-@WrapToTest
 public class C07E10_PrinterPreferences {
     
     public static final String DEST = "results/chapter07/printerpreferences.pdf";

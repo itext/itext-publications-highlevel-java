@@ -29,12 +29,9 @@ import com.itextpdf.layout.property.HorizontalAlignment;
 import com.itextpdf.layout.property.TextAlignment;
 import com.itextpdf.layout.property.UnitValue;
 import com.itextpdf.layout.property.VerticalAlignment;
-import com.itextpdf.test.annotations.WrapToTest;
-
 /**
  * @author Bruno Lowagie (iText Software)
  */
-@WrapToTest
 public class C05E06_CellBorders1 {
 
     public static final String DEST = "results/chapter05/cell_borders1.pdf";

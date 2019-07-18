@@ -25,8 +25,6 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.hyphenation.HyphenationConfig;
 import com.itextpdf.layout.property.TextAlignment;
-import com.itextpdf.test.annotations.WrapToTest;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -35,7 +33,6 @@ import java.io.IOException;
 /**
  * @author Bruno Lowagie (iText Software)
  */
-@WrapToTest
 public class C06E10_TOC_OutlinesNames {
     public static final String SRC = "src/main/resources/txt/jekyll_hyde.txt";
     public static final String DEST = "results/chapter06/jekyll_hyde_outline1.pdf";

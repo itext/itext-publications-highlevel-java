@@ -20,15 +20,12 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.licensekey.LicenseKey;
-import com.itextpdf.test.annotations.WrapToTest;
-
 import java.io.File;
 import java.io.IOException;
 
 /**
  * @author Bruno Lowagie (iText Software)
  */
-@WrapToTest
 public class C01E05_Czech_Russian_Korean_Right {
 
     public static final String DEST = "results/chapter01/czech_russian_korean.pdf";
