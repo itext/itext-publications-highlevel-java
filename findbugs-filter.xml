@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+  <Match>
+    <Or>
+      <Class name="com.itextpdf.highlevel.chapter02.C02E05_JekyllHydeV1"/>
+      <Class name="com.itextpdf.highlevel.chapter02.C02E06_JekyllHydeV2"/>
+      <Class name="com.itextpdf.highlevel.chapter02.C02E07_JekyllHydeV3"/>
+      <Class name="com.itextpdf.highlevel.chapter02.C02E08_JekyllHydeV4"/>
+      <Class name="com.itextpdf.highlevel.chapter02.C02E09_JekyllHydeV5"/>
+      <Class name="com.itextpdf.highlevel.chapter02.C02E10_JekyllHydeV6"/>
+      <Class name="com.itextpdf.highlevel.chapter02.C02E11_JekyllHydeV7"/>
+      <Class name="com.itextpdf.highlevel.chapter02.C02E12_JekyllHydeV8"/>
+      <Class name="com.itextpdf.highlevel.chapter02.C02E13_JekyllHydeV9"/>
+      <Class name="com.itextpdf.highlevel.chapter04.C04E04_ParagraphAndDiv1"/>
+      <Class name="com.itextpdf.highlevel.chapter04.C04E05_ParagraphAndDiv2"/>
+      <Class name="com.itextpdf.highlevel.chapter04.C04E05_ParagraphAndDiv3"/>
+      <Class name="com.itextpdf.highlevel.chapter06.C06E03_TOC_GoToPage"/>
+      <Class name="com.itextpdf.highlevel.chapter06.C06E04_TOC_GoToNamed"/>
+      <Class name="com.itextpdf.highlevel.chapter06.C06E10_TOC_OutlinesNames"/>
+      <Class name="com.itextpdf.highlevel.chapter06.C06E11_TOC_OutlinesDestinations"/>
+      <Class name="com.itextpdf.highlevel.chapter07.C07E02_TextWatermark"/>
+      <Class name="com.itextpdf.highlevel.chapter07.C07E03_PageXofY"/>
+      <Class name="com.itextpdf.highlevel.chapter07.C07E04_ImageWatermark"/>
+      <Class name="com.itextpdf.highlevel.chapter07.C07E06_PageLabels"/>
+      <Class name="com.itextpdf.highlevel.chapter07.C07E07_PageLayoutPageMode"/>
+      <Class name="com.itextpdf.highlevel.chapter07.C07E11_Actions"/>
+      <Class name="com.itextpdf.highlevel.chapter07.C07E13_Compressed"/>
+      <Class name="com.itextpdf.highlevel.chapter07.C07E14_Encrypted"/>
+      <Class name="com.itextpdf.highlevel.notused.JekyllHydeV5"/>
+      <Class name="com.itextpdf.highlevel.notused.JekyllHydeV6"/>
+      <Class name="com.itextpdf.highlevel.notused.JekyllHydeV7"/>
+    </Or>
+    <Method name="createPdf"/>
+    <Bug pattern="DM_DEFAULT_ENCODING"/>
+  </Match>
+  <Match>
+    <Class name="com.itextpdf.highlevel.chapter02.C02E15_ShowTextAlignedKerned"/>
+    <Field name="KEY"/>
+    <Bug pattern="MS_SHOULD_BE_FINAL"/>
+  </Match>
+  <Match>
+    <Or>
+      <Class name="com.itextpdf.highlevel.chapter04.C04E01_DivExample1"/>
+      <Class name="com.itextpdf.highlevel.chapter04.C04E02_DivExample2"/>
+      <Class name="com.itextpdf.highlevel.chapter04.C04E03_LineSeparatorExample"/>
+      <Class name="com.itextpdf.highlevel.chapter04.C04E09_ListItemExample"/>
+      <Class name="com.itextpdf.highlevel.chapter05.C05E10_JekyllHydeTableV3"/>
+      <Class name="com.itextpdf.highlevel.chapter06.C06E01_URIAction"/>
+      <Class name="com.itextpdf.highlevel.chapter06.C06E02_NamedAction"/>
+      <Class name="com.itextpdf.highlevel.util.CsvTo2DList"/>
+    </Or>
+    <Bug pattern="PATH_TRAVERSAL_IN"/>
+  </Match>
+</FindBugsFilter>
