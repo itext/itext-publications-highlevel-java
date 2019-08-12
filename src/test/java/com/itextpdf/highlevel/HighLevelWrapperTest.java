@@ -8,9 +8,7 @@
  */
 package com.itextpdf.highlevel;
 
-import com.itextpdf.kernel.Version;
 import com.itextpdf.kernel.utils.CompareTool;
-import com.itextpdf.licensekey.LicenseKey;
 import com.itextpdf.test.RunnerSearchConfig;
 import com.itextpdf.test.WrappedSamplesRunner;
 import com.itextpdf.test.annotations.type.SampleTest;
@@ -18,7 +16,6 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runners.Parameterized;
 
-import java.lang.reflect.Field;
 import java.util.Collection;
 
 @Category(SampleTest.class)
@@ -41,7 +38,6 @@ public class HighLevelWrapperTest extends WrappedSamplesRunner {
 
     @Test(timeout = 60000)
     public void test() throws Exception {
-        unloadLicense();
         runSamples();
     }
 
@@ -50,18 +46,5 @@ public class HighLevelWrapperTest extends WrappedSamplesRunner {
         CompareTool compareTool = new CompareTool();
         addError(compareTool.compareByContent(dest, cmp, outPath, "diff_"));
         addError(compareTool.compareDocumentInfo(dest, cmp));
-    }
-
-    //Workaround for unloading license. In the next licensekey version there will be public method for this
-    private void unloadLicense() {
-        try {
-            Field validators = LicenseKey.class.getDeclaredField("validators");
-            validators.setAccessible( true );
-            validators.set(null, null);
-            Field versionField = Version.class.getDeclaredField("version");
-            versionField.setAccessible(true);
-            versionField.set(null, null);
-        } catch (Exception ignored) {
-        }
     }
 }

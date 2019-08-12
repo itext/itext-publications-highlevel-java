@@ -19,7 +19,6 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.licensekey.LicenseKey;
 import java.io.File;
 import java.io.IOException;
 
@@ -48,7 +47,6 @@ public class C01E05_Czech_Russian_Korean_Right {
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        LicenseKey.loadLicenseFile(System.getenv("ITEXT7_LICENSEKEY") + "/itextkey-html2pdf_typography.xml");
         new C01E05_Czech_Russian_Korean_Right().createPdf(DEST);
     }
 
