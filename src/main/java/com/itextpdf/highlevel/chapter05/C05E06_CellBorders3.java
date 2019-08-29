@@ -31,12 +31,9 @@ import com.itextpdf.layout.property.VerticalAlignment;
 import com.itextpdf.layout.renderer.CellRenderer;
 import com.itextpdf.layout.renderer.DrawContext;
 import com.itextpdf.layout.renderer.IRenderer;
-import com.itextpdf.test.annotations.WrapToTest;
-
 /**
  * @author Bruno Lowagie (iText Software)
  */
-@WrapToTest
 public class C05E06_CellBorders3 {
 
     private class RoundedCornersCellRenderer extends CellRenderer {

@@ -22,15 +22,12 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Text;
-import com.itextpdf.test.annotations.WrapToTest;
-
 import java.io.File;
 import java.io.IOException;
 
 /**
  * @author Bruno Lowagie (iText Software)
  */
-@WrapToTest
 public class C01E02_Text_Paragraph_Cardo {
     
     public static final String DEST = "results/chapter01/text_paragraph_cardo.pdf";
@@ -38,7 +35,7 @@ public class C01E02_Text_Paragraph_Cardo {
     public static final String REGULAR = "src/main/resources/fonts/Cardo-Regular.ttf";
     public static final String BOLD = "src/main/resources/fonts/Cardo-Bold.ttf";
     public static final String ITALIC = "src/main/resources/fonts/Cardo-Italic.ttf";
-    
+
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();

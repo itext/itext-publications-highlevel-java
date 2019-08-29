@@ -19,7 +19,6 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
 import com.itextpdf.layout.Canvas;
 import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.IOException;
 
@@ -27,7 +26,6 @@ import java.io.IOException;
  *
  * @author iText
  */
-@WrapToTest
 public class C07E05_AddRemovePages {
 
     public static final String SRC = "src/main/resources/pdfs/jekyll_hyde_bookmarked.pdf";

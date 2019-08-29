@@ -19,16 +19,12 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.licensekey.LicenseKey;
-import com.itextpdf.test.annotations.WrapToTest;
-
 import java.io.File;
 import java.io.IOException;
 
 /**
  * @author Bruno Lowagie (iText Software)
  */
-@WrapToTest
 public class C01E06_Czech_Russian_Korean_Unicode {
 
     public static final String DEST = "results/chapter01/czech_russian_korean_unicode.pdf";
@@ -51,7 +47,6 @@ public class C01E06_Czech_Russian_Korean_Unicode {
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        LicenseKey.loadLicenseFile(System.getenv("ITEXT7_LICENSEKEY") + "/itextkey-html2pdf_typography.xml");
         new C01E06_Czech_Russian_Korean_Unicode().createPdf(DEST);
     }
 

@@ -24,8 +24,6 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Image;
-import com.itextpdf.test.annotations.WrapToTest;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -34,7 +32,6 @@ import java.util.List;
 /**
  * @author Bruno Lowagie (iText Software)
  */
-@WrapToTest
 public class C03E19_PagedImages {
     public static final String TEST1 = "src/main/resources/img/test/animated_fox_dog.gif";
     public static final String TEST2 = "src/main/resources/img/test/amb.jb2";

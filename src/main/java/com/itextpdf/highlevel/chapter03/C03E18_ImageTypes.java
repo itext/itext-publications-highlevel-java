@@ -21,8 +21,6 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.borders.SolidBorder;
 import com.itextpdf.layout.element.AreaBreak;
 import com.itextpdf.layout.element.Image;
-import com.itextpdf.test.annotations.WrapToTest;
-
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -30,7 +28,6 @@ import java.io.IOException;
 /**
  * @author iText
  */
-@WrapToTest
 public class C03E18_ImageTypes {
     public static final String TEST1 = "src/main/resources/img/test/map.jp2";
     public static final String TEST2 = "src/main/resources/img/test/butterfly.bmp";

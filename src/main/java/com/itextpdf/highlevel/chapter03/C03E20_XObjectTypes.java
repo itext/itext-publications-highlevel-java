@@ -20,15 +20,12 @@ import com.itextpdf.kernel.pdf.canvas.wmf.WmfImageData;
 import com.itextpdf.kernel.pdf.xobject.PdfFormXObject;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Image;
-import com.itextpdf.test.annotations.WrapToTest;
-
 import java.io.File;
 import java.io.IOException;
 
 /**
  * @author iText
  */
-@WrapToTest
 public class C03E20_XObjectTypes {
     public static final String WMF = "src/main/resources/img/test/butterfly.wmf";
     public static final String SRC = "src/main/resources/pdfs/jekyll_hyde.pdf";

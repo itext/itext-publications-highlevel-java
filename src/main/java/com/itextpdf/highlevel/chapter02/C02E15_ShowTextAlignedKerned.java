@@ -17,25 +17,18 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.property.TextAlignment;
 import com.itextpdf.layout.property.VerticalAlignment;
-import com.itextpdf.licensekey.LicenseKey;
-import com.itextpdf.test.annotations.WrapToTest;
-
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
  * @author iText
  */
-@WrapToTest
 public class C02E15_ShowTextAlignedKerned {
-    public static String KEY = "/itextkey-html2pdf_typography.xml";
     public static final String DEST = "results/chapter02/showtextalignedkerned.pdf";
     
     public static void main(String args[]) throws IOException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        LicenseKey.loadLicenseFile(System.getenv("ITEXT7_LICENSEKEY") + KEY);
         new C02E15_ShowTextAlignedKerned().createPdf(DEST);
     }
     

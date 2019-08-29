@@ -20,8 +20,6 @@ import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Tab;
-import com.itextpdf.test.annotations.WrapToTest;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -29,7 +27,6 @@ import java.util.List;
 /**
  * @author iText
  */
-@WrapToTest
 public class C03E01_JekyllHydeTabsV1 {
     
     public static final String SRC = "src/main/resources/data/jekyll_hyde.csv";

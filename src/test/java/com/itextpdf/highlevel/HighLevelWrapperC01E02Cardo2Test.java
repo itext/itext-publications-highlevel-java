@@ -19,11 +19,11 @@ import org.junit.experimental.categories.Category;
 import org.junit.runners.Parameterized;
 
 @Category(SampleTest.class)
-public class HighLevelWrapperWithEncryptionTest extends WrappedSamplesRunner {
+public class HighLevelWrapperC01E02Cardo2Test extends WrappedSamplesRunner {
     @Parameterized.Parameters(name = "{index}: {0}")
     public static Collection<Object[]> data() {
         RunnerSearchConfig searchConfig = new RunnerSearchConfig();
-        searchConfig.addClassToRunnerSearchPath("com.itextpdf.highlevel.chapter07.C07E14_Encrypted");
+        searchConfig.addClassToRunnerSearchPath("com.itextpdf.highlevel.chapter01.C01E02_Text_Paragraph_Cardo2");
         return generateTestsList(searchConfig);
     }
 
@@ -34,10 +34,14 @@ public class HighLevelWrapperWithEncryptionTest extends WrappedSamplesRunner {
 
     @Override
     protected void comparePdf(String outPath, String dest, String cmp) throws Exception {
-        CompareTool compareTool = new CompareTool();
-        byte[] ownerPass = "abcdefg".getBytes();
-        compareTool.enableEncryptionCompare();
-        addError(compareTool.compareByContent(dest, cmp, outPath, "diff_", ownerPass, ownerPass));
-        addError(compareTool.compareDocumentInfo(dest, cmp, ownerPass, ownerPass));
+        for (int i = 0; i < 3; i++) {
+            String currentDest = String.format(dest, ++i);
+            String currentOutPath = String.format(outPath, ++i);
+            String currentCmp = String.format(cmp, ++i);
+
+            CompareTool compareTool = new CompareTool();
+            addError(compareTool.compareByContent(currentDest, currentCmp, currentOutPath, "diff_"));
+            addError(compareTool.compareDocumentInfo(currentDest, currentCmp));
+        }
     }
 }

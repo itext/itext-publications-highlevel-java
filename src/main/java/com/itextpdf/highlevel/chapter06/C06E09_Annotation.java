@@ -24,14 +24,12 @@ import com.itextpdf.layout.element.AreaBreak;
 import com.itextpdf.layout.element.Link;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.property.AreaBreakType;
-import com.itextpdf.test.annotations.WrapToTest;
 import java.io.File;
 import java.io.IOException;
 
 /**
  * @author iText
  */
-@WrapToTest
 public class C06E09_Annotation {
     
     public static final String DEST = "results/chapter06/jekyll_hyde_annotation.pdf";

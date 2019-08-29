@@ -18,15 +18,12 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.property.TextAlignment;
 import com.itextpdf.layout.property.VerticalAlignment;
-import com.itextpdf.test.annotations.WrapToTest;
-
 import java.io.File;
 import java.io.IOException;
 
 /**
  * @author iText
  */
-@WrapToTest
 public class C02E14_ShowTextAligned {
     public static final String DEST = "results/chapter02/showtextaligned.pdf";
     
