@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <groupId>com.itextpdf.publications</groupId>
   <artifactId>highlevel</artifactId>
-  <version>7.1.8-SNAPSHOT</version>
-
+  <version>7.1.9-SNAPSHOT</version>
   <name>iText 7 Publications: Building blocks</name>
   <url>https://developers.itextpdf.com/content/itext-7-building-blocks</url>
-
   <properties>
     <bouncycastle.version>1.49</bouncycastle.version>
     <fb-contrib.version>7.4.3</fb-contrib.version>
@@ -23,7 +20,6 @@
     <typography.version>2.0.5-SNAPSHOT</typography.version>
     <unittests>com.itextpdf.test.annotations.type.UnitTest</unittests>
   </properties>
-
   <dependencies>
     <dependency>
       <groupId>com.itextpdf</groupId>
@@ -71,7 +67,6 @@
       <version>${bouncycastle.version}</version>
     </dependency>
   </dependencies>
-
   <repositories>
     <repository>
       <releases>
@@ -96,7 +91,6 @@
       <url>https://repo.itextsupport.com/releases</url>
     </repository>
   </repositories>
-
   <build>
     <plugins>
       <plugin>
@@ -239,7 +233,6 @@
       </plugin>
     </plugins>
   </build>
-
   <reporting>
     <plugins>
       <plugin>
