@@ -17,7 +17,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <sampletests>com.itextpdf.test.annotations.type.SampleTest</sampletests>
     <spotbugs.version>3.1.11</spotbugs.version>
-    <typography.version>2.0.4</typography.version>
+    <typography.version>2.0.5-SNAPSHOT</typography.version>
     <unittests>com.itextpdf.test.annotations.type.UnitTest</unittests>
   </properties>
   <dependencies>
