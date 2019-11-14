@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.itextpdf.publications</groupId>
   <artifactId>highlevel</artifactId>
-  <version>7.1.9-SNAPSHOT</version>
+  <version>7.1.9</version>
   <name>iText 7 Publications: Building blocks</name>
   <url>https://developers.itextpdf.com/content/itext-7-building-blocks</url>
   <properties>
@@ -17,7 +17,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <sampletests>com.itextpdf.test.annotations.type.SampleTest</sampletests>
     <spotbugs.version>3.1.11</spotbugs.version>
-    <typography.version>2.0.5-SNAPSHOT</typography.version>
+    <typography.version>2.0.4</typography.version>
     <unittests>com.itextpdf.test.annotations.type.UnitTest</unittests>
   </properties>
   <dependencies>
