@@ -53,7 +53,7 @@ public class C07E05_AddRemovePages {
             PdfDocument pdf = docEvent.getDocument();
             PdfPage page = docEvent.getPage();
             PdfCanvas pdfCanvas = new PdfCanvas(page);
-            Canvas canvas = new Canvas(pdfCanvas, pdf, page.getPageSize());
+            Canvas canvas = new Canvas(pdfCanvas, page.getPageSize());
             canvas.add(new Paragraph().add(docEvent.getType()));
         }
 

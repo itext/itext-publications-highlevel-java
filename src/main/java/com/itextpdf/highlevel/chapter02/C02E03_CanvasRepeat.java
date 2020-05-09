@@ -59,7 +59,7 @@ public class C02E03_CanvasRepeat {
         Rectangle rectangle = new Rectangle(36, 500, 100, 250);
         pdfCanvas.rectangle(rectangle);
         pdfCanvas.stroke();
-        Canvas canvas = new Canvas(pdfCanvas, pdf, rectangle);
+        Canvas canvas = new Canvas(pdfCanvas, rectangle);
         MyCanvasRenderer renderer = new MyCanvasRenderer(canvas);
         canvas.setRenderer(renderer);
         PdfFont font = PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN);

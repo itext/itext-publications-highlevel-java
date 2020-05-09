@@ -157,7 +157,7 @@ public class C07E04_ImageWatermark {
             PdfCanvas pdfCanvas = new PdfCanvas(
                 page.getLastContentStream(), page.getResources(), pdf);
             pdfCanvas.saveState().setExtGState(gState);
-            Canvas canvas = new Canvas(pdfCanvas, pdf, page.getPageSize());
+            Canvas canvas = new Canvas(pdfCanvas, page.getPageSize());
             canvas.add(img
                 .scaleAbsolute(pageSize.getWidth(), pageSize.getHeight()));
             pdfCanvas.restoreState();

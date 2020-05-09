@@ -38,7 +38,7 @@ public class CanvasLayoutMethods {
         PdfPage page = pdf.addNewPage();
         PdfCanvas pdfCanvas = new PdfCanvas(page);
         Rectangle rectangle = new Rectangle(36, 36, 523, 770);
-        Canvas canvas = new Canvas(pdfCanvas, pdf, rectangle);
+        Canvas canvas = new Canvas(pdfCanvas, rectangle);
         Paragraph p;
         p = new Paragraph("Testing layout methods");
         canvas.add(p);

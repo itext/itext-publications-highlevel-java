@@ -36,7 +36,7 @@ public class C02E01_CanvasExample {
         Rectangle rectangle = new Rectangle(36, 650, 100, 100);
         pdfCanvas.rectangle(rectangle);
         pdfCanvas.stroke();
-        Canvas canvas = new Canvas(pdfCanvas, pdf, rectangle);
+        Canvas canvas = new Canvas(pdfCanvas, rectangle);
         PdfFont font = PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN);
         PdfFont bold = PdfFontFactory.createFont(StandardFonts.TIMES_BOLD);
         Text title = new Text("The Strange Case of Dr. Jekyll and Mr. Hyde").setFont(bold);

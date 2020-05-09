@@ -37,7 +37,7 @@ public class C02E04_CanvasReturn {
         Rectangle rectangle = new Rectangle(36, 650, 100, 100);
         pdfCanvas.rectangle(rectangle);
         pdfCanvas.stroke();
-        Canvas canvas1 = new Canvas(pdfCanvas, pdf, rectangle);
+        Canvas canvas1 = new Canvas(pdfCanvas, rectangle);
         PdfFont font = PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN);
         PdfFont bold = PdfFontFactory.createFont(StandardFonts.TIMES_BOLD);
         Text title = new Text("The Strange Case of Dr. Jekyll and Mr. Hyde").setFont(bold);
@@ -48,7 +48,7 @@ public class C02E04_CanvasReturn {
 
         PdfPage page2 = pdf.addNewPage();
         PdfCanvas pdfCanvas2 = new PdfCanvas(page2);
-        Canvas canvas2 = new Canvas(pdfCanvas2, pdf, rectangle);
+        Canvas canvas2 = new Canvas(pdfCanvas2, rectangle);
         canvas2.add(new Paragraph("Dr. Jekyll and Mr. Hyde"));
         canvas2.close();
 
@@ -61,7 +61,7 @@ public class C02E04_CanvasReturn {
                 .rectangle(rectangle)
                 .fill()
                 .restoreState();
-        Canvas canvas = new Canvas(pdfCanvas1, pdf, rectangle);
+        Canvas canvas = new Canvas(pdfCanvas1, rectangle);
         canvas.add(new Paragraph("Dr. Jekyll and Mr. Hyde"));
         canvas.close();
 

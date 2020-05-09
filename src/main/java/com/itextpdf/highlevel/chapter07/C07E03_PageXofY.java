@@ -96,7 +96,7 @@ public class C07E03_PageXofY {
             Rectangle pageSize = page.getPageSize();
             PdfCanvas pdfCanvas = new PdfCanvas(
                 page.getLastContentStream(), page.getResources(), pdf);
-            Canvas canvas = new Canvas(pdfCanvas, pdf, pageSize);
+            Canvas canvas = new Canvas(pdfCanvas, pageSize);
             canvas.showTextAligned(header,
                 pageSize.getWidth() / 2,
                 pageSize.getTop() - 30, TextAlignment.CENTER);
@@ -125,7 +125,7 @@ public class C07E03_PageXofY {
             Rectangle pageSize = page.getPageSize();
             PdfCanvas pdfCanvas = new PdfCanvas(
                 page.getLastContentStream(), page.getResources(), pdf);
-            Canvas canvas = new Canvas(pdfCanvas, pdf, pageSize);
+            Canvas canvas = new Canvas(pdfCanvas, pageSize);
             Paragraph p = new Paragraph()
                 .add("Page ").add(String.valueOf(pageNumber)).add(" of");
             canvas.showTextAligned(p, x, y, TextAlignment.RIGHT);

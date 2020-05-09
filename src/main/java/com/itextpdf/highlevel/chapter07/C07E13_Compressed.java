@@ -135,7 +135,7 @@ public class C07E13_Compressed {
             Rectangle pageSize = page.getPageSize();
             PdfCanvas pdfCanvas = new PdfCanvas(page.newContentStreamBefore(), page.getResources(), pdf);
             pdfCanvas.saveState().setExtGState(gState);
-            Canvas canvas = new Canvas(pdfCanvas, pdf, page.getPageSize());
+            Canvas canvas = new Canvas(pdfCanvas, page.getPageSize());
             canvas.add(img.scaleAbsolute(pageSize.getWidth(), pageSize.getHeight()));
             pdfCanvas.restoreState();
             pdfCanvas.release();
