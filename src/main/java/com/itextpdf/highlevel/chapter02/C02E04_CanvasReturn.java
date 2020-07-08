@@ -1,15 +1,3 @@
-/*
-    This file is part of the iText (R) project.
-    Copyright (c) 1998-2020 iText Group NV
-    Authors: iText Software.
-
-    For more information, please contact iText Software at this address:
-    sales@itextpdf.com
- */
-/*
- * This example was written by Bruno Lowagie
- * in the context of the book: iText 7 building blocks
- */
 package com.itextpdf.highlevel.chapter02;
 
 import com.itextpdf.io.font.constants.StandardFonts;
@@ -49,7 +37,7 @@ public class C02E04_CanvasReturn {
         Rectangle rectangle = new Rectangle(36, 650, 100, 100);
         pdfCanvas.rectangle(rectangle);
         pdfCanvas.stroke();
-        Canvas canvas1 = new Canvas(pdfCanvas, pdf, rectangle);
+        Canvas canvas1 = new Canvas(pdfCanvas, rectangle);
         PdfFont font = PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN);
         PdfFont bold = PdfFontFactory.createFont(StandardFonts.TIMES_BOLD);
         Text title = new Text("The Strange Case of Dr. Jekyll and Mr. Hyde").setFont(bold);
@@ -60,7 +48,7 @@ public class C02E04_CanvasReturn {
 
         PdfPage page2 = pdf.addNewPage();
         PdfCanvas pdfCanvas2 = new PdfCanvas(page2);
-        Canvas canvas2 = new Canvas(pdfCanvas2, pdf, rectangle);
+        Canvas canvas2 = new Canvas(pdfCanvas2, rectangle);
         canvas2.add(new Paragraph("Dr. Jekyll and Mr. Hyde"));
         canvas2.close();
 
@@ -73,7 +61,7 @@ public class C02E04_CanvasReturn {
                 .rectangle(rectangle)
                 .fill()
                 .restoreState();
-        Canvas canvas = new Canvas(pdfCanvas1, pdf, rectangle);
+        Canvas canvas = new Canvas(pdfCanvas1, rectangle);
         canvas.add(new Paragraph("Dr. Jekyll and Mr. Hyde"));
         canvas.close();
 

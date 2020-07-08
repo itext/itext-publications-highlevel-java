@@ -1,11 +1,3 @@
-/*
-    This file is part of the iText (R) project.
-    Copyright (c) 1998-2020 iText Group NV
-    Authors: iText Software.
-
-    For more information, please contact iText Software at this address:
-    sales@itextpdf.com
- */
 package com.itextpdf.highlevel.chapter07;
 
 import com.itextpdf.kernel.events.Event;
@@ -61,7 +53,7 @@ public class C07E05_AddRemovePages {
             PdfDocument pdf = docEvent.getDocument();
             PdfPage page = docEvent.getPage();
             PdfCanvas pdfCanvas = new PdfCanvas(page);
-            Canvas canvas = new Canvas(pdfCanvas, pdf, page.getPageSize());
+            Canvas canvas = new Canvas(pdfCanvas, page.getPageSize());
             canvas.add(new Paragraph().add(docEvent.getType()));
         }
 

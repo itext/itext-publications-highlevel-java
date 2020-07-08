@@ -1,11 +1,3 @@
-/*
-    This file is part of the iText (R) project.
-    Copyright (c) 1998-2020 iText Group NV
-    Authors: iText Software.
-
-    For more information, please contact iText Software at this address:
-    sales@itextpdf.com
- */
 package com.itextpdf.highlevel.chapter02;
 
 import com.itextpdf.io.font.constants.StandardFonts;
@@ -67,7 +59,7 @@ public class C02E03_CanvasRepeat {
         Rectangle rectangle = new Rectangle(36, 500, 100, 250);
         pdfCanvas.rectangle(rectangle);
         pdfCanvas.stroke();
-        Canvas canvas = new Canvas(pdfCanvas, pdf, rectangle);
+        Canvas canvas = new Canvas(pdfCanvas, rectangle);
         MyCanvasRenderer renderer = new MyCanvasRenderer(canvas);
         canvas.setRenderer(renderer);
         PdfFont font = PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN);

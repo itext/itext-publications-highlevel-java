@@ -1,11 +1,3 @@
-/*
-    This file is part of the iText (R) project.
-    Copyright (c) 1998-2020 iText Group NV
-    Authors: iText Software.
-
-    For more information, please contact iText Software at this address:
-    sales@itextpdf.com
- */
 package com.itextpdf.highlevel.notused.appendix;
 
 import com.itextpdf.io.font.otf.GlyphLine;
@@ -46,7 +38,7 @@ public class CanvasLayoutMethods {
         PdfPage page = pdf.addNewPage();
         PdfCanvas pdfCanvas = new PdfCanvas(page);
         Rectangle rectangle = new Rectangle(36, 36, 523, 770);
-        Canvas canvas = new Canvas(pdfCanvas, pdf, rectangle);
+        Canvas canvas = new Canvas(pdfCanvas, rectangle);
         Paragraph p;
         p = new Paragraph("Testing layout methods");
         canvas.add(p);

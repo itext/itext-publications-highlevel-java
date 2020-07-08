@@ -1,15 +1,3 @@
-/*
-    This file is part of the iText (R) project.
-    Copyright (c) 1998-2020 iText Group NV
-    Authors: iText Software.
-
-    For more information, please contact iText Software at this address:
-    sales@itextpdf.com
- */
-/*
- * This example was written by Bruno Lowagie
- * in the context of the book: iText 7 building blocks
- */
 package com.itextpdf.highlevel.chapter07;
 
 import com.itextpdf.io.font.constants.StandardFonts;
@@ -147,7 +135,7 @@ public class C07E13_Compressed {
             Rectangle pageSize = page.getPageSize();
             PdfCanvas pdfCanvas = new PdfCanvas(page.newContentStreamBefore(), page.getResources(), pdf);
             pdfCanvas.saveState().setExtGState(gState);
-            Canvas canvas = new Canvas(pdfCanvas, pdf, page.getPageSize());
+            Canvas canvas = new Canvas(pdfCanvas, page.getPageSize());
             canvas.add(img.scaleAbsolute(pageSize.getWidth(), pageSize.getHeight()));
             pdfCanvas.restoreState();
             pdfCanvas.release();
