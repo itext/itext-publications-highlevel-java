@@ -7,7 +7,6 @@
   <name>iText 7 Publications: Building blocks</name>
   <url>https://developers.itextpdf.com/content/itext-7-building-blocks</url>
   <properties>
-    <bouncycastle.version>1.66</bouncycastle.version>
     <fb-contrib.version>7.4.3</fb-contrib.version>
     <findsecbugs.version>1.8.0</findsecbugs.version>
     <integrationtests>com.itextpdf.test.annotations.type.IntegrationTest</integrationtests>
@@ -55,16 +54,6 @@
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
       <version>1.7.30</version>
-    </dependency>
-    <dependency>
-      <groupId>org.bouncycastle</groupId>
-      <artifactId>bcprov-jdk15on</artifactId>
-      <version>${bouncycastle.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.bouncycastle</groupId>
-      <artifactId>bcpkix-jdk15on</artifactId>
-      <version>${bouncycastle.version}</version>
     </dependency>
   </dependencies>
   <repositories>
