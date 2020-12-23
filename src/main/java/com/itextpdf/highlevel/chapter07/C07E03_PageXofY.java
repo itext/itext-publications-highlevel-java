@@ -129,7 +129,7 @@ public class C07E03_PageXofY {
             Paragraph p = new Paragraph()
                 .add("Page ").add(String.valueOf(pageNumber)).add(" of");
             canvas.showTextAligned(p, x, y, TextAlignment.RIGHT);
-            pdfCanvas.addXObject(placeholder, x + space, y - descent);
+            pdfCanvas.addXObjectAt(placeholder, x + space, y - descent);
             pdfCanvas.release();
         }
         
