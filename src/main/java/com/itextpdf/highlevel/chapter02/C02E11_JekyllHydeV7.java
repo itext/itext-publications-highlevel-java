@@ -51,14 +51,14 @@ public class C02E11_JekyllHydeV7 {
                 super.updateCurrentArea(overflowResult);
             }
             currentAreaNumber = nextAreaNumber + 1;
-            return (currentArea = new RootLayoutArea(currentPageNumber, columns[nextAreaNumber++ % columns.length].clone()));
+            return (currentArea = new RootLayoutArea(currentArea.getPageNumber(), columns[nextAreaNumber++ % columns.length].clone()));
         }
     
         @Override
         protected PageSize addNewPage(PageSize customPageSize) {
             if (currentAreaNumber != nextAreaNumber
                 && currentAreaNumber % columns.length != 0)
-                moveColumn.add(currentPageNumber - 1);
+                moveColumn.add(document.getPdfDocument().getNumberOfPages());
             return super.addNewPage(customPageSize);
         }
 
