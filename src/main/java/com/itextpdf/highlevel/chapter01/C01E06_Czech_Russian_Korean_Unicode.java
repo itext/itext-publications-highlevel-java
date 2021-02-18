@@ -46,12 +46,12 @@ public class C01E06_Czech_Russian_Korean_Unicode {
         Document document = new Document(pdf);
 
         // Add content
-        PdfFont freeUnicode = PdfFontFactory.createFont(FONT, PdfEncodings.IDENTITY_H, true);
+        PdfFont freeUnicode = PdfFontFactory.createFont(FONT, PdfEncodings.IDENTITY_H);
         document.add(new Paragraph().setFont(freeUnicode)
                 .add(CZECH).add(" by Robert Louis Stevenson"));
         document.add(new Paragraph().setFont(freeUnicode)
                 .add(RUSSIAN).add(" by Robert Louis Stevenson"));
-        PdfFont fontUnicode = PdfFontFactory.createFont(HCRBATANG, PdfEncodings.IDENTITY_H, true);
+        PdfFont fontUnicode = PdfFontFactory.createFont(HCRBATANG, PdfEncodings.IDENTITY_H);
         document.add(new Paragraph().setFont(fontUnicode)
                 .add(KOREAN).add(" by Robert Louis Stevenson"));
 
