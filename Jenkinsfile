@@ -2,6 +2,6 @@
 @Library('pipeline-library')_
 
 def repoName = "HighLevel"
-def dependencyRegex = ""
+def dependencyRegex = "itextcore"
 
 automaticJavaBuild(repoName, dependencyRegex)

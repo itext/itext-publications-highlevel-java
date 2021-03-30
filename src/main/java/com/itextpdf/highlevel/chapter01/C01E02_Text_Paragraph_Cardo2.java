@@ -5,6 +5,7 @@ import com.itextpdf.io.font.FontProgramFactory;
 import com.itextpdf.io.font.PdfEncodings;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
+import com.itextpdf.kernel.font.PdfFontFactory.EmbeddingStrategy;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
@@ -37,9 +38,9 @@ public class C01E02_Text_Paragraph_Cardo2 {
         FontProgram boldProgram = FontProgramFactory.createFont(BOLD);
         FontProgram italicProgram = FontProgramFactory.createFont(ITALIC);
         for (int i = 0; i < 3; ) {
-            app.font = PdfFontFactory.createFont(fontProgram, PdfEncodings.WINANSI, true);
-            app.bold = PdfFontFactory.createFont(boldProgram, PdfEncodings.WINANSI, true);
-            app.italic = PdfFontFactory.createFont(italicProgram, PdfEncodings.WINANSI, true);
+            app.font = PdfFontFactory.createFont(fontProgram, PdfEncodings.WINANSI, EmbeddingStrategy.PREFER_EMBEDDED);
+            app.bold = PdfFontFactory.createFont(boldProgram, PdfEncodings.WINANSI, EmbeddingStrategy.PREFER_EMBEDDED);
+            app.italic = PdfFontFactory.createFont(italicProgram, PdfEncodings.WINANSI, EmbeddingStrategy.PREFER_EMBEDDED);
             app.createPdf(String.format(DEST, ++i));
         }
     }
