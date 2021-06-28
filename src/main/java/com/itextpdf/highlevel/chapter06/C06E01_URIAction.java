@@ -9,7 +9,7 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.ListItem;
 import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.property.ListNumberingType;
+import com.itextpdf.layout.properties.ListNumberingType;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
