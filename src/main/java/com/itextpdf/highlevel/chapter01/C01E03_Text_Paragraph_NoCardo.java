@@ -1,7 +1,9 @@
 package com.itextpdf.highlevel.chapter01;
 
+import com.itextpdf.io.font.PdfEncodings;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
+import com.itextpdf.kernel.font.PdfFontFactory.EmbeddingStrategy;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
@@ -35,9 +37,9 @@ public class C01E03_Text_Paragraph_NoCardo {
         Document document = new Document(pdf);
         
         // Add content: the fonts aren't embedded! Don't do this!
-        PdfFont font = PdfFontFactory.createFont(REGULAR);
-        PdfFont bold = PdfFontFactory.createFont(BOLD);
-        PdfFont italic = PdfFontFactory.createFont(ITALIC);
+        PdfFont font = PdfFontFactory.createFont(REGULAR, PdfEncodings.WINANSI, EmbeddingStrategy.PREFER_NOT_EMBEDDED);
+        PdfFont bold = PdfFontFactory.createFont(BOLD, PdfEncodings.WINANSI, EmbeddingStrategy.PREFER_NOT_EMBEDDED);
+        PdfFont italic = PdfFontFactory.createFont(ITALIC, PdfEncodings.WINANSI, EmbeddingStrategy.PREFER_NOT_EMBEDDED);
         Text title = new Text("The Strange Case of Dr. Jekyll and Mr. Hyde").setFont(bold);
         Text author = new Text("Robert Louis Stevenson").setFont(font);
         Paragraph p = new Paragraph().setFont(italic).add(title).add(" by ").add(author);
