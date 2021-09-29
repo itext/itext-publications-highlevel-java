@@ -14,8 +14,8 @@ import com.itextpdf.layout.hyphenation.HyphenationConfig;
 import com.itextpdf.layout.layout.LayoutArea;
 import com.itextpdf.layout.layout.LayoutResult;
 import com.itextpdf.layout.layout.RootLayoutArea;
-import com.itextpdf.layout.property.AreaBreakType;
-import com.itextpdf.layout.property.TextAlignment;
+import com.itextpdf.layout.properties.AreaBreakType;
+import com.itextpdf.layout.properties.TextAlignment;
 import com.itextpdf.layout.renderer.DocumentRenderer;
 import com.itextpdf.layout.renderer.IRenderer;
 import java.io.BufferedReader;
@@ -51,14 +51,14 @@ public class C02E11_JekyllHydeV7 {
                 super.updateCurrentArea(overflowResult);
             }
             currentAreaNumber = nextAreaNumber + 1;
-            return (currentArea = new RootLayoutArea(currentPageNumber, columns[nextAreaNumber++ % columns.length].clone()));
+            return (currentArea = new RootLayoutArea(currentArea.getPageNumber(), columns[nextAreaNumber++ % columns.length].clone()));
         }
     
         @Override
         protected PageSize addNewPage(PageSize customPageSize) {
             if (currentAreaNumber != nextAreaNumber
                 && currentAreaNumber % columns.length != 0)
-                moveColumn.add(currentPageNumber - 1);
+                moveColumn.add(document.getPdfDocument().getNumberOfPages());
             return super.addNewPage(customPageSize);
         }
 

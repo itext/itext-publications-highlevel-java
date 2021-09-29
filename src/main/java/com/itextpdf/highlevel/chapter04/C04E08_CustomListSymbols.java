@@ -14,8 +14,8 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.List;
 import com.itextpdf.layout.element.Text;
-import com.itextpdf.layout.property.ListNumberingType;
-import com.itextpdf.layout.property.ListSymbolAlignment;
+import com.itextpdf.layout.properties.ListNumberingType;
+import com.itextpdf.layout.properties.ListSymbolAlignment;
 import java.io.File;
 import java.io.IOException;
 

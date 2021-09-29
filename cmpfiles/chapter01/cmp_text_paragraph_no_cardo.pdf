@@ -13,7 +13,7 @@ endobj
 <</Pages 2 0 R/Type/Catalog>>
 endobj
 3 0 obj
-<</CreationDate(D:20171020111650+03'00')/ModDate(D:20171020111650+03'00')/Producer(iText® 7.0.5-SNAPSHOT ©2000-2017 iText Group NV \(AGPL-version\))>>
+<</CreationDate(D:20210512143728+03'00')/ModDate(D:20210512143728+03'00')/Producer(iText® Core 7.1.16-SNAPSHOT \(AGPL version\) ©1998-2021 iText Group NV)>>
 endobj
 9 0 obj
 <</Ascent 990/CapHeight 688/Descent -363/Flags 262176/FontBBox[-940 -322 1580 1140]/FontFamily(Cardo)/FontName/Cardo-Bold/FontWeight 700/ItalicAngle 0/StemV 80/Type/FontDescriptor>>
@@ -40,19 +40,19 @@ xref
 0 12
 0000000000 65535 f 
 0000000373 00000 n 
-0000004711 00000 n 
+0000004717 00000 n 
 0000000418 00000 n 
 0000000222 00000 n 
 0000000015 00000 n 
-0000000781 00000 n 
-0000002155 00000 n 
-0000003532 00000 n 
-0000000584 00000 n 
-0000001957 00000 n 
-0000003335 00000 n 
+0000000787 00000 n 
+0000002161 00000 n 
+0000003538 00000 n 
+0000000590 00000 n 
+0000001963 00000 n 
+0000003341 00000 n 
 trailer
-<</ID [<0ffb42cb37dc4d860fd2ce2d026f20fd><0ffb42cb37dc4d860fd2ce2d026f20fd>]/Info 3 0 R/Root 1 0 R/Size 12>>
-%iText-7.0.5-SNAPSHOT
+<</ID [<bf78010f638bcf37a21556ef6b29dd3a><bf78010f638bcf37a21556ef6b29dd3a>]/Info 3 0 R/Root 1 0 R/Size 12>>
+%iText-7.1.16-SNAPSHOT
 startxref
-4762
+4768
 %%EOF

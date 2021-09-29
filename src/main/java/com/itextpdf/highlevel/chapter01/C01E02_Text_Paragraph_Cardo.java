@@ -41,8 +41,8 @@ public class C01E02_Text_Paragraph_Cardo {
         // Add content
         FontProgram fontProgram = FontProgramFactory.createFont(REGULAR);
         PdfFont font = PdfFontFactory.createFont(fontProgram, PdfEncodings.WINANSI, EmbeddingStrategy.PREFER_EMBEDDED);
-        PdfFont bold = PdfFontFactory.createFont(BOLD, EmbeddingStrategy.PREFER_EMBEDDED);
-        PdfFont italic = PdfFontFactory.createFont(ITALIC, EmbeddingStrategy.PREFER_EMBEDDED);
+        PdfFont bold = PdfFontFactory.createFont(BOLD, PdfEncodings.WINANSI, EmbeddingStrategy.PREFER_EMBEDDED);
+        PdfFont italic = PdfFontFactory.createFont(ITALIC, PdfEncodings.WINANSI, EmbeddingStrategy.PREFER_EMBEDDED);
         Text title = new Text("The Strange Case of Dr. Jekyll and Mr. Hyde").setFont(bold);
         Text author = new Text("Robert Louis Stevenson").setFont(font);
         Paragraph p = new Paragraph().setFont(italic).add(title).add(" by ").add(author);
