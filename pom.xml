@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.itextpdf.publications</groupId>
   <artifactId>highlevel</artifactId>
-  <version>7.2.5</version>
+  <version>8.0.0</version>
   <name>iText 7 Publications: Building blocks</name>
   <url>https://developers.itextpdf.com/content/itext-7-building-blocks</url>
   <properties>
@@ -53,6 +53,12 @@
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
       <version>${slf4j-log4j12.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.itextpdf</groupId>
+      <artifactId>bouncy-castle-adapter</artifactId>
+      <version>${project.version}</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
   <repositories>
