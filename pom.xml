@@ -4,7 +4,7 @@
   <groupId>com.itextpdf.publications</groupId>
   <artifactId>highlevel</artifactId>
   <version>8.0.1-SNAPSHOT</version>
-  <name>iText 7 Publications: Building blocks</name>
+  <name>iText Publications: Building blocks</name>
   <url>https://developers.itextpdf.com/content/itext-7-building-blocks</url>
   <properties>
     <fb-contrib.version>7.4.3</fb-contrib.version>
