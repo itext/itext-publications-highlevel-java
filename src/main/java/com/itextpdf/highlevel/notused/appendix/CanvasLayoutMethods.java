@@ -16,10 +16,6 @@ import com.itextpdf.layout.splitting.ISplitCharacters;
 import java.io.File;
 import java.io.IOException;
 
-/**
- *
- * @author iText
- */
 public class CanvasLayoutMethods {
 
     public static final String DEST = "results/appendix/canvas_layout_methods.pdf";

@@ -13,9 +13,6 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * @author iText
- */
 public class C03E18_ImageTypes {
     public static final String TEST1 = "src/main/resources/img/test/map.jp2";
     public static final String TEST2 = "src/main/resources/img/test/butterfly.bmp";

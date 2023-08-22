@@ -10,9 +10,6 @@ import com.itextpdf.layout.element.Paragraph;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * @author iText
- */
 public class C06E06_JavaScript {
 
     public static final String DEST = "results/chapter06/jekyll_hyde_javascript.pdf";

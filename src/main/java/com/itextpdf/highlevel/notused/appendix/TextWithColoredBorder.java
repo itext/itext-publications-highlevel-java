@@ -13,9 +13,6 @@ import com.itextpdf.layout.element.Text;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * @author iText
- */
 public class TextWithColoredBorder {
 
     public static final String DEST = "results/appendix/jekyll_hyde_text.pdf";

@@ -15,9 +15,6 @@ import com.itextpdf.layout.properties.AreaBreakType;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * @author iText
- */
 public class C06E09_Annotation {
     
     public static final String DEST = "results/chapter06/jekyll_hyde_annotation.pdf";

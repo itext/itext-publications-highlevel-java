@@ -18,9 +18,6 @@ import com.itextpdf.layout.properties.VerticalAlignment;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * @author iText
- */
 public class ListSeparatorProperties {
 
     public static final String DEST = "results/appendix/separator_properties.pdf";

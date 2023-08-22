@@ -14,10 +14,6 @@ import com.itextpdf.layout.element.Paragraph;
 import java.io.File;
 import java.io.IOException;
 
-/**
- *
- * @author iText
- */
 public class C07E05_AddRemovePages {
 
     public static final String SRC = "src/main/resources/pdfs/jekyll_hyde_bookmarked.pdf";

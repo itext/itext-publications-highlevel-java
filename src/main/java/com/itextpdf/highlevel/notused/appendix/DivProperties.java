@@ -20,9 +20,6 @@ import com.itextpdf.layout.properties.UnitValue;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * @author iText
- */
 public class DivProperties {
 
     public static final String DEST = "results/appendix/div_properties.pdf";

@@ -17,10 +17,6 @@ import com.itextpdf.layout.renderer.IRenderer;
 import java.io.File;
 import java.io.IOException;
 
-/**
- *
- * @author iText
- */
 public class C02E03_CanvasRepeat {
 
     class MyCanvasRenderer extends CanvasRenderer {

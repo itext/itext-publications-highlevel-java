@@ -23,9 +23,6 @@ import com.itextpdf.layout.properties.VerticalAlignment;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * @author iText
- */
 public class CellProperties {
 
     public static final String DEST = "results/appendix/cell_properties.pdf";
