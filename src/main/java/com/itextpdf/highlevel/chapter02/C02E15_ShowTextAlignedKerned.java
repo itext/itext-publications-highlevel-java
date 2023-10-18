@@ -8,9 +8,6 @@ import com.itextpdf.layout.properties.VerticalAlignment;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * @author iText
- */
 public class C02E15_ShowTextAlignedKerned {
     public static final String DEST = "results/chapter02/showtextalignedkerned.pdf";
     

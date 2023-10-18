@@ -9,9 +9,6 @@ import com.itextpdf.layout.properties.VerticalAlignment;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * @author iText
- */
 public class C02E14_ShowTextAligned {
     public static final String DEST = "results/chapter02/showtextaligned.pdf";
     

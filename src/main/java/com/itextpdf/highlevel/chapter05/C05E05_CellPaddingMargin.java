@@ -20,7 +20,7 @@ import java.io.IOException;
  */
 public class C05E05_CellPaddingMargin {
 
-    public static final String DEST = "results/chapter05/cell_margin_padding.pdf";
+    public static final String DEST = "results/chapter05/cell_padding_margin.pdf";
 
     private class MarginCellRenderer extends CellRenderer {
         public MarginCellRenderer(Cell modelElement) {

@@ -13,11 +13,8 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * @author iText
- */
 public class C03E18_ImageTypes {
-    public static final String TEST1 = "src/main/resources/img/test/map.jp2";
+    public static final String TEST1 = "src/main/resources/img/test/bee.jp2";
     public static final String TEST2 = "src/main/resources/img/test/butterfly.bmp";
     public static final String TEST3 = "src/main/resources/img/test/hitchcock.png";
     public static final String TEST4 = "src/main/resources/img/test/info.png";

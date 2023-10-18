@@ -34,10 +34,10 @@ public class HighLevelWrapperC01E02Cardo2Test extends WrappedSamplesRunner {
 
     @Override
     protected void comparePdf(String outPath, String dest, String cmp) throws Exception {
-        for (int i = 0; i < 3; i++) {
-            String currentDest = String.format(dest, ++i);
-            String currentOutPath = String.format(outPath, ++i);
-            String currentCmp = String.format(cmp, ++i);
+        for (int i = 1; i < 4; i++) {
+            String currentDest = String.format(dest, i);
+            String currentOutPath = String.format(outPath, i);
+            String currentCmp = String.format(cmp, i);
 
             CompareTool compareTool = new CompareTool();
             addError(compareTool.compareByContent(currentDest, currentCmp, currentOutPath, "diff_"));

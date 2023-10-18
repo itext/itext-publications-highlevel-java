@@ -17,9 +17,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * @author iText
- */
 public class C05E13_JekyllHydeTableV6 {
 
     public static final String SRC = "src/main/resources/data/jekyll_hyde.csv";

@@ -8,10 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-
-/**
- * @author iText
- */
 public class CsvTo2DList {
    
     public static final List<List<String>> convert(String src, String separator) throws IOException {

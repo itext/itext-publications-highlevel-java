@@ -12,9 +12,6 @@ import com.itextpdf.layout.properties.AreaBreakType;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * @author iText
- */
 public class C06E08_ExplicitDestinations {
     public static final String DEST = "results/chapter06/jekyll_hyde_explicit.pdf";
     

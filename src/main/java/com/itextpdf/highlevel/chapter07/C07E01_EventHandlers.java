@@ -14,9 +14,6 @@ import com.itextpdf.layout.element.Paragraph;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * @author iText
- */
 public class C07E01_EventHandlers {
     
     public static final String DEST = "results/chapter07/jekyll_hyde_page_orientation.pdf";
