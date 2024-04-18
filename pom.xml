@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.itextpdf.publications</groupId>
   <artifactId>highlevel</artifactId>
-  <version>8.0.4-SNAPSHOT</version>
+  <version>8.0.4</version>
   <name>iText Publications: Building blocks</name>
   <url>https://developers.itextpdf.com/content/itext-7-building-blocks</url>
   <properties>
