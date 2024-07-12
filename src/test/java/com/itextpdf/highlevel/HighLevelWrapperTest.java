@@ -3,17 +3,20 @@ package com.itextpdf.highlevel;
 import com.itextpdf.kernel.utils.CompareTool;
 import com.itextpdf.test.RunnerSearchConfig;
 import com.itextpdf.test.WrappedSamplesRunner;
-import com.itextpdf.test.annotations.type.SampleTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runners.Parameterized;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
 
 import java.util.Collection;
 
-@Category(SampleTest.class)
+@Tag("SampleTest")
 public class HighLevelWrapperTest extends WrappedSamplesRunner {
 
-    @Parameterized.Parameters(name = "{index}: {0}")
     public static Collection<Object[]> data() {
         RunnerSearchConfig searchConfig = new RunnerSearchConfig();
         searchConfig.addPackageToRunnerSearchPath("com.itextpdf.highlevel");
@@ -28,8 +31,11 @@ public class HighLevelWrapperTest extends WrappedSamplesRunner {
         return generateTestsList(searchConfig);
     }
 
-    @Test(timeout = 60000)
-    public void test() throws Exception {
+    @Timeout(unit = TimeUnit.MILLISECONDS, value = 60000)
+    @ParameterizedTest(name = "{index}: {0}")
+    @MethodSource("data")
+    public void test(RunnerParams data) throws Exception {
+        this.sampleClassParams = data;
         runSamples();
     }
 

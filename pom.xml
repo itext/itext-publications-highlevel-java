@@ -3,20 +3,17 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.itextpdf.publications</groupId>
   <artifactId>highlevel</artifactId>
-  <version>8.0.4</version>
+  <version>8.0.5</version>
   <name>iText Publications: Building blocks</name>
   <url>https://developers.itextpdf.com/content/itext-7-building-blocks</url>
   <properties>
     <fb-contrib.version>7.4.3</fb-contrib.version>
     <findsecbugs.version>1.8.0</findsecbugs.version>
-    <integrationtests>com.itextpdf.test.annotations.type.IntegrationTest</integrationtests>
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <sampletests>com.itextpdf.test.annotations.type.SampleTest</sampletests>
     <spotbugs.version>3.1.11</spotbugs.version>
     <slf4j-log4j12.version>1.7.36</slf4j-log4j12.version>
-    <unittests>com.itextpdf.test.annotations.type.UnitTest</unittests>
   </properties>
   <dependencies>
     <dependency>
@@ -103,7 +100,7 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M3</version>
         <configuration>
-          <groups>${unittests}</groups>
+          <groups>UnitTest,BouncyCastleUnitTest</groups>
           <argLine>${env.SUREFIRE_OPTS}</argLine>
         </configuration>
       </plugin>
@@ -123,7 +120,7 @@
           <includes>
             <include>**/*.java</include>
           </includes>
-          <groups>${sampletests},${integrationtests}</groups>
+          <groups>SampleTest,IntegrationTest,BouncyCastleIntegrationTest</groups>
           <argLine>${env.SUREFIRE_OPTS}</argLine>
         </configuration>
       </plugin>
