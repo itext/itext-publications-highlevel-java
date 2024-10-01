@@ -1,14 +1,14 @@
 package com.itextpdf.highlevel.chapter07;
 
-import com.itextpdf.kernel.events.Event;
-import com.itextpdf.kernel.events.IEventHandler;
-import com.itextpdf.kernel.events.PdfDocumentEvent;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfPage;
 import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
+import com.itextpdf.kernel.pdf.event.AbstractPdfDocumentEvent;
+import com.itextpdf.kernel.pdf.event.AbstractPdfDocumentEventHandler;
+import com.itextpdf.kernel.pdf.event.PdfDocumentEvent;
 import com.itextpdf.layout.Canvas;
 import com.itextpdf.layout.element.Paragraph;
 import java.io.File;
@@ -41,10 +41,10 @@ public class C07E05_AddRemovePages {
         pdf.close();
     }
 
-    protected class AddPageHandler implements IEventHandler {
+    protected static class AddPageHandler extends AbstractPdfDocumentEventHandler {
 
         @Override
-        public void handleEvent(Event event) {
+        public void onAcceptedEvent(AbstractPdfDocumentEvent event) {
             PdfDocumentEvent docEvent = (PdfDocumentEvent) event;
             PdfDocument pdf = docEvent.getDocument();
             PdfPage page = docEvent.getPage();
@@ -55,13 +55,12 @@ public class C07E05_AddRemovePages {
 
     }
 
-    protected class RemovePageHandler implements IEventHandler {
+    protected static class RemovePageHandler extends AbstractPdfDocumentEventHandler {
 
         @Override
-        public void handleEvent(Event event) {
+        public void onAcceptedEvent(AbstractPdfDocumentEvent event) {
             PdfDocumentEvent docEvent = (PdfDocumentEvent) event;
             System.out.println(docEvent.getType());
         }
-
     }
 }

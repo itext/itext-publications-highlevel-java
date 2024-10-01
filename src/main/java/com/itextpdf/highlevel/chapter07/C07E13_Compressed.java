@@ -2,9 +2,6 @@ package com.itextpdf.highlevel.chapter07;
 
 import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.io.image.ImageDataFactory;
-import com.itextpdf.kernel.events.Event;
-import com.itextpdf.kernel.events.IEventHandler;
-import com.itextpdf.kernel.events.PdfDocumentEvent;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.geom.Rectangle;
@@ -15,6 +12,9 @@ import com.itextpdf.kernel.pdf.WriterProperties;
 import com.itextpdf.kernel.pdf.action.PdfAction;
 import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
 import com.itextpdf.kernel.pdf.canvas.draw.DottedLine;
+import com.itextpdf.kernel.pdf.event.AbstractPdfDocumentEvent;
+import com.itextpdf.kernel.pdf.event.AbstractPdfDocumentEventHandler;
+import com.itextpdf.kernel.pdf.event.PdfDocumentEvent;
 import com.itextpdf.kernel.pdf.extgstate.PdfExtGState;
 import com.itextpdf.layout.Canvas;
 import com.itextpdf.layout.Document;
@@ -54,7 +54,7 @@ public class C07E13_Compressed {
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest,
             new WriterProperties().setFullCompressionMode(true)));
         Image img = new Image(ImageDataFactory.create(IMG));
-        IEventHandler handler = new TransparentImage(img);
+        AbstractPdfDocumentEventHandler handler = new TransparentImage(img);
         pdf.addEventHandler(PdfDocumentEvent.START_PAGE, handler);
         // Initialize document
         Document document = new Document(pdf);
@@ -93,7 +93,7 @@ public class C07E13_Compressed {
             }
         }
         
-        pdf.removeEventHandler(PdfDocumentEvent.START_PAGE, handler);
+        pdf.removeEventHandler(handler);
         document.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
         
         p = new Paragraph().setFont(bold)
@@ -117,8 +117,8 @@ public class C07E13_Compressed {
         //Close document
         document.close();
     }
-    protected class TransparentImage implements IEventHandler {
 
+    protected static class TransparentImage extends AbstractPdfDocumentEventHandler {
         protected PdfExtGState gState;
         protected Image img;
         
@@ -128,7 +128,7 @@ public class C07E13_Compressed {
         }
         
         @Override
-        public void handleEvent(Event event) {
+        public void onAcceptedEvent(AbstractPdfDocumentEvent event) {
             PdfDocumentEvent docEvent = (PdfDocumentEvent) event;
             PdfDocument pdf = docEvent.getDocument();
             PdfPage page = docEvent.getPage();
