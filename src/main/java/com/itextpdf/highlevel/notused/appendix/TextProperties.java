@@ -31,7 +31,7 @@ public class TextProperties {
 
         // Initialize document
         Document document = new Document(pdf);
-        Style style = new Style().setBold().setDestination("Top");
+        Style style = new Style().setDestination("Top");
         Text t1 = new Text("Test").addStyle(style);
         document.add(new Paragraph(t1));
         Text t2 = new Text("Test").setBorder(new SolidBorder(0.5f));

@@ -1,9 +1,6 @@
 package com.itextpdf.highlevel.chapter07;
 
 import com.itextpdf.io.font.constants.StandardFonts;
-import com.itextpdf.kernel.events.Event;
-import com.itextpdf.kernel.events.IEventHandler;
-import com.itextpdf.kernel.events.PdfDocumentEvent;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.geom.Rectangle;
@@ -11,6 +8,9 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfPage;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
+import com.itextpdf.kernel.pdf.event.AbstractPdfDocumentEvent;
+import com.itextpdf.kernel.pdf.event.AbstractPdfDocumentEventHandler;
+import com.itextpdf.kernel.pdf.event.PdfDocumentEvent;
 import com.itextpdf.kernel.pdf.xobject.PdfFormXObject;
 import com.itextpdf.layout.Canvas;
 import com.itextpdf.layout.Document;
@@ -39,9 +39,8 @@ public class C07E03_PageXofY {
     public void createPdf(String dest) throws IOException {
         //Initialize PDF document
         PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
-        pdf.addEventHandler(PdfDocumentEvent.START_PAGE,
-            new Header("The Strange Case of Dr. Jekyll and Mr. Hyde"));
-        PageXofY event = new PageXofY(pdf);
+        pdf.addEventHandler(PdfDocumentEvent.START_PAGE, new Header("The Strange Case of Dr. Jekyll and Mr. Hyde"));
+        PageXofY event = new PageXofY();
         pdf.addEventHandler(PdfDocumentEvent.END_PAGE, event);
         // Initialize document
         Document document = new Document(pdf);
@@ -79,8 +78,8 @@ public class C07E03_PageXofY {
         //Close document
         document.close();
     }
-    
-    protected class Header implements IEventHandler {
+
+    protected static class Header extends AbstractPdfDocumentEventHandler {
         String header;
         
         public Header(String header) {
@@ -88,7 +87,7 @@ public class C07E03_PageXofY {
         }
         
         @Override
-        public void handleEvent(Event event) {
+        public void onAcceptedEvent(AbstractPdfDocumentEvent event) {
             PdfDocumentEvent docEvent = (PdfDocumentEvent) event;
             PdfDocument pdf = docEvent.getDocument();
             PdfPage page = docEvent.getPage();
@@ -103,8 +102,7 @@ public class C07E03_PageXofY {
         }
     }
     
-    protected class PageXofY implements IEventHandler {
-        
+    protected static class PageXofY extends AbstractPdfDocumentEventHandler {
         protected PdfFormXObject placeholder;
         protected float side = 20;
         protected float x = 300;
@@ -112,12 +110,12 @@ public class C07E03_PageXofY {
         protected float space = 4.5f;
         protected float descent = 3;
         
-        public PageXofY(PdfDocument pdf) {
+        public PageXofY() {
             placeholder = new PdfFormXObject(new Rectangle(0, 0, side, side));
         }
         
         @Override
-        public void handleEvent(Event event) {
+        public void onAcceptedEvent(AbstractPdfDocumentEvent event) {
             PdfDocumentEvent docEvent = (PdfDocumentEvent) event;
             PdfDocument pdf = docEvent.getDocument();
             PdfPage page = docEvent.getPage();

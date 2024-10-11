@@ -46,11 +46,15 @@ public class DocumentFontMethods {
         document.setFontColor(ColorConstants.BLUE);
         p = new Paragraph("Testing font methods: changed color");
         document.add(p);
-        document.setBold();
-        p = new Paragraph("Testing font methods: to bold");
+        // We don't suggest usage of simulateBold() method to reach text thickness since the result is written with the usual
+        // rather than the bold font: we only emulate "thickness". It's recommended to use an actual bold font instead.
+        document.simulateBold();
+        p = new Paragraph("Testing font methods: simulated bold");
         document.add(p);
-        document.setItalic();
-        p = new Paragraph("Testing font methods: to italic");
+        // We don't suggest usage of simulateItalic() method to reach text obliquity since the result is written with the usual
+        // rather than the italic font: we only emulate "obliquity". It's recommended to use an actual italic font instead.
+        document.simulateItalic();
+        p = new Paragraph("Testing font methods: simulated italic");
         document.add(p);
         document.setProperty(Property.BOLD_SIMULATION, false);
         document.setProperty(Property.ITALIC_SIMULATION, false);
