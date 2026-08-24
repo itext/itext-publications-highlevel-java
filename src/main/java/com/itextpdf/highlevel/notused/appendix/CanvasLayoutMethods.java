@@ -51,6 +51,7 @@ public class CanvasLayoutMethods {
         canvas.add(p);
         canvas.setHyphenation(null);
         canvas.setSplitCharacters(new ISplitCharacters() {
+            @Override
             public boolean isSplitCharacter(GlyphLine text, int glyphPos) {
                 if (!text.get(glyphPos).hasValidUnicode()) {
                     return false;
