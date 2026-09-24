@@ -48,6 +48,7 @@ public class DocumentLayoutMethods {
         document.add(p);
         document.setHyphenation(null);
         document.setSplitCharacters(new ISplitCharacters() {
+            @Override
             public boolean isSplitCharacter(GlyphLine text, int glyphPos) {
                 if (!text.get(glyphPos).hasValidUnicode()) {
                     return false;
